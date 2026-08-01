@@ -1,0 +1,18 @@
+{
+    "entity": "iceandfire:ghost",
+    "inherits": "naturalis:ethereal_spirit",
+    "mass": 1.2,
+    "diet": "necrovore",
+    "instinct": {
+        "flight_only": true,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono"
+    },
+    "tags": [
+        "undead",
+        "spirit"
+    ]
+}

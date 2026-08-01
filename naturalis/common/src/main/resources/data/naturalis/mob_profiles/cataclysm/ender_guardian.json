@@ -1,0 +1,44 @@
+{
+    "entity": "cataclysm:ender_guardian",
+    "inherits": "naturalis:boss_entity",
+    "mass": 12.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "walk_speed": 0.85,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:enderman",
+            "minecraft:shulker",
+            "minecraft:endermite"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": false,
+        "wet_vulnerable": false,
+        "hot_vulnerable": false,
+        "dry_vulnerable": false,
+        "sunlight_sensitive": false
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.75,
+        "spectral_profile": 0.6
+    },
+    "biome_suitability": {
+        "volcanic": false,
+        "ender_adapted": true,
+        "cave_adapted": true,
+        "snow_adapted": false
+    },
+    "quick_slot": {
+        "categories": ["hostile", "high_damage"],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": ["boss", "cataclysm", "ender", "void"]
+}

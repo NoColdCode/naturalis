@@ -1,0 +1,380 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev.legacyforge' version '2.0.+'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = "${mod_id}-${minecraft_version}-forge"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+def prepareSharedJava = tasks.register('prepareSharedJava', Sync) {
+    from('../common/src/main/java')
+    into(layout.buildDirectory.dir('generated/sources/sharedMain/java'))
+    exclude 'dev/naturalis/item/MorphArmorItem.java'
+    exclude 'dev/naturalis/item/BrewedMorphPotionItem.java'
+    exclude 'dev/naturalis/item/MorphOrbItem.java'
+    exclude 'dev/naturalis/item/FilledEchoVialItem.java'
+    exclude 'dev/naturalis/profile/MobProfileNeoForgeEvents.java'
+    exclude 'dev/naturalis/profile/MobProfileClientRegistration.java'
+    exclude 'dev/naturalis/client/NaturalisClientInit.java'
+    exclude 'dev/naturalis/client/NaturalisClient.java'
+    exclude 'dev/naturalis/client/MorphArmorRenderLayer.java'
+    exclude 'dev/naturalis/client/ScentTrailClient.java'
+    exclude 'dev/naturalis/client/InventoryRestrictionClientEvents.java'
+    exclude 'dev/naturalis/client/MorphFovClientEvents.java'
+    exclude 'dev/naturalis/world/EchoForgeBlockEntity.java'
+    exclude 'dev/naturalis/world/MorphArmorForgeBlockEntity.java'
+    exclude 'dev/naturalis/world/MorphBeaconBlockEntity.java'
+    exclude 'dev/naturalis/effect/MorphEffectEvents.java'
+    exclude 'dev/naturalis/util/MorphAcquisition.java'
+    exclude 'dev/naturalis/util/CurrentMorphUtil.java'
+    exclude 'dev/naturalis/gameplay/NaturalisGameplayEvents.java'
+    exclude 'dev/naturalis/mixin/DisableWalkersTransformWhenBoundMixin.java'
+    exclude 'dev/naturalis/mixin/DisableRemorphedMenuWhenBoundMixin.java'
+    exclude 'dev/naturalis/mixin/DisableKillMorphMixin.java'
+    exclude 'dev/naturalis/mixin/DisableAbilityKeyMixin.java'
+    exclude 'dev/naturalis/item/MorphArmorEvents.java'
+    exclude 'dev/naturalis/item/MorphOnlyToolItem.java'
+    exclude 'dev/naturalis/content/NaturalisItems.java'
+    exclude 'dev/naturalis/content/NaturalisBlockEntities.java'
+    exclude 'dev/naturalis/content/NaturalisBlocks.java'
+    exclude 'dev/naturalis/worldgen/IslandChunkGenerator.java'
+    // Forge 1.20.1: overworld swamp chunk portals replaced with a no-op (see src/main/java override).
+    exclude 'dev/naturalis/worldgen/NaturalisWorldgenFlags.java'
+    exclude 'dev/naturalis/client/render/MorphBeaconRenderer.java'
+    exclude 'dev/naturalis/client/screen/MorphBeaconScreen.java'
+    exclude 'dev/naturalis/util/MorphDataUtil.java'
+    // Naturalis main class uses NeoForge RegisterPayloadHandlersEvent; replaced by SimpleChannel version
+    exclude 'dev/naturalis/Naturalis.java'
+    exclude 'dev/naturalis/network/NaturalisClientNetwork.java'
+    // All network payloads use NeoForge CustomPacketPayload; replaced by Forge 1.20.1 SimpleChannel messages
+    exclude 'dev/naturalis/network/MorphLevelPayload.java'
+    exclude 'dev/naturalis/network/HumanityPayload.java'
+    exclude 'dev/naturalis/network/ClientSoundPrefsPayload.java'
+    exclude 'dev/naturalis/network/RuleFlagsPayload.java'
+    exclude 'dev/naturalis/network/ScentHintPayload.java'
+    exclude 'dev/naturalis/network/CurlSleepTogglePayload.java'
+    exclude 'dev/naturalis/network/MorphMovementKeyPayload.java'
+    exclude 'dev/naturalis/network/SetBeaconMorphPayload.java'
+    exclude 'dev/naturalis/network/MorphQuickSlotPayload.java'
+    exclude 'dev/naturalis/network/MorphQuickSlotSelectPayload.java'
+    exclude 'dev/naturalis/network/MorphQuickSlotAssignPayload.java'
+    exclude 'dev/naturalis/network/MorphQuickSlotResyncPayload.java'
+    exclude 'dev/naturalis/network/ExperienceModePayload.java'
+    exclude 'dev/naturalis/network/SetExperienceModePayload.java'
+    exclude 'dev/naturalis/network/ListenPulsePayload.java'
+    exclude 'dev/naturalis/network/PeckPulsePayload.java'
+    exclude 'dev/naturalis/network/SniffPulsePayload.java'
+    exclude 'dev/naturalis/config/NaturalisConfigEvents.java'
+    exclude 'dev/naturalis/client/perception/MorphCameraLogic.java'
+    exclude 'dev/naturalis/client/perception/MorphDigFeedback.java'
+    exclude 'dev/naturalis/experience/NaturalisExperienceEvents.java'
+    exclude 'dev/naturalis/experience/NaturalisWorldExperienceStorage.java'
+    exclude 'dev/naturalis/client/ExperienceModeClientCache.java'
+    exclude 'dev/naturalis/client/ExperienceModeClientActions.java'
+    exclude 'dev/naturalis/client/screen/NaturalisExperienceChoiceScreen.java'
+    exclude 'dev/naturalis/gameplay/MorphListenFocusLogic.java'
+    exclude 'dev/naturalis/gameplay/MorphSpeciesSecondaryLogic.java'
+    exclude 'dev/naturalis/client/MorphHandOffsetClientEvents.java'
+    exclude 'dev/naturalis/client/MorphSniffVisionEffects.java'
+    exclude 'dev/naturalis/client/MorphVisionPostEffects.java'
+    exclude 'dev/naturalis/client/ExperienceModeClientCache.java'
+    exclude 'dev/naturalis/client/perception/MorphSniffHudClient.java'
+    exclude 'dev/naturalis/client/perception/MorphVibrationLogic.java'
+    exclude 'dev/naturalis/client/perception/MorphPawDigModelCache.java'
+    exclude 'dev/naturalis/client/screen/MorphQuickSlotAssignScreen.java'
+    exclude 'dev/naturalis/client/perception/MorphVibrationClient.java'
+    // Event files that use PacketDistributor.sendToPlayer (NeoForge-only API)
+    exclude 'dev/naturalis/rule/RuleSyncEvents.java'
+    exclude 'dev/naturalis/resonance/ResonanceEvents.java'
+    exclude 'dev/naturalis/instinct/InstinctEvents.java'
+    // Event files that use Attributes.STEP_HEIGHT/GRAVITY/JUMP_STRENGTH (1.21+ vanilla)
+    // and/or UUID-incompatible AttributeModifier API
+    exclude 'dev/naturalis/metabolism/MetabolismEvents.java'
+    exclude 'dev/naturalis/metabolism/MorphInertiaLogic.java'
+    exclude 'dev/naturalis/gameplay/KnowledgeLevelEvents.java'
+    // Event files that use DataComponents.FOOD (1.21+ component API)
+    exclude 'dev/naturalis/diet/DietEvents.java'
+    // Brewing events use NeoForge RegisterBrewingRecipesEvent + PotionContents (1.21+ component API)
+    exclude 'dev/naturalis/effect/BrewedMorphBrewingEvents.java'
+    // Client tooltip reads CustomData component (1.21+); replaced with direct NBT access
+    exclude 'dev/naturalis/client/PotionTooltipClientEvents.java'
+    // Common files that need Forge 1.20.1-specific rewrites (tick events, damage events, Holder<MobEffect>, etc.)
+    exclude 'dev/naturalis/worldgen/EchoSovereignRuntime.java'
+    exclude 'dev/naturalis/effect/WitchMorphBindingEvents.java'
+    exclude 'dev/naturalis/environment/EnvironmentalSusceptibilityEvents.java'
+    exclude 'dev/naturalis/client/HumanityHudClientEvents.java'
+    exclude 'dev/naturalis/client/MorphMusicClientEvents.java'
+    exclude 'dev/naturalis/client/MorphTextRefreshClientEvents.java'
+    exclude 'dev/naturalis/client/WolfVisionClientEvents.java'
+    exclude 'dev/naturalis/content/NaturalisMobEffects.java'
+    exclude 'dev/naturalis/content/NaturalisMenus.java'
+    exclude 'dev/naturalis/content/NaturalisCreativeTabs.java'
+    // NeoForge DeferredRegister entity API — Forge uses src/main/java NaturalisEntityTypes.java
+    exclude 'dev/naturalis/content/NaturalisEntityTypes.java'
+    // Block files use 1.21+ API (MapCodec/codec(), useWithoutItem, protected modifiers)
+    exclude 'dev/naturalis/world/EchoForgeBlock.java'
+    exclude 'dev/naturalis/world/MorphArmorForgeBlock.java'
+    exclude 'dev/naturalis/world/MorphBeaconBlock.java'
+    // Files using DeferredHolder / BuiltInRegistries as DeferredRegister key (NeoForge-only)
+    exclude 'dev/naturalis/worldgen/NaturalisFeatures.java'
+    exclude 'dev/naturalis/worldgen/WorldgenRegistration.java'
+    exclude 'dev/naturalis/worldgen/IslandBiomeSource.java'
+    // tick.PlayerTickEvent — needs forge-specific version
+    exclude 'dev/naturalis/inventory/InventoryRestrictionEvents.java'
+    // Complex 1.21+ API differences (constructors, ResourceLocation, ArrowItem)
+    exclude 'dev/naturalis/combat/NaturalAttackManager.java'
+    // Screen renderBackground / mouseScrolled signatures differ in 1.20.1
+    exclude 'dev/naturalis/client/screen/EchoForgeScreen.java'
+    exclude 'dev/naturalis/client/screen/MorphArmorForgeScreen.java'
+    exclude 'dev/naturalis/client/screen/MorphKnowledgeScreen.java'
+    // Fabric-only bootstrap (1.21 Registry.register chunk generator codecs); Forge uses WorldgenRegistration / mods.toml.
+    exclude 'dev/naturalis/worldgen/VanillaRegistrations.java'
+    // 1.21 menus assume BlockEntity implements Container; Forge uses ItemStackHandler + SlotItemHandler (see src/main/java copies).
+    exclude 'dev/naturalis/world/menu/EchoForgeMenu.java'
+    exclude 'dev/naturalis/world/menu/MorphArmorForgeMenu.java'
+    // 1.21.8 render-state / UBO client code — Forge 1.20.1 uses module overrides below
+    exclude 'dev/naturalis/client/MorphPostEffectUniformWriter.java'
+    exclude 'dev/naturalis/client/MorphQuadrupedMouthRender.java'
+    exclude 'dev/naturalis/client/MorphQuadrupedShapeCache.java'
+    exclude 'dev/naturalis/client/NaturalisShapeRenderSync.java'
+    exclude 'dev/naturalis/mixin/client/NaturalisFirstPersonMorphMixin.java'
+    exclude 'dev/naturalis/mixin/client/NaturalisQuadrupedMouthPlayerMixin.java'
+    exclude 'dev/naturalis/mixin/client/WalkersShapeHandItemsMixin.java'
+    exclude 'dev/naturalis/mixin/client/QuadrupedMorphHeldItemMixin.java'
+    exclude 'dev/naturalis/client/CanineInventoryClientEvents.java'
+    exclude 'dev/naturalis/client/perception/MorphEmbodimentLogic.java'
+    exclude 'dev/naturalis/client/perception/MorphHearingHudOverlay.java'
+    exclude 'dev/naturalis/client/perception/MorphPawDigRenderer.java'
+    exclude 'dev/naturalis/client/perception/MorphPawDigWorldRenderer.java'
+    exclude 'dev/naturalis/client/MorphVisionPaletteUniforms.java'
+    exclude 'dev/naturalis/client/MorphPostEffectHelper.java'
+    exclude 'dev/naturalis/client/ScentVisionFlatColorVertexConsumer.java'
+    exclude 'dev/naturalis/client/ScentVisionTintState.java'
+    exclude 'dev/naturalis/client/ScentVisionMobRenderer.java'
+    exclude 'dev/naturalis/client/EntityRenderStateScentAccess.java'
+    exclude 'dev/naturalis/mixin/client/EntityRenderStateScentAccessor.java'
+    exclude 'dev/naturalis/mixin/client/NaturalisScentEntityTintMixin.java'
+    exclude 'dev/naturalis/mixin/client/NaturalisWolfScentTintMixin.java'
+    filteringCharset = 'UTF-8'
+    filter { String line ->
+        line
+            .replace('net.neoforged.api.distmarker', 'net.minecraftforge.api.distmarker')
+            .replace('net.neoforged.bus.api', 'net.minecraftforge.eventbus.api')
+            .replace('net.neoforged.fml.common.EventBusSubscriber', 'net.minecraftforge.fml.common.Mod.EventBusSubscriber')
+            .replace('net.neoforged.fml.common.Mod', 'net.minecraftforge.fml.common.Mod')
+            .replace('net.neoforged.fml.config', 'net.minecraftforge.fml.config')
+            .replace('net.neoforged.fml.event', 'net.minecraftforge.fml.event')
+            .replace('net.neoforged.fml.ModContainer', 'net.minecraftforge.fml.ModContainer')
+            .replace('net.neoforged.neoforge.common.ModConfigSpec', 'net.minecraftforge.common.ForgeConfigSpec')
+            .replace('ModConfigSpec', 'ForgeConfigSpec')
+            .replace('net.neoforged.fml.loading', 'net.minecraftforge.fml.loading')
+            .replace('net.neoforged.neoforge', 'net.minecraftforge')
+            .replace('dev.tocraft.', 'tocraft.')
+            // MC 1.20.1 compat: ResourceLocation.fromNamespaceAndPath(a, b) -> new ResourceLocation(a, b)
+            .replace('ResourceLocation.fromNamespaceAndPath(', 'new ResourceLocation(')
+            // MC 1.20.1 compat: ResourceLocation.withDefaultNamespace(x) -> new ResourceLocation("minecraft", x)
+            .replace('ResourceLocation.withDefaultNamespace(', 'new ResourceLocation("minecraft", ')
+            // MC 1.20.1 compat: AdvancementHolder -> Advancement
+            .replace('import net.minecraft.advancements.AdvancementHolder;', 'import net.minecraft.advancements.Advancement;')
+            .replace('AdvancementHolder ', 'Advancement ')
+            // MC 1.20.1 compat: ServerAdvancementManager.get() -> getAdvancement()
+            .replace('.getAdvancements().get(', '.getAdvancements().getAdvancement(')
+            // MC 1.20.1 compat: CompatAccess.resolveMobEffect returns MobEffect (not Holder<MobEffect>)
+            .replace('public static Holder<MobEffect> resolveMobEffect(', 'public static MobEffect resolveMobEffect(')
+            .replace('if (primary instanceof Holder<?> holder) {', 'if (primary instanceof MobEffect holder) {')
+            .replace('if (fallback instanceof Holder<?> holder) {', 'if (fallback instanceof MobEffect holder) {')
+            .replace('return (Holder<MobEffect>) holder;', 'return holder;')
+            // MC 1.20.1 compat: EntityDimensions fields are public, not record methods
+            .replace('getDimensions().width()', 'getDimensions().width')
+            .replace('getDimensions().height()', 'getDimensions().height')
+            // MC 1.20.1 compat: NaturalisMobEffects.X is RegistryObject<MobEffect>, needs .get()
+            .replace('NaturalisMobEffects.STORM_ATTUNEMENT,', 'NaturalisMobEffects.STORM_ATTUNEMENT.get(),')
+            .replace('NaturalisMobEffects.MORPH_BINDING,', 'NaturalisMobEffects.MORPH_BINDING.get(),')
+            .replace('NaturalisMobEffects.BREWED_MORPH,', 'NaturalisMobEffects.BREWED_MORPH.get(),')
+            .replace('CompatAccess.naturalisMobEffectHolder("storm_attunement")', 'dev.naturalis.content.NaturalisMobEffects.STORM_ATTUNEMENT.get()')
+            .replace('CompatAccess.naturalisMobEffectHolder("morph_binding")', 'dev.naturalis.content.NaturalisMobEffects.MORPH_BINDING.get()')
+            .replace('public static Holder<MobEffect> naturalisMobEffectHolder(String path) {', 'public static MobEffect naturalisMobEffectHolder(String path) {')
+            .replace('return (Holder<MobEffect>) holder;', 'return holder.value();')
+            .replace('return (Holder<MobEffect>) h;', 'return (MobEffect) h.value();')
+    }
+}
+
+/** Line-oriented {@code filter} cannot fix multi-line Holder branches; patch generated CompatAccess after Sync. */
+def patchForgeCompatAccess = tasks.register('patchForgeCompatAccess') {
+    dependsOn prepareSharedJava
+    def compatPath = layout.buildDirectory.file('generated/sources/sharedMain/java/dev/naturalis/compat/CompatAccess.java')
+    outputs.file(compatPath)
+    doLast {
+        def f = compatPath.get().asFile
+        if (!f.exists()) {
+            return
+        }
+        String text = f.getText('UTF-8')
+        text = text.replaceAll(/optional\.orElse\(null\) instanceof Holder<\?> holder\) \{\s+return holder\.value\(\);\s+\}/,
+            'optional.orElse(null) instanceof Holder<?> holder) {\n                return (MobEffect) holder.value();\n            }')
+        text = text.replaceAll(/optional\.orElse\(null\) instanceof Holder<\?> holder\) \{\s+return holder;\s+\}/,
+            'optional.orElse(null) instanceof Holder<?> holder) {\n                return (MobEffect) holder.value();\n            }')
+        text = text.replaceAll(/if \(holder instanceof Holder<\?> h\) \{\s+return h\.value\(\);\s+\}/,
+            'if (holder instanceof Holder<?> h) {\n                return (MobEffect) h.value();\n            }')
+        f.write(text, 'UTF-8')
+    }
+}
+
+def patchForgeNaturalisConfig = tasks.register('patchForgeNaturalisConfig') {
+    dependsOn prepareSharedJava
+    def configPath = layout.buildDirectory.file('generated/sources/sharedMain/java/dev/naturalis/config/NaturalisConfig.java')
+    outputs.file(configPath)
+    doLast {
+        def f = configPath.get().asFile
+        if (!f.exists()) {
+            return
+        }
+        String text = f.getText('UTF-8')
+        text = text.replaceAll(/import net\.minecraftforge\.client\.gui\.ConfigurationScreen;\r?\n/, '')
+        text = text.replaceAll(/import net\.minecraftforge\.client\.gui\.IConfigScreenFactory;\r?\n/, '')
+        text = text.replaceAll(
+            /\s*\/\/ Required for the "Config" button in Mods → Naturalis \(registerConfig alone is not enough\)\.\r?\n\s*container\.registerExtensionPoint\(\r?\n\s*IConfigScreenFactory\.class,\r?\n\s*\(minecraft, parent\) -> new ConfigurationScreen\(container, parent\)\r?\n\s*\);\r?\n/,
+            '\n'
+        )
+        text = text.replaceAll(
+            /public static void register\(ModContainer container\) \{\r?\n\s*container\.registerConfig\(ModConfig\.Type\.COMMON, COMMON_SPEC, NaturalisMod\.ID \+ "-common\.toml"\);\r?\n\s*container\.registerConfig\(ModConfig\.Type\.CLIENT, CLIENT_SPEC, NaturalisMod\.ID \+ "-client\.toml"\);\r?\n\s*\}/,
+            'public static void register() {\n        net.minecraftforge.fml.ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);\n        net.minecraftforge.fml.ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CLIENT_SPEC);\n    }'
+        )
+        f.write(text, 'UTF-8')
+    }
+}
+
+sourceSets {
+    main {
+        java.srcDir prepareSharedJava
+        java.srcDir 'src/main/java'
+        // Forge recipe JSON overrides must win over common 1.21-format recipes.
+        resources.srcDir 'src/main/resources'
+        resources.srcDir '../common/src/main/resources'
+        resources.srcDir 'src/generated/resources'
+    }
+}
+
+tasks.named('compileJava').configure {
+    dependsOn patchForgeCompatAccess, patchForgeNaturalisConfig
+}
+
+tasks.named('processResources').configure {
+    dependsOn tasks.named('compileJava')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from(layout.buildDirectory.dir('mixin')) {
+        include 'naturalis.mixins.refmap.json'
+    }
+}
+
+legacyForge {
+    enable {
+        forgeVersion = project.forge_version
+    }
+
+    runs {
+        client {
+            client()
+            jvmArguments.add('-XX:TieredStopAtLevel=1')
+            jvmArguments.add('-XX:ReservedCodeCacheSize=256m')
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+        }
+
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all',
+                '--output', file('src/generated/resources/').getAbsolutePath(),
+                '--existing', file('../common/src/main/resources/').getAbsolutePath()
+        }
+
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.DEBUG
+            // Mixin config comes from mixin { config } + mods.toml only.
+            // Do NOT also pass --mixin.config here — duplicate args make Mixin fail with
+            // "naturalis.mixins.json was invalid or could not be read".
+            if (project.findProperty('instinctDebug') == 'true') {
+                jvmArguments.add('-Dnaturalis.instinct.debug=true')
+            }
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    modImplementation "dev.tocraft:craftedcore-forge:${craftedcore_version}"
+    modImplementation "dev.tocraft:walkers-forge:${walkers_version}"
+    modImplementation "dev.tocraft:remorphed-forge:${remorphed_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+    add sourceSets.main, 'naturalis.mixins.refmap.json'
+    config 'naturalis.mixins.json'
+}
+
+def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    def replaceProperties = [
+        minecraft_version      : minecraft_version,
+        minecraft_version_range: minecraft_version_range,
+        forge_version          : forge_version,
+        forge_version_range    : forge_version_range,
+        loader_version_range   : loader_version_range,
+        mod_id                 : mod_id,
+        mod_name               : mod_name,
+        mod_license            : mod_license,
+        mod_version            : mod_version,
+        mod_authors            : mod_authors,
+        mod_description        : mod_description,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+
+sourceSets.main.resources.srcDir generateModMetadata
+legacyForge.ideSyncTask generateModMetadata
+
+tasks.named('jar', Jar).configure {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes([
+            'MixinConfigs': 'naturalis.mixins.json'
+        ])
+    }
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = layout.projectDirectory.dir('repo')
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

@@ -1,0 +1,9 @@
+{
+    "entity": "mowziesmobs:grottol",
+    "inherits": "naturalis:golem_construct",
+    "mass": 2.4,
+    "diet": "lithovore",
+    "instinct": {
+        "wander": true
+    }
+}

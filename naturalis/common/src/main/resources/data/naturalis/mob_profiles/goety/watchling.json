@@ -1,0 +1,28 @@
+{
+    "entity": "goety:watchling",
+    "inherits": "naturalis:ethereal_spirit",
+    "mass": 2.0,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "goety"
+    ]
+}

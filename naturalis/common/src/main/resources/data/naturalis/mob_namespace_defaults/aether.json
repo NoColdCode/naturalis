@@ -1,0 +1,68 @@
+{
+    "namespace": "aether",
+    "default_inherits": "naturalis:ground_herbivore",
+    "overrides": {
+        "aechor_plant": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "carnivore",
+            "mass": 1.5
+        },
+        "cockatrice": {
+            "inherits": "naturalis:flying_predator",
+            "diet": "carnivore",
+            "mass": 2.4
+        },
+        "evil_whirlwind": {
+            "inherits": "naturalis:ethereal_spirit",
+            "mass": 2.0
+        },
+        "fire_minion": {
+            "inherits": "naturalis:nether_native",
+            "mass": 2.5
+        },
+        "mimic": {
+            "inherits": "naturalis:small_predator",
+            "diet": "omnivore",
+            "mass": 2.2
+        },
+        "sentry": {
+            "inherits": "naturalis:golem_construct",
+            "diet": "lithovore",
+            "mass": 2.0
+        },
+        "slider": {
+            "inherits": "naturalis:boss_entity",
+            "mass": 10.0
+        },
+        "sun_spirit": {
+            "inherits": "naturalis:boss_entity",
+            "mass": 11.0
+        },
+        "valkyrie": {
+            "inherits": "naturalis:flying_predator",
+            "mass": 3.5
+        },
+        "valkyrie_queen": {
+            "inherits": "naturalis:boss_entity",
+            "mass": 7.0
+        },
+        "whirlwind": {
+            "inherits": "naturalis:ethereal_spirit",
+            "mass": 1.8
+        },
+        "zephyr": {
+            "inherits": "naturalis:flying_predator",
+            "mass": 4.5
+        },
+        "blue_swet": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "omnivore",
+            "mass": 1.2
+        },
+        "golden_swet": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "omnivore",
+            "mass": 1.2
+        }
+    }
+}

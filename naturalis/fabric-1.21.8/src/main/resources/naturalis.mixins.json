@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "dev.naturalis.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "DisableKillMorphMixin",
+    "LivingEntityPersistentMixin"
+  ],
+  "client": [
+    "DisableAbilityKeyMixin",
+    "DisableRemorphedMenuWhenBoundMixin",
+    "NaturalBiomeSuitabilityIconMixin",
+    "SignTextComprehensionMixin",
+    "DisableWalkersTransformWhenBoundMixin",
+    "QuadrupedContainerRestrictionMixin",
+    "client.NaturalisCameraMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

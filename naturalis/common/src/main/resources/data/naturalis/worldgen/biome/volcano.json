@@ -1,0 +1,36 @@
+{
+  "has_precipitation": false,
+  "temperature": 2.0,
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 4210752,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "sky_color": 4669952,
+    "mood_sound": { "sound": "minecraft:ambient.basalt_deltas.mood", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0 }
+  },
+  "spawners": {
+    "ambient": [
+      { "type": "minecraft:bat", "weight": 10, "minCount": 1, "maxCount": 2 }
+    ],
+    "monster": [
+      { "type": "minecraft:magma_cube", "weight": 100, "minCount": 2, "maxCount": 4 },
+      { "type": "minecraft:blaze",      "weight": 10,  "minCount": 1, "maxCount": 2 }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": [],
+  "features": [
+    [],
+    [ "naturalis:volcano_lava_pools" ],
+    [],
+    [],
+    [],
+    [ "naturalis:volcano_basalt_columns", "naturalis:volcano_dead_trees" ],
+    [ "naturalis:volcano_ash", "naturalis:volcano_magma", "naturalis:volcano_dead_bushes" ],
+    [],
+    [ "naturalis:volcano_fire" ],
+    [],
+    []
+  ]
+}

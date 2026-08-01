@@ -1,0 +1,31 @@
+{
+    "entity": "cataclysm:urchinkin",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 0.9,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "walk_speed": 1.25,
+        "smell_strength": 1,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:cod",
+            "minecraft:tropical_fish",
+            "minecraft:silverfish"
+        ]
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "dichrome",
+        "kaleido_strength": 0.15,
+        "motion_trail": 0.35
+    },
+    "quick_slot": {
+        "categories": ["aquatic", "hostile"],
+        "primary": "aquatic"
+    },
+    "tags": ["cataclysm", "aquatic", "acropolis", "arthropod"]
+}

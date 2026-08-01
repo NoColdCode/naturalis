@@ -1,0 +1,36 @@
+{
+    "diet": "carnivore",
+    "mass": 5.2,
+    "instinct": {
+        "wander": true,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:sheep",
+            "minecraft:cow",
+            "minecraft:pig",
+            "minecraft:rabbit",
+            "minecraft:chicken"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.55,
+        "canine_predator": true
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "resonance": {
+        "archetype": "predator"
+    },
+    "tags": [
+        "predator",
+        "large"
+    ]
+}

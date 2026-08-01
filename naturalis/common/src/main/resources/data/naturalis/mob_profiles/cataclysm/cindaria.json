@@ -1,0 +1,31 @@
+{
+    "entity": "cataclysm:cindaria",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 2.8,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "walk_speed": 1.0,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:drowned",
+            "minecraft:guardian",
+            "minecraft:player"
+        ]
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:arcane_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.6,
+        "spectral_profile": 0.4
+    },
+    "quick_slot": {
+        "categories": ["aquatic", "hostile"],
+        "primary": "hostile"
+    },
+    "tags": ["cataclysm", "aquatic", "acropolis", "mage"]
+}

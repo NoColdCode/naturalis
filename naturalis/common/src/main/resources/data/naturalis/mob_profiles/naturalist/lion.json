@@ -1,0 +1,36 @@
+{
+    "entity": "naturalist:lion",
+    "inherits": "naturalis:large_predator",
+    "mass": 5.8,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 3,
+        "hunt_prey": [
+            "naturalist:zebra",
+            "naturalist:giraffe",
+            "minecraft:cow",
+            "naturalist:deer"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome",
+        "canine_predator": true,
+        "motion_trail": 0.65
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "predator",
+        "feline"
+    ]
+}

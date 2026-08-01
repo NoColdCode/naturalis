@@ -1,0 +1,34 @@
+{
+    "entity": "cataclysm:drowned_host",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 2.7,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "walk_speed": 0.95,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:villager",
+            "minecraft:player",
+            "minecraft:turtle"
+        ]
+    },
+    "environment": {
+        "dry_vulnerable": true,
+        "sunlight_sensitive": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.45
+    },
+    "biome_suitability": {
+        "cave_adapted": true
+    },
+    "quick_slot": {
+        "categories": ["aquatic", "hostile"],
+        "primary": "hostile"
+    },
+    "tags": ["cataclysm", "aquatic", "undead", "acropolis"]
+}

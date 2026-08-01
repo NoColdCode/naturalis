@@ -1,0 +1,52 @@
+# Default Naturalis server / shared settings (copied to config/ on first launch).
+# Edit in-game via Mods → Naturalis → Config, or edit config/naturalis-common.toml directly.
+
+[gameplay]
+	enable_quadruped_restrictions = true
+	enable_knowledge_gates = true
+	enable_primal_movement = true
+	enable_feral_curl_sleep = true
+	respect_game_rules = true
+
+[vision]
+	enabled = true
+	respect_game_rules = true
+
+[inventory]
+	restriction_enabled = true
+	respect_game_rules = true
+	canine_hotbar_slots_at_rank_0 = 1
+	handling_rank_1_slots = 4
+	handling_rank_2_slots = 6
+	handling_rank_3_slots = 8
+
+[diet]
+	enabled = true
+	carnivore_penalties = true
+	herbivore_penalties = true
+	human_food_penalty_while_morphed = true
+
+[instincts]
+	enabled = true
+	respect_game_rules = true
+	scent_hints = true
+
+[humanity]
+	enabled = true
+	resonance_enabled = true
+	curl_rebirth_enabled = true
+
+[morph_binding]
+	enabled = true
+	block_transform_key = true
+	block_remorphed_menu = true
+
+[brewed_morph]
+	enabled = true
+	overrides_binding = true
+
+[knowledge]
+	utilities_rank_to_mine = 1
+	utilities_rank_to_place = 2
+	utilities_rank_for_world_use = 3
+	quadruped_dig_feedback = true

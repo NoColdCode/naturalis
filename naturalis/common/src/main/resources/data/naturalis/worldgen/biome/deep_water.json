@@ -1,0 +1,38 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.5,
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 329011,
+    "water_color": 266040,
+    "water_fog_color": 329011,
+    "sky_color": 4145554,
+    "mood_sound": { "sound": "minecraft:ambient.underwater.loop", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0 }
+  },
+  "spawners": {
+    "water_ambient": [
+      { "type": "minecraft:cod", "weight": 12, "minCount": 2, "maxCount": 4 }
+    ],
+    "water_creature": [
+      { "type": "minecraft:squid", "weight": 8, "minCount": 1, "maxCount": 3 }
+    ],
+    "monster": [
+      { "type": "minecraft:drowned", "weight": 25, "minCount": 1, "maxCount": 2 }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [ "naturalis:deep_clay" ],
+    [ "naturalis:deep_seagrass", "naturalis:deep_kelp" ],
+    [],
+    [ "naturalis:deep_sea_lanterns", "naturalis:deep_sea_pickle", "naturalis:deep_sponge" ],
+    [],
+    []
+  ]
+}

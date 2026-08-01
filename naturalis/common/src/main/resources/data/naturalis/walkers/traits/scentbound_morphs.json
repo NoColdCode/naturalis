@@ -1,0 +1,32 @@
+{
+  "entity_types": [
+    "minecraft:wolf",
+    "minecraft:fox",
+    "minecraft:cat",
+    "minecraft:ocelot",
+    "minecraft:spider",
+    "minecraft:cave_spider",
+    "minecraft:hoglin",
+    "minecraft:zoglin",
+    "minecraft:polar_bear",
+    "minecraft:ravager",
+    "minecraft:warden",
+    "alexsmobs:grizzly_bear",
+    "alexsmobs:tiger",
+    "alexsmobs:maned_wolf",
+    "naturalist:bear",
+    "cataclysm:netherite_monstrosity",
+    "cataclysm:ignis",
+    "cataclysm:ender_guardian",
+    "cataclysm:the_leviathan",
+    "cataclysm:the_harbinger",
+    "cataclysm:ancient_remnant",
+    "cataclysm:scylla",
+    "cataclysm:maledictus"
+  ],
+  "traits": [
+    {
+      "type": "naturalis:scentbound"
+    }
+  ]
+}

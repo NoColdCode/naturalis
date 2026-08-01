@@ -1,0 +1,30 @@
+{
+    "diet": "piscivore",
+    "mass": 3.8,
+    "instinct": {
+        "smell_strength": 1,
+        "hunt_prey": [
+            "minecraft:cod",
+            "minecraft:salmon",
+            "minecraft:squid"
+        ]
+    },
+    "environment": {
+        "dry_vulnerable": true,
+        "wet_vulnerable": false
+    },
+    "vision": {
+        "shader": "naturalis:aquatic_vision",
+        "chromatic_mode": "mono"
+    },
+    "quick_slot": {
+        "categories": [
+            "aquatic",
+            "hostile"
+        ],
+        "primary": "aquatic"
+    },
+    "tags": [
+        "aquatic"
+    ]
+}

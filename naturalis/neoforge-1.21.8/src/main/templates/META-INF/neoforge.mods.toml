@@ -1,0 +1,53 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mixins]]
+    config = "naturalis.mixins.json"
+
+[[mods]]
+    modId="${mod_id}"
+    version="${mod_version}"
+    displayName="${mod_name}"
+    authors="${mod_authors}"
+    description='''${mod_description}'''
+
+# ── Required: NeoForge itself ────────────────────────────────────────────────
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+# ── Required: Minecraft ──────────────────────────────────────────────────────
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+# ── Required: CraftedCore (library) ─────────────────────────────────────────
+[[dependencies.${mod_id}]]
+    modId="craftedcore"
+    type="required"
+    versionRange="[7,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# ── Required: Woodwalkers (morph system) ─────────────────────────────────────
+[[dependencies.${mod_id}]]
+    modId="walkers"
+    type="required"
+    versionRange="[7,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# ── Required: Remorphed (enhanced morphing) ──────────────────────────────────
+[[dependencies.${mod_id}]]
+    modId="remorphed"
+    type="required"
+    versionRange="[7,)"
+    ordering="AFTER"
+    side="BOTH"

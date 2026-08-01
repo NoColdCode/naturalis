@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "III",
+        "WCW",
+        "III"
+    ],
+    "key": {
+        "I": { "item": "minecraft:iron_ingot" },
+        "W": { "tag": "minecraft:logs" },
+        "C": { "item": "minecraft:copper_block" }
+    },
+    "result": {
+        "id": "naturalis:echo_forge",
+        "count": 1
+    }
+}

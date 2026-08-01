@@ -1,0 +1,28 @@
+{
+    "diet": "necrovore",
+    "mass": 2.0,
+    "instinct": {
+        "wander": true,
+        "nyctalop_hostile": true,
+        "smell_strength": 1
+    },
+    "environment": {
+        "sunlight_sensitive": true,
+        "cold_vulnerable": false,
+        "hot_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono"
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "undead"
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/humanity_feral",
+  "display": {
+    "icon": {
+      "id": "minecraft:nether_star"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.humanity_primal.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.humanity_primal.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

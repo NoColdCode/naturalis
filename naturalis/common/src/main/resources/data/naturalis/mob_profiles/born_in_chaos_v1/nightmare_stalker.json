@@ -1,0 +1,31 @@
+{
+    "entity": "born_in_chaos_v1:nightmare_stalker",
+    "inherits": "naturalis:large_predator",
+    "mass": 4.8,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 3,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome",
+        "canine_predator": true,
+        "motion_trail": 0.7
+    },
+    "environment": {
+        "sunlight_sensitive": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "born_in_chaos",
+        "stalker"
+    ]
+}

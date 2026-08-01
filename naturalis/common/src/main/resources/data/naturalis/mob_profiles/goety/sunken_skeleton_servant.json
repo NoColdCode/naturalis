@@ -1,0 +1,31 @@
+{
+    "entity": "goety:sunken_skeleton_servant",
+    "inherits": "naturalis:undead",
+    "mass": 2.4,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "aquatic"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "goety",
+        "servant"
+    ]
+}

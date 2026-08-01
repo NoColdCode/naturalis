@@ -1,0 +1,18 @@
+{
+    "entity": "iceandfire:pixie",
+    "inherits": "naturalis:floral_fey",
+    "mass": 0.4,
+    "diet": "florivore",
+    "instinct": {
+        "flight_only": true,
+        "wander": true
+    },
+    "vision": {
+        "shader": "naturalis:fae_vision",
+        "chromatic_mode": "quad",
+        "kaleido_strength": 0.6
+    },
+    "tags": [
+        "fey"
+    ]
+}

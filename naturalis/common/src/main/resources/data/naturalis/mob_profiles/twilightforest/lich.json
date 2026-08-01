@@ -1,0 +1,29 @@
+{
+    "entity": "twilightforest:lich",
+    "inherits": "naturalis:undead",
+    "mass": 7.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 3,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.65
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "twilightforest",
+        "boss"
+    ]
+}

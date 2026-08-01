@@ -1,0 +1,6 @@
+{
+    "entity": "mowziesmobs:foliaath",
+    "inherits": "naturalis:tropical_jungle",
+    "mass": 4.8,
+    "diet": "carnivore"
+}

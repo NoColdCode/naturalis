@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ESE",
+        "EBE",
+        "OOO"
+    ],
+    "key": {
+        "E": { "item": "minecraft:echo_shard" },
+        "S": { "item": "minecraft:glass_pane" },
+        "B": { "item": "naturalis:natural_star" },
+        "O": { "item": "minecraft:obsidian" }
+    },
+    "result": {
+        "id": "naturalis:morph_beacon",
+        "count": 1
+    }
+}

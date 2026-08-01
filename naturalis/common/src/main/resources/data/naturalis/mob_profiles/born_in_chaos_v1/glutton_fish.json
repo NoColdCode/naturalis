@@ -1,0 +1,21 @@
+{
+    "entity": "born_in_chaos_v1:glutton_fish",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 2.2,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "vision": {
+        "shader": "naturalis:aquatic_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "tags": [
+        "born_in_chaos",
+        "aquatic"
+    ]
+}

@@ -1,0 +1,5 @@
+{
+    "entity": "mowziesmobs:sculptor",
+    "inherits": "naturalis:golem_construct",
+    "mass": 8.0
+}

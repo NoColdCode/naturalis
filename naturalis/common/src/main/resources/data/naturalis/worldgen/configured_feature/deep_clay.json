@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:disk",
+  "config": {
+    "state_provider": {
+      "fallback": {
+        "type": "minecraft:simple_state_provider",
+        "state": { "Name": "minecraft:clay" }
+      },
+      "rules": []
+    },
+    "target": { "type": "minecraft:true" },
+    "radius": { "type": "minecraft:uniform", "min_inclusive": 2, "max_inclusive": 4 },
+    "half_height": 1
+  }
+}

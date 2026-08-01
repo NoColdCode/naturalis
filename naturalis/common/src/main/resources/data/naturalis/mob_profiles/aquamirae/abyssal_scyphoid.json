@@ -1,0 +1,22 @@
+{
+    "entity": "aquamirae:abyssal_scyphoid",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 1.8,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:abyssal_vision",
+        "chromatic_mode": "mono"
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "tags": [
+        "abyss",
+        "jellyfish"
+    ]
+}

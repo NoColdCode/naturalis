@@ -1,0 +1,197 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.+'
+}
+
+version = mod_version
+group = mod_group_id
+
+repositories {
+    maven {
+        name = 'ToCraft'
+        url = 'https://maven.tocraft.dev/public'
+    }
+}
+
+base {
+    archivesName = "${mod_id}-${minecraft_version}"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir '../common/src/main/java'
+        }
+        resources.setSrcDirs([
+            // Platform first so loader-specific naturalis.mixins.json wins (EXCLUDE).
+            // Keep biomes only in common — do not duplicate under platform resources.
+            'src/main/resources',
+            file('../common/src/main/resources'),
+            'src/generated/resources'
+        ])
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all',
+                '--output', file('src/generated/resources/').getAbsolutePath(),
+                '--existing', file('../common/src/main/resources/').getAbsolutePath()
+        }
+
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            systemProperty 'neoforge.warnings.onlyin.hide', 'true'
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+configurations.configureEach {
+    exclude group: 'net.fabricmc', module: 'fabric-loader'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly "dev.tocraft:craftedcore-neoforge:7.0"
+    compileOnly "dev.tocraft:walkers-neoforge:7.0"
+    compileOnly "dev.tocraft:remorphed-neoforge:7.1.1"
+}
+
+def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    def replaceProperties = [
+        minecraft_version      : minecraft_version,
+        minecraft_version_range: minecraft_version_range,
+        neo_version            : neo_version,
+        neo_version_range      : neo_version_range,
+        loader_version_range   : loader_version_range,
+        mod_id                 : mod_id,
+        mod_name               : mod_name,
+        mod_license            : mod_license,
+        mod_version            : mod_version,
+        mod_authors            : mod_authors,
+        mod_description        : mod_description,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.named('processResources').configure {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.named('compileJava', JavaCompile).configure {
+    exclude { details ->
+        String path = details.file.canonicalPath.replace('\\', '/')
+        if (path.contains('/common/src/main/java/')) {
+            if (path.contains('/dev/naturalis/item/MorphArmorItem.java')
+                || path.contains('/dev/naturalis/item/BrewedMorphPotionItem.java')
+                || path.contains('/dev/naturalis/item/MorphOrbItem.java')
+                || path.contains('/dev/naturalis/item/FilledEchoVialItem.java')
+                || path.contains('/dev/naturalis/item/HabitChrysalisItem.java')
+                || path.contains('/dev/naturalis/client/NaturalisClient.java')
+                || path.contains('/dev/naturalis/client/MorphArmorRenderLayer.java')
+                || path.contains('/dev/naturalis/client/InventoryRestrictionClientEvents.java')
+                || path.contains('/dev/naturalis/client/MorphFovClientEvents.java')
+                || path.contains('/dev/naturalis/client/WolfVisionClientEvents.java')
+                || path.contains('/dev/naturalis/client/ScentTrailWorldRenderer.java')
+                || path.contains('/dev/naturalis/client/perception/MorphFirstPersonMorphHandRenderer.java')
+                || path.contains('/dev/naturalis/client/perception/MorphThirdPersonCamera.java')
+                || path.contains('/dev/naturalis/mixin/client/NaturalisCameraMixin.java')
+                || path.contains('/dev/naturalis/compat/walkers/')
+                || path.contains('/dev/naturalis/item/HabitChrysalisItem.java')
+                || path.contains('/dev/naturalis/world/MorphBeaconBlockEntity.java')
+                || path.contains('/dev/naturalis/effect/MorphEffectEvents.java')
+                || path.contains('/dev/naturalis/util/MorphAcquisition.java')
+                || path.contains('/dev/naturalis/util/CurrentMorphUtil.java')
+                || path.contains('/dev/naturalis/gameplay/NaturalisGameplayEvents.java')
+                || path.contains('/dev/naturalis/mixin/DisableWalkersTransformWhenBoundMixin.java')
+                || path.contains('/dev/naturalis/mixin/DisableRemorphedMenuWhenBoundMixin.java')
+                || path.contains('/dev/naturalis/mixin/DisableKillMorphMixin.java')
+                || path.contains('/dev/naturalis/mixin/DisableAbilityKeyMixin.java')
+                || path.contains('/dev/naturalis/item/MorphArmorEvents.java')
+                || path.contains('/dev/naturalis/item/MorphOnlyToolItem.java')
+                || path.contains('/dev/naturalis/content/NaturalisItems.java')
+                || path.contains('/dev/naturalis/content/NaturalisBlockEntities.java')
+                || path.contains('/dev/naturalis/content/NaturalisBlocks.java')
+                || path.contains('/dev/naturalis/worldgen/IslandChunkGenerator.java')
+                || path.contains('/dev/naturalis/client/render/MorphBeaconRenderer.java')
+                || path.contains('/dev/naturalis/client/screen/MorphBeaconScreen.java')
+                || path.contains('/dev/naturalis/world/EchoForgeBlockEntity.java')
+                || path.contains('/dev/naturalis/world/MorphArmorForgeBlockEntity.java')
+                || path.contains('/dev/naturalis/world/EchoForgeBlock.java')
+                || path.contains('/dev/naturalis/world/MorphArmorForgeBlock.java')
+                || path.contains('/dev/naturalis/worldgen/VanillaRegistrations.java')
+                || path.contains('/dev/naturalis/experience/NaturalisExperienceMessages.java')
+                || path.contains('/dev/naturalis/profile/MobProfileReloadListener.java')
+                || path.contains('/dev/naturalis/profile/MobProfileNeoForgeEvents.java')
+                || path.contains('/dev/naturalis/profile/MobProfileClientRegistration.java')
+                || path.contains('/dev/naturalis/network/NaturalisClientNetwork.java')
+                || path.contains('/dev/naturalis/client/perception/MorphPawDigTextureUtil.java')
+                || path.contains('/dev/naturalis/client/NaturalisShapeRenderSync.java')
+                || path.contains('/dev/naturalis/mixin/client/NaturalisFirstPersonMorphMixin.java')
+                || path.contains('/dev/naturalis/mixin/client/NaturalisQuadrupedMouthPlayerMixin.java')
+                || path.contains('/dev/naturalis/mixin/client/WalkersShapeHandItemsMixin.java')
+                || path.contains('/dev/naturalis/mixin/client/QuadrupedMorphHeldItemMixin.java')) {
+                return true
+            }
+        }
+        return false
+    }
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = layout.projectDirectory.dir('repo')
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

@@ -1,0 +1,33 @@
+{
+    "entity": "friendsandfoes:iceologer",
+    "inherits": "naturalis:boss_entity",
+    "mass": 3.2,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:tempest_vision",
+        "chromatic_mode": "dichrome",
+        "spectral_profile": 0.4
+    },
+    "environment": {
+        "hot_vulnerable": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "illager",
+        "ice"
+    ]
+}

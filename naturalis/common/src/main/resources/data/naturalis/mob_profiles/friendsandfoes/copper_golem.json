@@ -1,0 +1,21 @@
+{
+    "entity": "friendsandfoes:copper_golem",
+    "inherits": "naturalis:golem_construct",
+    "mass": 4.0,
+    "diet": "lithovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 0
+    },
+    "vision": {
+        "shader": "naturalis:ferrous_vision",
+        "chromatic_mode": "mono"
+    },
+    "environment": {
+        "wet_vulnerable": true
+    },
+    "tags": [
+        "golem",
+        "construct"
+    ]
+}

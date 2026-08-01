@@ -1,0 +1,29 @@
+{
+    "entity": "goety:web_spider_servant",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 1.8,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "goety",
+        "servant"
+    ]
+}

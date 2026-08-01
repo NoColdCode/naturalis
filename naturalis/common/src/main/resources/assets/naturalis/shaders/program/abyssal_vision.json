@@ -1,0 +1,30 @@
+{
+  "blend": { "func": "add", "srcrgb": "one", "dstrgb": "zero" },
+  "vertex": "blit",
+  "fragment": "naturalis:vision_palette",
+  "attributes": ["Position"],
+  "samplers": [{ "name": "DiffuseSampler" }],
+  "uniforms": [
+    { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0] },
+    { "name": "InSize", "type": "float", "count": 2, "values": [1.0,1.0] },
+    { "name": "OutSize", "type": "float", "count": 2, "values": [1.0,1.0] },
+    { "name": "Time", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "AxisA", "type": "float", "count": 3, "values": [0.05,0.35,0.60] },
+    { "name": "AxisB", "type": "float", "count": 3, "values": [0.12,0.68,0.20] },
+    { "name": "AxisC", "type": "float", "count": 3, "values": [0.55,0.22,0.33] },
+    { "name": "ColorA", "type": "float", "count": 3, "values": [0.08,0.78,0.92] },
+    { "name": "ColorB", "type": "float", "count": 3, "values": [0.30,0.96,0.52] },
+    { "name": "ColorC", "type": "float", "count": 3, "values": [0.40,0.42,0.96] },
+    { "name": "Strength", "type": "float", "count": 1, "values": [0.88] },
+    { "name": "ShadowLift", "type": "float", "count": 1, "values": [0.32] },
+    { "name": "LumaPreserve", "type": "float", "count": 1, "values": [0.52] },
+    { "name": "ChromaticMode", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "PhotoStress", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "KaleidoStrength", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "KaleidoFoldCount", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "SpectralProfile", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "MotionTrail", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "MotionUx", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "MotionUz", "type": "float", "count": 1, "values": [0.0] }
+  ]
+}

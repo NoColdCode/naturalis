@@ -1,0 +1,22 @@
+{
+    "entity": "born_in_chaos:infernal_spirit",
+    "inherits": "naturalis:nether_native",
+    "mass": 1.6,
+    "diet": "necrovore",
+    "instinct": {
+        "flight_only": true,
+        "nyctalop_hostile": true,
+        "smell_strength": 2,
+        "fears": [
+            "water"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "tags": [
+        "born_in_chaos",
+        "spirit"
+    ]
+}

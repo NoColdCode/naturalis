@@ -1,0 +1,28 @@
+{
+    "entity": "goety:redstone_ministrosity",
+    "inherits": "naturalis:golem_construct",
+    "mass": 4.5,
+    "diet": "lithovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:ferrous_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "goety"
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "entity": "iceandfire:gorgon",
+    "inherits": "naturalis:boss_entity",
+    "mass": 5.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "vision": {
+        "shader": "naturalis:arcane_vision",
+        "chromatic_mode": "dichrome",
+        "spectral_profile": 0.5
+    },
+    "environment": {
+        "sunlight_sensitive": false
+    },
+    "tags": [
+        "boss",
+        "gaze"
+    ]
+}

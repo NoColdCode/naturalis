@@ -1,0 +1,30 @@
+{
+    "entity": "goety:sprite",
+    "inherits": "naturalis:floral_fey",
+    "mass": 0.8,
+    "diet": "florivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:fae_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "ground"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "goety"
+    ]
+}

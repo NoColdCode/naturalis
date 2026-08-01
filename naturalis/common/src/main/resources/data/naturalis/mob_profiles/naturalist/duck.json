@@ -1,0 +1,27 @@
+{
+    "entity": "naturalist:duck",
+    "inherits": "naturalis:frugivore_bird",
+    "mass": 0.7,
+    "diet": "omnivore",
+    "instinct": {
+        "flight_only": false,
+        "floating": true,
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad"
+    },
+    "quick_slot": {
+        "categories": [
+            "aquatic",
+            "aerial"
+        ],
+        "primary": "aquatic"
+    },
+    "tags": [
+        "bird",
+        "waterfowl"
+    ]
+}

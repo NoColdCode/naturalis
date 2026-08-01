@@ -1,0 +1,18 @@
+{
+  "entity_types": [
+    "minecraft:chicken",
+    "naturalist:duck",
+    "alexsmobs:seagull",
+    "alexsmobs:shoebill",
+    "crittersandcompanions:duck"
+  ],
+  "traits": [
+    {
+      "type": "naturalis:floating"
+    },
+    {
+      "type": "walkers:stand_on_fluid",
+      "fluid": "minecraft:water"
+    }
+  ]
+}

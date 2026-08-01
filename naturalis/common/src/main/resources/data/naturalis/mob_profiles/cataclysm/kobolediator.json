@@ -1,0 +1,27 @@
+{
+    "entity": "cataclysm:kobolediator",
+    "inherits": "naturalis:undead",
+    "mass": 6.5,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.55
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "elite",
+        "cataclysm"
+    ]
+}

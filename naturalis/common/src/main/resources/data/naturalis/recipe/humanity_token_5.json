@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " E ",
+        "EIE",
+        " E "
+    ],
+    "key": {
+        "E": { "item": "minecraft:echo_shard" },
+        "I": { "item": "minecraft:iron_ingot" }
+    },
+    "result": {
+        "id": "naturalis:humanity_token_5",
+        "count": 2
+    }
+}

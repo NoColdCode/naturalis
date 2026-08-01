@@ -1,0 +1,30 @@
+{
+    "entity": "naturalist:hippo",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 8.5,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "dry_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:aquatic_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "quick_slot": {
+        "categories": [
+            "aquatic",
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "mammal",
+        "territorial"
+    ]
+}

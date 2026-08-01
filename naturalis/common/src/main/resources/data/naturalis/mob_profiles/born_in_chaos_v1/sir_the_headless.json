@@ -1,0 +1,28 @@
+{
+    "entity": "born_in_chaos_v1:sir_the_headless",
+    "inherits": "naturalis:boss_entity",
+    "mass": 5.0,
+    "diet": "scavenger",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": false
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "born_in_chaos"
+    ]
+}

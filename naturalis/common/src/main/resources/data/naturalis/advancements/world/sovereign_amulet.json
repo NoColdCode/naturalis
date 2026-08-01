@@ -1,0 +1,30 @@
+{
+  "parent": "naturalis:world/natural_star",
+  "display": {
+    "icon": {
+      "id": "naturalis:sovereign_amulet"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.sovereign_amulet.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.sovereign_amulet.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_sovereign_amulet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "naturalis:sovereign_amulet"
+          }
+        ]
+      }
+    }
+  }
+}

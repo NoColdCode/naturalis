@@ -1,0 +1,30 @@
+{
+    "entity": "born_in_chaos_v1:bone_imp",
+    "inherits": "naturalis:ethereal_spirit",
+    "mass": 1.0,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "sunlight_sensitive": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "born_in_chaos"
+    ]
+}

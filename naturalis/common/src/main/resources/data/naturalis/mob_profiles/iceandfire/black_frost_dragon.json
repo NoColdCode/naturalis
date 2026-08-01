@@ -1,0 +1,36 @@
+{
+    "entity": "iceandfire:black_frost_dragon",
+    "inherits": "naturalis:draconic",
+    "mass": 12.5,
+    "diet": "carnivore",
+    "instinct": {
+        "flight_only": true,
+        "smell_strength": 3,
+        "nyctalop_hostile": true
+    },
+    "environment": {
+        "hot_vulnerable": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.8,
+        "spectral_profile": 0.6
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "dragon",
+        "boss",
+        "frost"
+    ]
+}

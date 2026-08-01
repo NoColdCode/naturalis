@@ -1,0 +1,48 @@
+{
+    "entity": "cataclysm:the_leviathan",
+    "inherits": "naturalis:serpent_aquatic",
+    "mass": 13.0,
+    "diet": "piscivore",
+    "instinct": {
+        "wander": false,
+        "walk_speed": 1.1,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:cod",
+            "minecraft:salmon",
+            "minecraft:squid",
+            "minecraft:dolphin",
+            "minecraft:guardian",
+            "cataclysm:deepling",
+            "cataclysm:lionfish"
+        ]
+    },
+    "environment": {
+        "dry_vulnerable": true,
+        "wet_vulnerable": false,
+        "cold_vulnerable": false,
+        "hot_vulnerable": false,
+        "sunlight_sensitive": false
+    },
+    "vision": {
+        "shader": "naturalis:abyssal_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.8,
+        "spectral_profile": 0.55
+    },
+    "biome_suitability": {
+        "volcanic": false,
+        "ender_adapted": false,
+        "cave_adapted": true,
+        "snow_adapted": false
+    },
+    "quick_slot": {
+        "categories": ["aquatic", "hostile", "high_damage"],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": ["boss", "cataclysm", "aquatic", "abyss", "serpent"]
+}

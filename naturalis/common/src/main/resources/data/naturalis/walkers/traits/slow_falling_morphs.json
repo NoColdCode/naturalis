@@ -1,0 +1,28 @@
+{
+  "entity_types": [
+    "minecraft:chicken",
+    "minecraft:parrot",
+    "naturalist:duck",
+    "naturalist:sparrow",
+    "naturalist:robin",
+    "naturalist:finch",
+    "naturalist:canary",
+    "naturalist:cardinal",
+    "naturalist:bluejay",
+    "alexsmobs:bald_eagle",
+    "alexsmobs:crow",
+    "alexsmobs:hummingbird",
+    "alexsmobs:toucan",
+    "aether:moa",
+    "aether:cockatrice",
+    "twilightforest:raven",
+    "twilightforest:tiny_bird",
+    "cataclysm:maledictus",
+    "cataclysm:scylla"
+  ],
+  "traits": [
+    {
+      "type": "walkers:slow_falling"
+    }
+  ]
+}

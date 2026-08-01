@@ -1,0 +1,27 @@
+{
+    "entity": "cataclysm:the_prowler",
+    "inherits": "naturalis:golem_construct",
+    "mass": 7.0,
+    "diet": "lithovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:ferrous_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.55
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "elite",
+        "cataclysm"
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "entity": "born_in_chaos_v1:swarmer",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 0.8,
+    "diet": "insectivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": false
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "born_in_chaos"
+    ]
+}

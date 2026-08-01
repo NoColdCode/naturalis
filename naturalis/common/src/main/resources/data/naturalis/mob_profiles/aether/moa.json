@@ -1,0 +1,27 @@
+{
+    "entity": "aether:moa",
+    "inherits": "naturalis:flying_predator",
+    "mass": 3.0,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad"
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "aerial"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "aether",
+        "bird",
+        "mount"
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "entity": "aquamirae:anglerfish",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 2.4,
+    "diet": "piscivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:cod",
+            "minecraft:salmon"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:abyssal_vision",
+        "chromatic_mode": "mono",
+        "spectral_profile": 0.6
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "aquatic",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "abyss",
+        "venom"
+    ]
+}

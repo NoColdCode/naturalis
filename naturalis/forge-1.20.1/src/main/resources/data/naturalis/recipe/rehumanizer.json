@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GEG",
+        "ECE",
+        "GEG"
+    ],
+    "key": {
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "E": {
+            "item": "minecraft:echo_shard"
+        },
+        "C": {
+            "item": "naturalis:echo_collector"
+        }
+    },
+    "result": {
+        "item": "naturalis:rehumanizer",
+        "count": 1
+    }
+}

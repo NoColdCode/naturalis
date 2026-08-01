@@ -1,0 +1,15 @@
+{
+    "namespace": "aquamirae",
+    "default_inherits": "naturalis:aquatic_predator",
+    "overrides": {
+        "golden_moth": {
+            "inherits": "naturalis:floral_fey",
+            "mass": 0.2
+        },
+        "spinefish": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "piscivore",
+            "mass": 0.6
+        }
+    }
+}

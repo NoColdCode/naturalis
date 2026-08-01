@@ -1,0 +1,6 @@
+{
+    "entity": "born_in_chaos_v1:door_knight",
+    "inherits": "naturalis:undead",
+    "mass": 3.8,
+    "diet": "lithovore"
+}

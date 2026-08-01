@@ -1,0 +1,22 @@
+{
+  "entity_types": [
+    "minecraft:spider",
+    "minecraft:cave_spider",
+    "naturalist:lizard",
+    "alexsmobs:crocodile",
+    "alexsmobs:dropbear",
+    "alexsmobs:kangaroo",
+    "twilightforest:hedge_spider",
+    "twilightforest:king_spider",
+    "twilightforest:swarm_spider",
+    "born_in_chaos_v1:skeleton_thrasher",
+    "goety:web_spider",
+    "cataclysm:endermaptera"
+  ],
+  "traits": [
+    {
+      "type": "walkers:climb_blocks",
+      "horizontal_collision": true
+    }
+  ]
+}

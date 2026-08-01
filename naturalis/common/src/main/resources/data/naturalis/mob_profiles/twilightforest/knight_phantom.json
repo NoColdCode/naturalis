@@ -1,0 +1,31 @@
+{
+    "entity": "twilightforest:knight_phantom",
+    "inherits": "naturalis:ethereal_spirit",
+    "mass": 6.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.65
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "twilightforest",
+        "boss"
+    ]
+}

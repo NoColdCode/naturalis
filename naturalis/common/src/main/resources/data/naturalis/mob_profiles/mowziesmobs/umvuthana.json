@@ -1,0 +1,6 @@
+{
+    "entity": "mowziesmobs:umvuthana",
+    "inherits": "naturalis:flying_predator",
+    "mass": 2.3,
+    "diet": "frugivore"
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "naturalis:item/echo_morph_shovel"
+  }
+}

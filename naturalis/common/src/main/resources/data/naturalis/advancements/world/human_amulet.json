@@ -1,0 +1,30 @@
+{
+  "parent": "naturalis:root",
+  "display": {
+    "icon": {
+      "id": "naturalis:human_amulet"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.human_amulet.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.human_amulet.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_human_amulet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "naturalis:human_amulet"
+          }
+        ]
+      }
+    }
+  }
+}

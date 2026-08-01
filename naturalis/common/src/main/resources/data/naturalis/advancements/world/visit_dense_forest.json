@@ -1,0 +1,29 @@
+{
+  "parent": "naturalis:world/enter_natural_dimension",
+  "display": {
+    "icon": {
+      "id": "minecraft:oak_log"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.visit_dense_forest.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.visit_dense_forest.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "in_dense_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:dense_forest"
+        }
+      }
+    }
+  }
+}

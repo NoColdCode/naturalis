@@ -1,0 +1,29 @@
+{
+    "entity": "naturalist:elephant",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 12.0,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "environment": {
+        "cold_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.35
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "high_damage"
+        ],
+        "primary": "ground"
+    },
+    "tags": [
+        "mammal",
+        "megafauna"
+    ]
+}

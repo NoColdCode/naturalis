@@ -1,0 +1,24 @@
+{
+    "entity": "goety:prisoner",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 2.4,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "ground"
+        ],
+        "primary": "ground"
+    },
+    "tags": [
+        "goety"
+    ]
+}

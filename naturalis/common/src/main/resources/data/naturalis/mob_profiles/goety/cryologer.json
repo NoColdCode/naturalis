@@ -1,0 +1,32 @@
+{
+    "entity": "goety:cryologer",
+    "inherits": "naturalis:small_predator",
+    "mass": 3.0,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:tempest_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "hot_vulnerable": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "goety"
+    ]
+}

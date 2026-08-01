@@ -1,0 +1,31 @@
+{
+    "entity": "goety:quick_growing_kelp",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 1.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:aquatic_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "aquatic"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "goety",
+        "plant"
+    ]
+}

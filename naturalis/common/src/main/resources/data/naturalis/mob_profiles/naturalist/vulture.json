@@ -1,0 +1,29 @@
+{
+    "entity": "naturalist:vulture",
+    "inherits": "naturalis:flying_predator",
+    "mass": 1.6,
+    "diet": "scavenger",
+    "instinct": {
+        "flight_only": true,
+        "smell_strength": 3,
+        "wander": true
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad",
+        "motion_trail": 0.7
+    },
+    "environment": {
+        "cold_vulnerable": true
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "bird",
+        "scavenger"
+    ]
+}

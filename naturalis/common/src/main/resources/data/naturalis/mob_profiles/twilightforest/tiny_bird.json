@@ -1,0 +1,26 @@
+{
+    "entity": "twilightforest:tiny_bird",
+    "inherits": "naturalis:frugivore_bird",
+    "mass": 0.25,
+    "diet": "insectivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad"
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "aerial"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "twilightforest",
+        "bird"
+    ]
+}

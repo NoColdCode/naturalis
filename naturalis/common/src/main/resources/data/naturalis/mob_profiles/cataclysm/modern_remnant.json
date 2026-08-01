@@ -1,0 +1,34 @@
+{
+    "entity": "cataclysm:modern_remnant",
+    "inherits": "naturalis:large_predator",
+    "mass": 5.0,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "walk_speed": 1.15,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:rabbit",
+            "minecraft:chicken",
+            "minecraft:husk"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "dry_vulnerable": false,
+        "hot_vulnerable": false
+    },
+    "biome_suitability": {
+        "cave_adapted": true
+    },
+    "quick_slot": {
+        "categories": ["ground", "hostile"],
+        "primary": "hostile"
+    },
+    "tags": ["cataclysm", "undead", "pet", "desert"]
+}

@@ -1,0 +1,33 @@
+{
+    "entity": "goety:ice_golem",
+    "inherits": "naturalis:golem_construct",
+    "mass": 6.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 3,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:tempest_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.65
+    },
+    "environment": {
+        "hot_vulnerable": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "goety",
+        "boss"
+    ]
+}

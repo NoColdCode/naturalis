@@ -1,0 +1,19 @@
+{
+    "entity": "iceandfire:dread_beast",
+    "inherits": "naturalis:undead",
+    "mass": 4.0,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono",
+        "canine_predator": true
+    },
+    "tags": [
+        "dread"
+    ]
+}

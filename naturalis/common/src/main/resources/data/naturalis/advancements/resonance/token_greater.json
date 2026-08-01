@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/token_minor",
+  "display": {
+    "icon": {
+      "id": "naturalis:humanity_token_10"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.token_greater.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.token_greater.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

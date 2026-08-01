@@ -1,0 +1,19 @@
+{
+    "entity": "naturalist:zebra",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 3.4,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "fears": [
+            "wolves"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": true
+    },
+    "tags": [
+        "mammal"
+    ]
+}

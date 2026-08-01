@@ -1,0 +1,20 @@
+{
+  "entity_types": [
+    "aether:aerwhale",
+    "aether:cockatrice",
+    "aether:evil_whirlwind",
+    "aether:flying_cow",
+    "aether:moa",
+    "aether:phyg",
+    "aether:sun_spirit",
+    "aether:valkyrie",
+    "aether:valkyrie_queen",
+    "aether:whirlwind",
+    "aether:zephyr"
+  ],
+  "traits": [
+    {
+      "type": "walkers:flying"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+    "entity": "crittersandcompanions:ferret",
+    "inherits": "naturalis:small_predator",
+    "mass": 0.9,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "ground"
+        ],
+        "primary": "ground"
+    },
+    "tags": [
+        "crittersandcompanions",
+        "mammal",
+        "pet"
+    ]
+}

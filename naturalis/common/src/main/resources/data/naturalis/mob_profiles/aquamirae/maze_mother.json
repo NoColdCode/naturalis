@@ -1,0 +1,33 @@
+{
+    "entity": "aquamirae:maze_mother",
+    "inherits": "naturalis:boss_entity",
+    "mass": 7.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:abyssal_vision",
+        "chromatic_mode": "mono"
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "aquatic",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "boss",
+        "abyss"
+    ]
+}

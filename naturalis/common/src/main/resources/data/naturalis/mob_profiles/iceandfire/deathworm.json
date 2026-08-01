@@ -1,0 +1,21 @@
+{
+    "entity": "iceandfire:deathworm",
+    "inherits": "naturalis:serpent_aquatic",
+    "mass": 7.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "environment": {
+        "dry_vulnerable": false,
+        "wet_vulnerable": false
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "tags": [
+        "burrower"
+    ]
+}

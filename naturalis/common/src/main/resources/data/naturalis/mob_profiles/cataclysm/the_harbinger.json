@@ -1,0 +1,45 @@
+{
+    "entity": "cataclysm:the_harbinger",
+    "inherits": "naturalis:boss_entity",
+    "mass": 11.0,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": false,
+        "walk_speed": 0.9,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "fears": ["water"],
+        "hunt_prey": [
+            "minecraft:player",
+            "minecraft:iron_golem",
+            "minecraft:villager"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": false,
+        "wet_vulnerable": true,
+        "hot_vulnerable": false,
+        "dry_vulnerable": false,
+        "sunlight_sensitive": false
+    },
+    "vision": {
+        "shader": "naturalis:ferrous_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.7,
+        "spectral_profile": 0.5
+    },
+    "biome_suitability": {
+        "volcanic": true,
+        "ender_adapted": false,
+        "cave_adapted": true,
+        "snow_adapted": false
+    },
+    "quick_slot": {
+        "categories": ["nether", "hostile", "high_damage"],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": ["boss", "cataclysm", "nether", "construct", "wither"]
+}

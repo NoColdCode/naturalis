@@ -1,0 +1,17 @@
+{
+    "entity": "naturalist:ostrich",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 3.0,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad"
+    },
+    "tags": [
+        "bird"
+    ]
+}

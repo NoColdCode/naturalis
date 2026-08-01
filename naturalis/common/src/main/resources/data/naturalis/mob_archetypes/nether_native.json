@@ -1,0 +1,32 @@
+{
+    "diet": "carnivore",
+    "mass": 3.2,
+    "instinct": {
+        "fears": [
+            "water"
+        ],
+        "nyctalop_hostile": true
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true,
+        "hot_vulnerable": false
+    },
+    "biome_suitability": {
+        "volcanic": true
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "quick_slot": {
+        "categories": [
+            "nether",
+            "hostile"
+        ],
+        "primary": "nether"
+    },
+    "tags": [
+        "nether"
+    ]
+}

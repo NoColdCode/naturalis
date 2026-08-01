@@ -1,0 +1,32 @@
+name: Naturalis Fabric compile
+
+on:
+  push:
+    paths:
+      - 'naturalis/**'
+      - '.github/workflows/naturalis-fabric.yml'
+  pull_request:
+    paths:
+      - 'naturalis/**'
+      - '.github/workflows/naturalis-fabric.yml'
+
+defaults:
+  run:
+    working-directory: naturalis
+
+jobs:
+  fabric:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Compile Fabric 1.21.8
+        run: ./gradlew :fabric-1.21.8:compileJava --no-daemon
+
+      - name: Compile Fabric 1.21.1
+        run: ./gradlew :fabric-1.21.1:compileJava --no-daemon

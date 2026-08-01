@@ -1,0 +1,30 @@
+{
+    "entity": "aether:zephyr",
+    "inherits": "naturalis:flying_predator",
+    "mass": 4.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:tempest_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "ground"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "aether"
+    ]
+}

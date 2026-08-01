@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/human_diet_penalty",
+  "display": {
+    "icon": {
+      "id": "minecraft:barrier"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.human_diet_locked.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.human_diet_locked.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

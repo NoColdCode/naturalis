@@ -1,0 +1,22 @@
+{
+    "entity": "iceandfire:siren",
+    "inherits": "naturalis:serpent_aquatic",
+    "mass": 3.0,
+    "diet": "hematophage",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "vision": {
+        "shader": "naturalis:aquatic_vision",
+        "chromatic_mode": "dichrome",
+        "spectral_profile": 0.35
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "tags": [
+        "aquatic",
+        "charm"
+    ]
+}

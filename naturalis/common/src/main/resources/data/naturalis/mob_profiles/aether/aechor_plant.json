@@ -1,0 +1,30 @@
+{
+    "entity": "aether:aechor_plant",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 1.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "static": true
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "aether",
+        "static"
+    ]
+}

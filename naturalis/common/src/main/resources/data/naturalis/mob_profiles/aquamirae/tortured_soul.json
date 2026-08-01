@@ -1,0 +1,32 @@
+{
+    "entity": "aquamirae:tortured_soul",
+    "inherits": "naturalis:undead",
+    "mass": 2.4,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "nyctalop_hostile": true,
+        "smell_strength": 2
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono"
+    },
+    "environment": {
+        "sunlight_sensitive": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "undead",
+        "illager"
+    ]
+}

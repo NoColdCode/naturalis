@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/token_greater",
+  "display": {
+    "icon": {
+      "id": "minecraft:rotten_flesh"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.human_diet_penalty.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.human_diet_penalty.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

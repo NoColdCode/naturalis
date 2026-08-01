@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "minecraft:iron_golem",
+    "minecraft:snow_golem",
+    "minecraft:ravager",
+    "minecraft:warden",
+    "twilightforest:minoshroom",
+    "twilightforest:armored_giant",
+    "twilightforest:giant_miner",
+    "cataclysm:ender_golem",
+    "cataclysm:ender_guardian",
+    "cataclysm:netherite_monstrosity",
+    "cataclysm:ancient_remnant",
+    "cataclysm:ignis",
+    "cataclysm:coralssus",
+    "cataclysm:amethyst_crab",
+    "cataclysm:aptrgangr",
+    "born_in_chaos_v1:door_knight",
+    "goety:ice_golem",
+    "goety:redstone_golem"
+  ],
+  "traits": [
+    {
+      "type": "walkers:cant_swim"
+    },
+    {
+      "type": "walkers:undrownable"
+    }
+  ]
+}

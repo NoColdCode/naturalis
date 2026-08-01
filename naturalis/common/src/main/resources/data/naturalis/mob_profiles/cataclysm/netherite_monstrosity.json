@@ -1,0 +1,45 @@
+{
+    "entity": "cataclysm:netherite_monstrosity",
+    "inherits": "naturalis:nether_native",
+    "mass": 14.0,
+    "diet": "lithovore",
+    "instinct": {
+        "wander": false,
+        "walk_speed": 0.75,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "fears": ["water"],
+        "hunt_prey": [
+            "minecraft:piglin",
+            "minecraft:hoglin",
+            "minecraft:wither_skeleton"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true,
+        "hot_vulnerable": false,
+        "dry_vulnerable": false,
+        "sunlight_sensitive": false
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.75,
+        "spectral_profile": 0.5
+    },
+    "biome_suitability": {
+        "volcanic": true,
+        "ender_adapted": false,
+        "cave_adapted": true,
+        "snow_adapted": false
+    },
+    "quick_slot": {
+        "categories": ["nether", "hostile", "high_damage"],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": ["boss", "cataclysm", "nether", "construct"]
+}

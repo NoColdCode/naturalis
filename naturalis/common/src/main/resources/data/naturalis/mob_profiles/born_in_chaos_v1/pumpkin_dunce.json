@@ -1,0 +1,30 @@
+{
+    "entity": "born_in_chaos_v1:pumpkin_dunce",
+    "inherits": "naturalis:scavenger_undead",
+    "mass": 2.0,
+    "diet": "scavenger",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": false
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "sunlight_sensitive": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "born_in_chaos"
+    ]
+}

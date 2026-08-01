@@ -1,0 +1,21 @@
+{
+    "mass": 9.0,
+    "instinct": {
+        "wander": false,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": [
+        "boss"
+    ]
+}

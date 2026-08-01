@@ -1,0 +1,6 @@
+{
+    "entity": "mowziesmobs:barako",
+    "inherits": "naturalis:boss_entity",
+    "mass": 6.5,
+    "diet": "omnivore"
+}

@@ -1,0 +1,18 @@
+{
+    "entity": "iceandfire:cockatrice",
+    "inherits": "naturalis:flying_predator",
+    "mass": 2.2,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome",
+        "spectral_profile": 0.35
+    },
+    "tags": [
+        "gaze"
+    ]
+}

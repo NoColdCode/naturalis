@@ -1,0 +1,27 @@
+{
+    "entity": "born_in_chaos:lord_pumpkinhead",
+    "inherits": "naturalis:boss_entity",
+    "mass": 6.5,
+    "diet": "scavenger",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono",
+        "spectral_profile": 0.4
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "born_in_chaos",
+        "boss"
+    ]
+}

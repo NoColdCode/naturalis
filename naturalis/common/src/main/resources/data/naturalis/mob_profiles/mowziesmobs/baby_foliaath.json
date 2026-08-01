@@ -1,0 +1,5 @@
+{
+    "entity": "mowziesmobs:baby_foliaath",
+    "inherits": "naturalis:small_predator",
+    "mass": 1.1
+}

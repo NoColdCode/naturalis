@@ -1,0 +1,46 @@
+{
+    "diet": "carnivore",
+    "mass": 11.0,
+    "instinct": {
+        "flight_only": true,
+        "smell_strength": 3,
+        "fears": [
+            "water"
+        ],
+        "hunt_prey": [
+            "minecraft:cow",
+            "minecraft:sheep",
+            "minecraft:horse",
+            "minecraft:villager"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": false,
+        "hot_vulnerable": false
+    },
+    "biome_suitability": {
+        "volcanic": true,
+        "ender_adapted": true
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.7,
+        "spectral_profile": 0.25
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": [
+        "dragon",
+        "boss"
+    ]
+}

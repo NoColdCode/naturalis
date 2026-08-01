@@ -1,0 +1,29 @@
+{
+    "entity": "naturalist:rhino",
+    "inherits": "naturalis:large_predator",
+    "mass": 9.0,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "environment": {
+        "cold_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "mammal",
+        "charge"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ESE",
+        "SNS",
+        "EME"
+    ],
+    "key": {
+        "E": { "item": "minecraft:echo_shard" },
+        "S": { "item": "naturalis:natural_star" },
+        "N": { "item": "minecraft:nether_star" },
+        "M": { "item": "naturalis:memory_token" }
+    },
+    "result": {
+        "id": "naturalis:habit_chrysalis",
+        "count": 1
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "entity": "cataclysm:maledictus",
+    "inherits": "naturalis:ethereal_spirit",
+    "mass": 10.5,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": false,
+        "walk_speed": 1.05,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:villager",
+            "minecraft:player",
+            "minecraft:iron_golem"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": false,
+        "wet_vulnerable": false,
+        "hot_vulnerable": false,
+        "dry_vulnerable": false,
+        "sunlight_sensitive": true
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.8,
+        "spectral_profile": 0.65
+    },
+    "biome_suitability": {
+        "volcanic": false,
+        "ender_adapted": false,
+        "cave_adapted": true,
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": ["aerial", "hostile", "high_damage"],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": ["boss", "cataclysm", "undead", "phantom", "cursed"]
+}

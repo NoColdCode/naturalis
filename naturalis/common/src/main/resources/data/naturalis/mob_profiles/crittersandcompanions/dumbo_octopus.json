@@ -1,0 +1,27 @@
+{
+    "entity": "crittersandcompanions:dumbo_octopus",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 1.0,
+    "diet": "piscivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:cephalopod_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "quick_slot": {
+        "categories": [
+            "aquatic"
+        ],
+        "primary": "aquatic"
+    },
+    "tags": [
+        "crittersandcompanions",
+        "cephalopod"
+    ]
+}

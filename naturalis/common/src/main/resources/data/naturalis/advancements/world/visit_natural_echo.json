@@ -1,0 +1,29 @@
+{
+  "parent": "naturalis:world/enter_natural_dimension",
+  "display": {
+    "icon": {
+      "id": "minecraft:sculk"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.visit_natural_echo.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.visit_natural_echo.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "in_natural_echo": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:natural_echo"
+        }
+      }
+    }
+  }
+}

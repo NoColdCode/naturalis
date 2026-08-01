@@ -1,0 +1,178 @@
+{
+  "parent": "naturalis:world/enter_natural_dimension",
+  "display": {
+    "icon": {
+      "id": "minecraft:filled_map"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.full_explorer.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.full_explorer.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "in_volcano": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:volcano"
+        }
+      }
+    },
+    "in_high_peak": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:high_peak"
+        }
+      }
+    },
+    "in_dark_caves": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:dark_caves"
+        }
+      }
+    },
+    "in_deep_water": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:deep_water"
+        }
+      }
+    },
+    "in_coral_water": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:coral_water"
+        }
+      }
+    },
+    "in_ender_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:ender_forest"
+        }
+      }
+    },
+    "in_echo": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:natural_echo"
+        }
+      }
+    },
+    "in_savanna": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:arid_savanna"
+        }
+      }
+    },
+    "in_snowy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:snowy_mountain"
+        }
+      }
+    },
+    "in_dense_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:dense_forest"
+        }
+      }
+    },
+    "in_jungle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:jungle_real"
+        }
+      }
+    },
+    "in_beach": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:natural_beach"
+        }
+      }
+    },
+    "in_plain": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:natural_plain"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_volcano"
+    ],
+    [
+      "in_high_peak"
+    ],
+    [
+      "in_dark_caves"
+    ],
+    [
+      "in_deep_water"
+    ],
+    [
+      "in_coral_water"
+    ],
+    [
+      "in_ender_forest"
+    ],
+    [
+      "in_echo"
+    ],
+    [
+      "in_savanna"
+    ],
+    [
+      "in_snowy"
+    ],
+    [
+      "in_dense_forest"
+    ],
+    [
+      "in_jungle"
+    ],
+    [
+      "in_beach"
+    ],
+    [
+      "in_plain"
+    ]
+  ]
+}

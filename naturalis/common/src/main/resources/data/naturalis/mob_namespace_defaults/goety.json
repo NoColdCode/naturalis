@@ -1,0 +1,43 @@
+{
+    "namespace": "goety",
+    "default_inherits": "naturalis:undead",
+    "overrides": {
+        "carrion_fly": {
+            "inherits": "naturalis:insect_arthropod",
+            "mass": 0.4
+        },
+        "carrion_maggot": {
+            "inherits": "naturalis:insect_arthropod",
+            "mass": 0.25
+        },
+        "twilight_goat": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "herbivore",
+            "mass": 2.8
+        },
+        "prisoner": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "omnivore",
+            "mass": 2.4
+        },
+        "poison_anemone": {
+            "inherits": "naturalis:aquatic_predator",
+            "mass": 1.2
+        },
+        "poison_quill_vine": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "carnivore",
+            "mass": 1.5
+        },
+        "quick_growing_kelp": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "herbivore",
+            "mass": 1.0
+        },
+        "quick_growing_vine": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "herbivore",
+            "mass": 1.0
+        }
+    }
+}

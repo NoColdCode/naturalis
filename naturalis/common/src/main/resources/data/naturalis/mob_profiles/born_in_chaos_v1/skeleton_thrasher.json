@@ -1,0 +1,8 @@
+{
+    "entity": "born_in_chaos_v1:skeleton_thrasher",
+    "inherits": "naturalis:undead",
+    "mass": 3.2,
+    "quick_slot": {
+        "primary": "high_damage"
+    }
+}

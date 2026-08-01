@@ -1,0 +1,5 @@
+{
+    "entity": "mowziesmobs:bluff",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 4.0
+}

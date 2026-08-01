@@ -1,0 +1,23 @@
+{
+  "entity_types": [
+    "minecraft:rabbit",
+    "minecraft:goat",
+    "minecraft:polar_bear",
+    "minecraft:snow_golem",
+    "alexsmobs:moose",
+    "alexsmobs:snow_leopard",
+    "twilightforest:yeti",
+    "twilightforest:penguin",
+    "twilightforest:winter_wolf",
+    "friendsandfoes:iceologer",
+    "goety:wraith"
+  ],
+  "traits": [
+    {
+      "type": "walkers:walk_on_powder_snow"
+    },
+    {
+      "type": "walkers:cant_freeze"
+    }
+  ]
+}

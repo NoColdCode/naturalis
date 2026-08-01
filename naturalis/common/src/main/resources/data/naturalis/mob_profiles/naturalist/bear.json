@@ -1,0 +1,40 @@
+{
+    "entity": "naturalist:bear",
+    "inherits": "naturalis:large_predator",
+    "mass": 6.5,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:salmon",
+            "naturalist:deer",
+            "minecraft:rabbit"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome",
+        "canine_predator": true,
+        "motion_trail": 0.55
+    },
+    "environment": {
+        "hot_vulnerable": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true,
+        "cave_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "predator",
+        "mammal"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "EEE",
+        " S ",
+        " S "
+    ],
+    "key": {
+        "E": { "item": "minecraft:echo_shard" },
+        "S": { "item": "minecraft:stick" }
+    },
+    "result": {
+        "id": "naturalis:echo_morph_pick",
+        "count": 1
+    }
+}

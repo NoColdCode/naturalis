@@ -1,0 +1,25 @@
+{
+    "namespace": "friendsandfoes",
+    "default_inherits": "naturalis:ground_herbivore",
+    "overrides": {
+        "glare": {
+            "inherits": "naturalis:floral_fey",
+            "mass": 0.8
+        },
+        "moobloom": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "florivore",
+            "mass": 3.0
+        },
+        "crab": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "omnivore",
+            "mass": 0.7
+        },
+        "rascal": {
+            "inherits": "naturalis:small_predator",
+            "diet": "omnivore",
+            "mass": 1.2
+        }
+    }
+}

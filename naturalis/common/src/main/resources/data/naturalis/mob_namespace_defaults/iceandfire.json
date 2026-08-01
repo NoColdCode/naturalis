@@ -1,0 +1,39 @@
+{
+    "namespace": "iceandfire",
+    "default_inherits": "naturalis:large_predator",
+    "overrides": {
+        "dragon_skull": {
+            "inherits": "naturalis:undead",
+            "mass": 3.0
+        },
+        "dread_ghoul": {
+            "inherits": "naturalis:undead",
+            "mass": 2.6
+        },
+        "dread_knight": {
+            "inherits": "naturalis:undead",
+            "mass": 3.2
+        },
+        "dread_thrall": {
+            "inherits": "naturalis:undead",
+            "mass": 2.4
+        },
+        "dread_scuttler": {
+            "inherits": "naturalis:insect_arthropod",
+            "mass": 1.8
+        },
+        "dread_lich": {
+            "inherits": "naturalis:undead",
+            "mass": 3.5
+        },
+        "dread_horse": {
+            "inherits": "naturalis:undead",
+            "mass": 3.8
+        },
+        "hippocampus": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "herbivore",
+            "mass": 3.2
+        }
+    }
+}

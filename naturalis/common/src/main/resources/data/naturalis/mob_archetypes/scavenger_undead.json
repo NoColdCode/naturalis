@@ -1,0 +1,12 @@
+{
+    "inherits": "naturalis:undead",
+    "diet": "scavenger",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "tags": [
+        "scavenger",
+        "undead"
+    ]
+}

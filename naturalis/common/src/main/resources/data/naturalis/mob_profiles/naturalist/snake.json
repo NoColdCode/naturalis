@@ -1,0 +1,21 @@
+{
+    "entity": "naturalist:snake",
+    "inherits": "naturalis:small_predator",
+    "mass": 0.8,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "hunt_prey": [
+            "minecraft:chicken",
+            "minecraft:rabbit"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "tags": [
+        "reptile"
+    ]
+}

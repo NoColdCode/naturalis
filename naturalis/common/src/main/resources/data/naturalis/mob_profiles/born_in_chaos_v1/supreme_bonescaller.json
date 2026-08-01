@@ -1,0 +1,28 @@
+{
+    "entity": "born_in_chaos_v1:supreme_bonescaller",
+    "inherits": "naturalis:boss_entity",
+    "mass": 4.5,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": false
+    },
+    "vision": {
+        "shader": "naturalis:arcane_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "born_in_chaos"
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/humanity_primal",
+  "display": {
+    "icon": {
+      "id": "minecraft:dragon_breath"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.humanity_lost.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.humanity_lost.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

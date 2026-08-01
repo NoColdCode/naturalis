@@ -1,0 +1,21 @@
+{
+    "entity": "naturalist:tortoise",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 2.2,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1,
+        "walk_speed": 0.32
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {
+        "cold_vulnerable": true
+    },
+    "tags": [
+        "reptile"
+    ]
+}

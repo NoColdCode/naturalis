@@ -1,0 +1,16 @@
+{
+  "feature": "naturalis:beach_palm_tree",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:uniform",
+        "value": { "min_inclusive": 1, "max_inclusive": 3 }
+      }
+    },
+    { "type": "minecraft:in_square" },
+    { "type": "minecraft:surface_water_depth_filter", "max_water_depth": 0 },
+    { "type": "minecraft:heightmap", "heightmap": "MOTION_BLOCKING_NO_LEAVES" },
+    { "type": "minecraft:biome" }
+  ]
+}

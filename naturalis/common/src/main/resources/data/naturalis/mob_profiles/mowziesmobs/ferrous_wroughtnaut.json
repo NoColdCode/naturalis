@@ -1,0 +1,5 @@
+{
+    "entity": "mowziesmobs:ferrous_wroughtnaut",
+    "inherits": "naturalis:golem_construct",
+    "mass": 12.0
+}

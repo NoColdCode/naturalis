@@ -1,0 +1,62 @@
+{
+    "namespace": "crittersandcompanions",
+    "default_inherits": "naturalis:ground_herbivore",
+    "overrides": {
+        "dragonfly": {
+            "inherits": "naturalis:insect_arthropod",
+            "mass": 0.25
+        },
+        "dumbo_octopus": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "piscivore",
+            "mass": 1.0
+        },
+        "jumping_spider": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "insectivore",
+            "mass": 0.5
+        },
+        "koi_fish": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "herbivore",
+            "mass": 0.7
+        },
+        "ladybug": {
+            "inherits": "naturalis:insect_arthropod",
+            "mass": 0.15
+        },
+        "leaf_insect": {
+            "inherits": "naturalis:insect_arthropod",
+            "mass": 0.2
+        },
+        "sea_bunny": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "herbivore",
+            "mass": 0.4
+        },
+        "shima_enaga": {
+            "inherits": "naturalis:frugivore_bird",
+            "mass": 0.3
+        },
+        "snail": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "herbivore",
+            "mass": 0.35
+        },
+        "stag_beetle": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "herbivore",
+            "mass": 0.55
+        },
+        "stick_bug": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "herbivore",
+            "mass": 0.25
+        },
+        "weevil": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "herbivore",
+            "mass": 0.2
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "entity_types": [
+    "naturalist:bluejay",
+    "naturalist:butterfly",
+    "naturalist:canary",
+    "naturalist:cardinal",
+    "naturalist:dragonfly",
+    "naturalist:finch",
+    "naturalist:firefly",
+    "naturalist:robin",
+    "naturalist:sparrow",
+    "naturalist:vulture"
+  ],
+  "traits": [
+    {
+      "type": "walkers:flying"
+    }
+  ]
+}

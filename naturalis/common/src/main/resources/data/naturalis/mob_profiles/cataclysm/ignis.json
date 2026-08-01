@@ -1,0 +1,45 @@
+{
+    "entity": "cataclysm:ignis",
+    "inherits": "naturalis:nether_native",
+    "mass": 12.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "walk_speed": 0.95,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "fears": ["water"],
+        "hunt_prey": [
+            "minecraft:piglin",
+            "minecraft:wither_skeleton",
+            "minecraft:blaze"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true,
+        "hot_vulnerable": false,
+        "dry_vulnerable": false,
+        "sunlight_sensitive": false
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.8,
+        "spectral_profile": 0.55
+    },
+    "biome_suitability": {
+        "volcanic": true,
+        "ender_adapted": false,
+        "cave_adapted": true,
+        "snow_adapted": false
+    },
+    "quick_slot": {
+        "categories": ["nether", "hostile", "high_damage"],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": ["boss", "cataclysm", "nether", "fire"]
+}

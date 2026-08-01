@@ -1,0 +1,27 @@
+{
+    "entity": "naturalist:butterfly",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 0.2,
+    "diet": "nectarivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "quad"
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "aerial"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "naturalist",
+        "insect",
+        "ambient"
+    ]
+}

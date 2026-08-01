@@ -1,0 +1,34 @@
+{
+    "entity": "twilightforest:ice_crystal",
+    "inherits": "naturalis:ethereal_spirit",
+    "mass": 1.8,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:tempest_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "hot_vulnerable": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "ground"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "twilightforest"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "AEA",
+        "RMR",
+        "AEA"
+    ],
+    "key": {
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "E": {
+            "item": "minecraft:echo_shard"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "M": {
+            "item": "naturalis:memory_token"
+        }
+    },
+    "result": {
+        "item": "naturalis:translation_core",
+        "count": 1
+    }
+}

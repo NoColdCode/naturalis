@@ -1,0 +1,30 @@
+{
+    "entity": "goety:haunted_skull",
+    "inherits": "naturalis:undead",
+    "mass": 1.2,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "ground"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "goety"
+    ]
+}

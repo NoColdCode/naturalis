@@ -1,0 +1,29 @@
+{
+  "parent": "naturalis:world/enter_natural_dimension",
+  "display": {
+    "icon": {
+      "id": "minecraft:snow_block"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.visit_snowy_mountain.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.visit_snowy_mountain.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "in_snowy_mountain": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "dimension": "naturalis:natural_dimension",
+          "biome": "naturalis:snowy_mountain"
+        }
+      }
+    }
+  }
+}

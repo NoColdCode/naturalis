@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " L ",
+        "SES",
+        " L "
+    ],
+    "key": {
+        "L": { "item": "minecraft:lapis_lazuli" },
+        "S": { "item": "minecraft:wheat_seeds" },
+        "E": { "item": "naturalis:empty_echo_vial" }
+    },
+    "result": {
+        "id": "naturalis:growth_seed",
+        "count": 1
+    }
+}

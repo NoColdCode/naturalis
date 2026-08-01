@@ -1,0 +1,5 @@
+{
+    "entity": "born_in_chaos:siamese_skeletons",
+    "inherits": "naturalis:undead",
+    "mass": 2.6
+}

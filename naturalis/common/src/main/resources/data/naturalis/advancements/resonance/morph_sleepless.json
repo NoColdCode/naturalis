@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/tool_rejected",
+  "display": {
+    "icon": {
+      "id": "minecraft:red_bed"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.morph_sleepless.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.morph_sleepless.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

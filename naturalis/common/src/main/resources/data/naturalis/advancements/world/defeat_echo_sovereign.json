@@ -1,0 +1,30 @@
+{
+  "parent": "naturalis:world/enter_natural_dimension",
+  "display": {
+    "icon": {
+      "id": "naturalis:natural_star"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.defeat_echo_sovereign.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.defeat_echo_sovereign.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_natural_star": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "naturalis:natural_star"
+          }
+        ]
+      }
+    }
+  }
+}

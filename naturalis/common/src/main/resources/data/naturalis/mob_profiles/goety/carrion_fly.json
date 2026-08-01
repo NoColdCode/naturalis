@@ -1,0 +1,30 @@
+{
+    "entity": "goety:carrion_fly",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 0.4,
+    "diet": "scavenger",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": true
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "ground"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "goety"
+    ]
+}

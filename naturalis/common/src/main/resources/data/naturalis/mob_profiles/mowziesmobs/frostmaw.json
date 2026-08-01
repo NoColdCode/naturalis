@@ -1,0 +1,5 @@
+{
+    "entity": "mowziesmobs:frostmaw",
+    "inherits": "naturalis:arctic_hunter",
+    "mass": 7.8
+}

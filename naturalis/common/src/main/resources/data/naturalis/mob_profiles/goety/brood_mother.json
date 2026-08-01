@@ -1,0 +1,29 @@
+{
+    "entity": "goety:brood_mother",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 6.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 3,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.65
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "goety",
+        "boss"
+    ]
+}

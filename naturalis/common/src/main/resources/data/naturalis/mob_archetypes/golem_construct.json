@@ -1,0 +1,28 @@
+{
+    "diet": "lithovore",
+    "mass": 10.5,
+    "instinct": {
+        "wander": false,
+        "smell_strength": 0
+    },
+    "environment": {
+        "sunlight_sensitive": false,
+        "cold_vulnerable": false,
+        "wet_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:ferrous_vision",
+        "chromatic_mode": "mono"
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "construct",
+        "boss"
+    ]
+}

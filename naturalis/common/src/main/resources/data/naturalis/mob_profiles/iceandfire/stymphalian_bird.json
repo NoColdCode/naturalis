@@ -1,0 +1,18 @@
+{
+    "entity": "iceandfire:stymphalian_bird",
+    "inherits": "naturalis:flying_predator",
+    "mass": 1.5,
+    "diet": "carnivore",
+    "instinct": {
+        "flight_only": true,
+        "smell_strength": 2
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad"
+    },
+    "tags": [
+        "bird",
+        "ranged"
+    ]
+}

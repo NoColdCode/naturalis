@@ -1,0 +1,5 @@
+{
+    "entity": "mowziesmobs:barakoa",
+    "inherits": "naturalis:small_predator",
+    "mass": 1.6
+}

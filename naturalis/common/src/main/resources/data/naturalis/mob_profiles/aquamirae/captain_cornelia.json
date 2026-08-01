@@ -1,0 +1,34 @@
+{
+    "entity": "aquamirae:captain_cornelia",
+    "inherits": "naturalis:boss_entity",
+    "mass": 6.5,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.55
+    },
+    "environment": {
+        "sunlight_sensitive": true
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "boss",
+        "undead"
+    ]
+}

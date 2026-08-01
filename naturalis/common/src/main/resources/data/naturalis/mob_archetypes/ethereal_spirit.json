@@ -1,0 +1,29 @@
+{
+    "diet": "necrovore",
+    "mass": 1.2,
+    "instinct": {
+        "flight_only": true,
+        "nyctalop_hostile": true,
+        "smell_strength": 0
+    },
+    "environment": {
+        "sunlight_sensitive": true,
+        "wet_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "spectral_profile": 0.4
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "spirit",
+        "ethereal"
+    ]
+}

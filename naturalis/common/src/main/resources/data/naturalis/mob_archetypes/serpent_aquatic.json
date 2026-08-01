@@ -1,0 +1,12 @@
+{
+    "inherits": "naturalis:aquatic_predator",
+    "diet": "carnivore",
+    "mass": 5.5,
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "tags": [
+        "serpent"
+    ]
+}

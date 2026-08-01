@@ -1,0 +1,27 @@
+{
+    "entity": "crittersandcompanions:snail",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 0.35,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1,
+        "walk_speed": 0.18
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "ground"
+        ],
+        "primary": "ground"
+    },
+    "tags": [
+        "crittersandcompanions",
+        "insect",
+        "slow"
+    ]
+}

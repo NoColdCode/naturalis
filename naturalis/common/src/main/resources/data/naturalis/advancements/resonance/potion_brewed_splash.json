@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/potion_brewed",
+  "display": {
+    "icon": {
+      "id": "naturalis:brewed_morph_splash_potion"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.potion_brewed_splash.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.potion_brewed_splash.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "entity": "naturalist:deer",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 2.8,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "fears": [
+            "wolves",
+            "cats"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "tags": [
+        "mammal",
+        "prey"
+    ]
+}

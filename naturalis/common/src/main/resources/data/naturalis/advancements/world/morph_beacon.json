@@ -1,0 +1,30 @@
+{
+  "parent": "naturalis:world/natural_star",
+  "display": {
+    "icon": {
+      "id": "naturalis:morph_beacon"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.morph_beacon.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.morph_beacon.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_morph_beacon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "naturalis:morph_beacon"
+          }
+        ]
+      }
+    }
+  }
+}

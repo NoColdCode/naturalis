@@ -1,0 +1,25 @@
+{
+    "diet": "florivore",
+    "mass": 0.55,
+    "instinct": {
+        "flight_only": true,
+        "wander": true
+    },
+    "vision": {
+        "shader": "naturalis:fae_vision",
+        "chromatic_mode": "quad",
+        "kaleido_strength": 0.2,
+        "kaleido_folds": 5
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "ground"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "fey",
+        "small"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " I ",
+        "GJG",
+        " G "
+    ],
+    "key": {
+        "G": { "item": "minecraft:glass" },
+        "I": { "item": "minecraft:iron_ingot" },
+        "J": { "item": "minecraft:iron_nugget" }
+    },
+    "result": {
+        "id": "naturalis:echo_collector",
+        "count": 1
+    }
+}

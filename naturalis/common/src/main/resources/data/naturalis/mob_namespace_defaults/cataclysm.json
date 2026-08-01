@@ -1,0 +1,18 @@
+{
+    "namespace": "cataclysm",
+    "default_inherits": "naturalis:large_predator",
+    "overrides": {
+        "storm_serpent": {
+            "inherits": "naturalis:serpent_aquatic",
+            "mass": 4.0,
+            "diet": "carnivore",
+            "vision": {
+                "shader": "naturalis:tempest_vision"
+            },
+            "quick_slot": {
+                "categories": ["aquatic", "hostile"],
+                "primary": "hostile"
+            }
+        }
+    }
+}

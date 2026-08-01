@@ -1,0 +1,46 @@
+{
+    "entity": "cataclysm:scylla",
+    "inherits": "naturalis:boss_entity",
+    "mass": 11.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "walk_speed": 1.0,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:drowned",
+            "minecraft:guardian",
+            "minecraft:villager",
+            "cataclysm:deepling",
+            "cataclysm:drowned_host"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": false,
+        "wet_vulnerable": false,
+        "hot_vulnerable": false,
+        "dry_vulnerable": false,
+        "sunlight_sensitive": false
+    },
+    "vision": {
+        "shader": "naturalis:tempest_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.85,
+        "spectral_profile": 0.5
+    },
+    "biome_suitability": {
+        "volcanic": false,
+        "ender_adapted": false,
+        "cave_adapted": false,
+        "snow_adapted": false
+    },
+    "quick_slot": {
+        "categories": ["aquatic", "aerial", "hostile", "high_damage"],
+        "primary": "high_damage"
+    },
+    "resonance": {
+        "archetype": "apex"
+    },
+    "tags": ["boss", "cataclysm", "storm", "aquatic"]
+}

@@ -1,0 +1,12 @@
+{
+  "entity_types": [
+    "cataclysm:scylla",
+    "cataclysm:maledictus",
+    "cataclysm:the_harbinger"
+  ],
+  "traits": [
+    {
+      "type": "walkers:flying"
+    }
+  ]
+}

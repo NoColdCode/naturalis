@@ -1,0 +1,24 @@
+{
+    "entity": "iceandfire:troll",
+    "inherits": "naturalis:large_predator",
+    "mass": 6.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "environment": {
+        "sunlight_sensitive": true
+    },
+    "biome_suitability": {
+        "cave_adapted": true
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "tags": [
+        "cave"
+    ]
+}

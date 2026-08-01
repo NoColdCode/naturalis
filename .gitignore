@@ -1,0 +1,40 @@
+# Addon workspace root — GitHub / local
+# Prefer committing only `naturalis/` (and shared CI under `.github/` if desired).
+
+# --- Sibling / vendored trees (not Naturalis) ---
+Remorphed-main/
+woodwalkers-mod-main/
+craftedcore-main/
+wolvcraft/
+.tmp_modjars/
+.claude/
+
+# --- Accidental dumps in repo root ---
+*.json.FullName
+hs_err_pid*.log
+replay_pid*.log
+*.hprof
+
+# --- Naturalis build / run / IDE (also covered by naturalis/.gitignore) ---
+naturalis/.gradle/
+naturalis/.gradle-user-home*/
+naturalis/**/build/
+naturalis/**/run/
+naturalis/**/runs/
+naturalis/**/out/
+naturalis/**/bin/
+naturalis/**/logs/
+naturalis/**/crash-reports/
+naturalis/.idea/
+naturalis/.vscode/
+naturalis/.eclipse/
+naturalis/.tmp_*/
+naturalis/tmp_*/
+naturalis/*-errors.txt
+naturalis/*-errors-utf8.txt
+naturalis/tmp_mc_*.json
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini

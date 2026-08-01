@@ -1,0 +1,22 @@
+{
+    "entity": "iceandfire:hippogryph",
+    "inherits": "naturalis:flying_predator",
+    "mass": 3.6,
+    "diet": "carnivore",
+    "instinct": {
+        "flight_only": true,
+        "smell_strength": 2,
+        "hunt_prey": [
+            "minecraft:rabbit",
+            "minecraft:chicken"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad"
+    },
+    "tags": [
+        "flyer",
+        "mount"
+    ]
+}

@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "minecraft:zombie",
+    "minecraft:husk",
+    "minecraft:drowned",
+    "minecraft:zombie_villager",
+    "minecraft:skeleton",
+    "minecraft:stray",
+    "minecraft:bogged",
+    "minecraft:phantom",
+    "minecraft:zoglin",
+    "minecraft:zombified_piglin",
+    "twilightforest:lich",
+    "twilightforest:death_tome",
+    "born_in_chaos_v1:decaying_zombie",
+    "born_in_chaos_v1:skeleton_thrasher",
+    "goety:wraith",
+    "goety:skeleton_villager",
+    "iceandfire:ghost",
+    "cataclysm:draugr",
+    "cataclysm:elite_draugr",
+    "cataclysm:royal_draugr",
+    "cataclysm:drowned_host"
+  ],
+  "traits": [
+    {
+      "type": "walkers:burn_in_daylight"
+    }
+  ]
+}

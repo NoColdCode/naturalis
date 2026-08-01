@@ -1,0 +1,22 @@
+{
+  "entity_types": [
+    "minecraft:strider",
+    "minecraft:magma_cube",
+    "alexsmobs:laviathan",
+    "alexsmobs:soul_vulture",
+    "cataclysm:ignited_revenant",
+    "cataclysm:ignited_berserker",
+    "cataclysm:ignis",
+    "cataclysm:netherite_monstrosity",
+    "cataclysm:netherite_ministrosity",
+    "cataclysm:the_harbinger",
+    "born_in_chaos_v1:flame_lurker",
+    "goety:blaze"
+  ],
+  "traits": [
+    {
+      "type": "walkers:stand_on_fluid",
+      "fluid": "minecraft:lava"
+    }
+  ]
+}

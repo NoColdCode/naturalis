@@ -1,0 +1,26 @@
+{
+    "entity": "friendsandfoes:illusioner",
+    "inherits": "naturalis:small_predator",
+    "mass": 2.8,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:arcane_vision",
+        "chromatic_mode": "quad",
+        "spectral_profile": 0.5
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "illager",
+        "ranged"
+    ]
+}

@@ -1,0 +1,22 @@
+# Default Naturalis client settings (copied to config/ on first launch).
+
+[vision]
+	enabled = true
+	use_wolf_legacy_shader = true
+	upload_palette_ubo = true
+	intensity_multiplier = 1.0
+	photo_stress_cap = 0.35
+
+[embodiment]
+	first_person_body = true
+	paw_dig_visuals = true
+	camera_offsets = true
+	hide_vanilla_arms = true
+	fp_body_min_arm_hide = 0.75
+
+[audio]
+	mute_morph_perception_sounds = false
+
+[hud]
+	knowledge_hints = true
+	scent_trails = true

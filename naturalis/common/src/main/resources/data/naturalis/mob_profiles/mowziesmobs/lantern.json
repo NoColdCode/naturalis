@@ -1,0 +1,6 @@
+{
+    "entity": "mowziesmobs:lantern",
+    "inherits": "naturalis:ethereal_spirit",
+    "mass": 0.8,
+    "diet": "nectarivore"
+}

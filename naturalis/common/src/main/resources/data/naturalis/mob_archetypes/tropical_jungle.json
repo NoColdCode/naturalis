@@ -1,0 +1,16 @@
+{
+    "inherits": "naturalis:large_predator",
+    "environment": {
+        "hot_vulnerable": false,
+        "cold_vulnerable": true
+    },
+    "biome_suitability": {
+        "volcanic": false
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision"
+    },
+    "tags": [
+        "jungle"
+    ]
+}

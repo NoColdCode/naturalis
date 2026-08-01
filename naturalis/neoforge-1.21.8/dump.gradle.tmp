@@ -1,0 +1,7 @@
+﻿tasks.register("dumpWalkers") {
+  doLast {
+    configurations.compileClasspath.files.findAll { it.name.contains("walkers") }.each { f ->
+      println "JAR: ${f.absolutePath} exists=${f.exists()} size=${f.length()}"
+    }
+  }
+}

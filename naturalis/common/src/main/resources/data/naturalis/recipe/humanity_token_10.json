@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " G ",
+        "GTG",
+        " G "
+    ],
+    "key": {
+        "G": { "item": "minecraft:gold_ingot" },
+        "T": { "item": "naturalis:humanity_token_5" }
+    },
+    "result": {
+        "id": "naturalis:humanity_token_10",
+        "count": 1
+    }
+}

@@ -1,0 +1,198 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.+'
+}
+
+version = mod_version
+group = mod_group_id
+
+repositories {
+    maven {
+        name = 'ToCraft'
+        url = 'https://maven.tocraft.dev/public'
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Modrinth'
+                url = 'https://api.modrinth.com/maven'
+            }
+        }
+        filter {
+            includeGroup 'maven.modrinth'
+        }
+    }
+}
+
+base {
+    archivesName = "${mod_id}-${minecraft_version}"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir '../common/src/main/java'
+        }
+        resources.setSrcDirs([
+            // Platform first so loader-specific naturalis.mixins.json wins (EXCLUDE).
+            // Do NOT re-add duplicate data/naturalis/worldgen/biome on the platform — those
+            // shadowed fixed common biomes and flooded the Natural Dimension.
+            'src/main/resources',
+            file('../common/src/main/resources'),
+            'src/generated/resources'
+        ])
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        client {
+            client()
+            jvmArguments.add('-XX:TieredStopAtLevel=1')
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all',
+                '--output', file('src/generated/resources/').getAbsolutePath(),
+                '--existing', file('../common/src/main/resources/').getAbsolutePath()
+        }
+
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+configurations.configureEach {
+    exclude group: 'net.fabricmc', module: 'fabric-loader'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "dev.tocraft:craftedcore:1.21-${craftedcore_version}"
+    implementation "dev.tocraft:walkers:1.21-${walkers_version}"
+    implementation "dev.tocraft:remorphed:1.21-${remorphed_version}"
+    localRuntime 'maven.modrinth:citadel:uzrkhBpn'
+}
+
+def removeIncompatibleCitadel = {
+    def bad = file("${projectDir}/run/mods/citadel-1.21.1-2.7.5.jar")
+    if (bad.exists()) {
+        logger.lifecycle("[naturalis] Removing incompatible Citadel jar: ${bad}")
+        bad.delete()
+    }
+}
+tasks.named('prepareClientRun').configure { doFirst removeIncompatibleCitadel }
+tasks.named('prepareServerRun').configure { doFirst removeIncompatibleCitadel }
+tasks.named('prepareDataRun').configure { doFirst removeIncompatibleCitadel }
+
+def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    def replaceProperties = [
+        minecraft_version      : minecraft_version,
+        minecraft_version_range: minecraft_version_range,
+        neo_version            : neo_version,
+        neo_version_range      : neo_version_range,
+        loader_version_range   : loader_version_range,
+        mod_id                 : mod_id,
+        mod_name               : mod_name,
+        mod_license            : mod_license,
+        mod_version            : mod_version,
+        mod_authors            : mod_authors,
+        mod_description        : mod_description,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.named('processResources').configure {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.named('compileJava', JavaCompile).configure {
+    exclude { details ->
+        String path = details.file.canonicalPath.replace('\\', '/')
+        if (path.contains('/common/src/main/java/dev/naturalis/content/NaturalisEntityTypes.java')) {
+            return true
+        }
+        if (path.contains('/common/src/main/java/dev/naturalis/util/CurrentMorphUtil.java')) {
+            return true
+        }
+        if (path.contains('/common/src/main/java/dev/naturalis/client/WolfVisionClientEvents.java')) {
+            return true
+        }
+        // 1.21.8-only APIs (GpuBuffer UBO writer, wolf subpackage, registry holders)
+        return path.contains('/common/src/main/java/dev/naturalis/client/MorphPostEffectUniformWriter.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/MorphVisionPaletteUniforms.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/perception/MorphPawDigModelCache.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/perception/MorphPawDigTextureUtil.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/perception/MorphPawDigRenderer.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/perception/MorphPawDigWorldRenderer.java')
+            || path.contains('/common/src/main/java/dev/naturalis/experience/NaturalisWorldExperienceStorage.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/MorphQuadrupedMouthRender.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/MorphQuadrupedShapeCache.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/NaturalisShapeRenderSync.java')
+            || path.contains('/common/src/main/java/dev/naturalis/mixin/client/NaturalisFirstPersonMorphMixin.java')
+            || path.contains('/common/src/main/java/dev/naturalis/mixin/client/NaturalisQuadrupedMouthPlayerMixin.java')
+            || path.contains('/common/src/main/java/dev/naturalis/mixin/client/WalkersShapeHandItemsMixin.java')
+            || path.contains('/common/src/main/java/dev/naturalis/mixin/client/QuadrupedMorphHeldItemMixin.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/ScentVisionFlatColorVertexConsumer.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/ScentVisionTintState.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/ScentVisionMobRenderer.java')
+            || path.contains('/common/src/main/java/dev/naturalis/client/EntityRenderStateScentAccess.java')
+            || path.contains('/common/src/main/java/dev/naturalis/mixin/client/EntityRenderStateScentAccessor.java')
+            || path.contains('/common/src/main/java/dev/naturalis/mixin/client/NaturalisScentEntityTintMixin.java')
+            || path.contains('/common/src/main/java/dev/naturalis/mixin/client/NaturalisWolfScentTintMixin.java')
+    }
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = layout.projectDirectory.dir('repo')
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

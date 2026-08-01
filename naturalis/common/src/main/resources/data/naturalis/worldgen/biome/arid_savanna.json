@@ -1,0 +1,44 @@
+{
+  "has_precipitation": false,
+  "temperature": 1.2,
+  "downfall": 0.1,
+  "effects": {
+    "fog_color": 12638463,
+    "water_color": 4445678,
+    "water_fog_color": 270131,
+    "sky_color": 8820735,
+    "grass_color": 11194151,
+    "foliage_color": 10802446,
+    "mood_sound": { "sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0 }
+  },
+  "spawners": {
+    "creature": [
+      { "type": "minecraft:sheep", "weight": 10, "minCount": 2, "maxCount": 4 },
+      { "type": "minecraft:llama", "weight": 8,  "minCount": 1, "maxCount": 3 },
+      { "type": "minecraft:horse", "weight": 8,  "minCount": 2, "maxCount": 6 },
+      { "type": "minecraft:rabbit", "weight": 10, "minCount": 2, "maxCount": 4 },
+      { "type": "minecraft:cow",   "weight": 10, "minCount": 2, "maxCount": 4 }
+    ],
+    "monster": [
+      { "type": "minecraft:zombie",  "weight": 95,  "minCount": 4, "maxCount": 4 },
+      { "type": "minecraft:creeper", "weight": 100, "minCount": 4, "maxCount": 4 },
+      { "type": "minecraft:spider",  "weight": 100, "minCount": 4, "maxCount": 4 },
+      { "type": "minecraft:husk",    "weight": 80,  "minCount": 4, "maxCount": 4 }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [ "naturalis:arid_acacia_trees" ],
+    [ "naturalis:arid_rocks", "naturalis:arid_dead_bushes", "naturalis:arid_terracotta", "naturalis:arid_ground_cover" ],
+    [],
+    [],
+    [],
+    []
+  ]
+}

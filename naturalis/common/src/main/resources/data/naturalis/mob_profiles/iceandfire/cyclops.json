@@ -1,0 +1,26 @@
+{
+    "entity": "iceandfire:cyclops",
+    "inherits": "naturalis:boss_entity",
+    "mass": 8.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "mono"
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "giant",
+        "boss"
+    ]
+}

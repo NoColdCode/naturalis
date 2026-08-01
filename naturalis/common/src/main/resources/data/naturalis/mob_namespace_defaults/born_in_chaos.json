@@ -1,0 +1,27 @@
+{
+    "namespace": "born_in_chaos",
+    "default_inherits": "naturalis:undead",
+    "overrides": {
+        "maggot": {
+            "inherits": "naturalis:insect_arthropod",
+            "mass": 0.2
+        },
+        "diamond_termite": {
+            "inherits": "naturalis:insect_arthropod",
+            "mass": 0.9
+        },
+        "corpse_fish": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "scavenger",
+            "mass": 1.2
+        },
+        "felsteed": {
+            "inherits": "naturalis:ethereal_spirit",
+            "mass": 3.5
+        },
+        "lords_felsteed": {
+            "inherits": "naturalis:ethereal_spirit",
+            "mass": 4.0
+        }
+    }
+}

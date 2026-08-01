@@ -1,0 +1,38 @@
+{
+    "entity": "twilightforest:carminite_ghastling",
+    "inherits": "naturalis:flying_predator",
+    "mass": 2.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": true,
+        "fears": [
+            "water"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true
+    },
+    "biome_suitability": {
+        "volcanic": true
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "ground"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "twilightforest"
+    ]
+}

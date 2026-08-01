@@ -1,0 +1,8 @@
+{
+    "entity": "born_in_chaos:thornshell_crab",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 2.2,
+    "environment": {
+        "dry_vulnerable": true
+    }
+}

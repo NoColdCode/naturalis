@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "EE",
+        "EE"
+    ],
+    "key": {
+        "E": { "item": "minecraft:echo_shard" }
+    },
+    "result": {
+        "id": "naturalis:echo_block",
+        "count": 1
+    }
+}

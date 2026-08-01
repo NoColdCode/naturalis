@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/humanity_lost",
+  "display": {
+    "icon": {
+      "id": "minecraft:totem_of_undying"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.rebirth_accepted.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.rebirth_accepted.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

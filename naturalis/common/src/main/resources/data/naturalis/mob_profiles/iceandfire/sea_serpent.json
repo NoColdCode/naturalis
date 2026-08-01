@@ -1,0 +1,21 @@
+{
+    "entity": "iceandfire:sea_serpent",
+    "inherits": "naturalis:serpent_aquatic",
+    "mass": 8.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "vision": {
+        "shader": "naturalis:aquatic_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "tags": [
+        "aquatic",
+        "serpent"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "package": "dev.naturalis.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "DisableKillMorphMixin"
+  ],
+    "client": [
+    "DisableAbilityKeyMixin",
+    "DisableRemorphedMenuWhenBoundMixin",
+    "NaturalBiomeSuitabilityIconMixin",
+    "SignTextComprehensionMixin",
+    "DisableWalkersTransformWhenBoundMixin",
+    "MorphQuickSlotTransformMixin",
+    "MorphQuickSlotAssignMixin",
+    "QuadrupedContainerRestrictionMixin",
+    "MorphBlockBreakClientMixin",
+    "client.NaturalisCameraMixin",
+    "client.CreateWorldSurvivalAsMixin",
+    "client.CycleButtonSurvivalAsMixin",
+    "client.NeoForge121NaturalisScentEntityTintMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

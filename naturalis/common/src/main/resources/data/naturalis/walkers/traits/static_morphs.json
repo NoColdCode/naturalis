@@ -1,0 +1,11 @@
+{
+  "entity_types": [
+    "minecraft:shulker",
+    "aether:aechor_plant"
+  ],
+  "traits": [
+    {
+      "type": "naturalis:static"
+    }
+  ]
+}

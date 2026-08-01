@@ -1,0 +1,42 @@
+{
+    "entity": "iceandfire:fire_dragon",
+    "inherits": "naturalis:draconic",
+    "mass": 11.0,
+    "diet": "carnivore",
+    "instinct": {
+        "flight_only": true,
+        "smell_strength": 3,
+        "fears": [
+            "water"
+        ],
+        "hunt_prey": [
+            "minecraft:cow",
+            "minecraft:sheep",
+            "minecraft:villager"
+        ]
+    },
+    "environment": {
+        "cold_vulnerable": true
+    },
+    "biome_suitability": {
+        "volcanic": true
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.75
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "dragon",
+        "boss",
+        "fire"
+    ]
+}

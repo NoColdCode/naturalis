@@ -1,0 +1,26 @@
+{
+    "entity": "twilightforest:deer",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 2.6,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "ground"
+        ],
+        "primary": "ground"
+    },
+    "tags": [
+        "twilightforest",
+        "mammal",
+        "prey"
+    ]
+}

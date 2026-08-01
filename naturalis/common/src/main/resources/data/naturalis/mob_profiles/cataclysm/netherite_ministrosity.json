@@ -1,0 +1,36 @@
+{
+    "entity": "cataclysm:netherite_ministrosity",
+    "inherits": "naturalis:nether_native",
+    "mass": 4.5,
+    "diet": "lithovore",
+    "instinct": {
+        "wander": true,
+        "walk_speed": 1.05,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "fears": ["water"],
+        "hunt_prey": [
+            "minecraft:piglin",
+            "minecraft:magma_cube"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.45
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true,
+        "hot_vulnerable": false
+    },
+    "biome_suitability": {
+        "volcanic": true,
+        "cave_adapted": true
+    },
+    "quick_slot": {
+        "categories": ["nether", "hostile"],
+        "primary": "nether"
+    },
+    "tags": ["cataclysm", "nether", "pet", "construct"]
+}

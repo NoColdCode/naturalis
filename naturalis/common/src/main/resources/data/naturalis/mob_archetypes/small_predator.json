@@ -1,0 +1,30 @@
+{
+    "diet": "carnivore",
+    "mass": 1.4,
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:rabbit",
+            "minecraft:chicken",
+            "minecraft:cod"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.42
+    },
+    "quick_slot": {
+        "categories": [
+            "ground",
+            "hostile"
+        ],
+        "primary": "ground"
+    },
+    "tags": [
+        "predator",
+        "small"
+    ]
+}

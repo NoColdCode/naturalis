@@ -1,0 +1,21 @@
+{
+    "diet": "herbivore",
+    "mass": 3.0,
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "quick_slot": {
+        "categories": [
+            "ground"
+        ],
+        "primary": "ground"
+    },
+    "tags": [
+        "herbivore"
+    ]
+}

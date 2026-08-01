@@ -1,0 +1,25 @@
+{
+    "entity": "naturalist:robin",
+    "inherits": "naturalis:frugivore_bird",
+    "mass": 0.35,
+    "diet": "frugivore",
+    "instinct": {
+        "flight_only": true,
+        "wander": true,
+        "smell_strength": 1
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad"
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "bird",
+        "ambient"
+    ]
+}

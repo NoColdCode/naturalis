@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/human_diet_locked",
+  "display": {
+    "icon": {
+      "id": "minecraft:stone_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.tool_decay.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.tool_decay.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

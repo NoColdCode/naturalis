@@ -1,0 +1,20 @@
+{
+    "entity": "naturalist:boar",
+    "inherits": "naturalis:ground_herbivore",
+    "mass": 3.2,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "fears": [
+            "wolves"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:mammal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "tags": [
+        "mammal"
+    ]
+}

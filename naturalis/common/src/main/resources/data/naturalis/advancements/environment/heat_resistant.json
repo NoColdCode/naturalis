@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:root",
+  "display": {
+    "icon": {
+      "id": "minecraft:sand"
+    },
+    "title": {
+      "translate": "advancements.naturalis.environment.heat_resistant.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.environment.heat_resistant.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

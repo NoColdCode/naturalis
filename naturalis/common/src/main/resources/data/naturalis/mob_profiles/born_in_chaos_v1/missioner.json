@@ -1,0 +1,5 @@
+{
+    "entity": "born_in_chaos_v1:missioner",
+    "inherits": "naturalis:boss_entity",
+    "mass": 5.0
+}

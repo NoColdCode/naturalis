@@ -1,0 +1,22 @@
+{
+    "diet": "frugivore",
+    "mass": 0.9,
+    "instinct": {
+        "flight_only": true,
+        "wander": true
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad"
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "ground"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "bird"
+    ]
+}

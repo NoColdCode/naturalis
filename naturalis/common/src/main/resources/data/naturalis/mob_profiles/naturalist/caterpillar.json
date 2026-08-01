@@ -1,0 +1,19 @@
+{
+    "entity": "naturalist:caterpillar",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 0.2,
+    "diet": "herbivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 1,
+        "walk_speed": 0.28
+    },
+    "vision": {
+        "shader": "naturalis:insect_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "tags": [
+        "insect",
+        "slow"
+    ]
+}

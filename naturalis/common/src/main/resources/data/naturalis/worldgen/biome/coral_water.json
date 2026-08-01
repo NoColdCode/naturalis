@@ -1,0 +1,35 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.8,
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 8945535,
+    "water_color": 270131,
+    "water_fog_color": 8103167,
+    "sky_color": 8103167,
+    "mood_sound": { "sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0 }
+  },
+  "spawners": {
+    "water_ambient": [
+      { "type": "minecraft:tropical_fish", "weight": 25, "minCount": 4, "maxCount": 8 }
+    ],
+    "water_creature": [
+      { "type": "minecraft:squid", "weight": 8, "minCount": 1, "maxCount": 3 }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [ "naturalis:coral_water_corals", "naturalis:coral_water_sea_pickles" ],
+    [ "naturalis:deep_seagrass", "naturalis:deep_kelp" ],
+    [],
+    [],
+    [],
+    []
+  ]
+}

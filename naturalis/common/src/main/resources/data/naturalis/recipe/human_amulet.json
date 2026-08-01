@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "SES",
+        "EME",
+        "SES"
+    ],
+    "key": {
+        "S": { "item": "minecraft:echo_shard" },
+        "E": { "item": "minecraft:ender_pearl" },
+        "M": { "item": "naturalis:memory_token" }
+    },
+    "result": {
+        "id": "naturalis:human_amulet",
+        "count": 1
+    }
+}

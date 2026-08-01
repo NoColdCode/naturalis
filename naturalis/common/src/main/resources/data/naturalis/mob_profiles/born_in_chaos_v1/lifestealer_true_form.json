@@ -1,0 +1,28 @@
+{
+    "entity": "born_in_chaos_v1:lifestealer_true_form",
+    "inherits": "naturalis:boss_entity",
+    "mass": 6.0,
+    "diet": "hematophage",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "flight_only": false
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "born_in_chaos"
+    ]
+}

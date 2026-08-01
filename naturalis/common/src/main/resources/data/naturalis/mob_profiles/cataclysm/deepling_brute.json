@@ -1,0 +1,28 @@
+{
+    "entity": "cataclysm:deepling_brute",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 4.2,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:abyssal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "aquatic"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "cataclysm"
+    ]
+}

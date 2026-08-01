@@ -1,0 +1,28 @@
+{
+    "entity": "cataclysm:deepling_angler",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 2.8,
+    "diet": "piscivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:abyssal_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "aquatic"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "cataclysm"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "inherits": "naturalis:large_predator",
+    "environment": {
+        "hot_vulnerable": true,
+        "cold_vulnerable": false
+    },
+    "biome_suitability": {
+        "snow_adapted": true
+    },
+    "mass": 6.0,
+    "tags": [
+        "arctic"
+    ]
+}

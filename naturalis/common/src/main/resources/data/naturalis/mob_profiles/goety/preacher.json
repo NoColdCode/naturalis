@@ -1,0 +1,28 @@
+{
+    "entity": "goety:preacher",
+    "inherits": "naturalis:small_predator",
+    "mass": 2.8,
+    "diet": "omnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:arcane_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "environment": {},
+    "biome_suitability": {},
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "goety"
+    ]
+}

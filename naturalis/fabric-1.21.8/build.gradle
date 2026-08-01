@@ -1,0 +1,158 @@
+plugins {
+    id 'fabric-loom' version '1.10.1' apply false
+}
+
+def fabricLoomEligible = JavaVersion.current().majorVersion.toInteger() >= 21
+
+afterEvaluate {
+    if (!fabricLoomEligible) {
+        return
+    }
+    tasks.matching { it.name == 'runClient' }.configureEach { t ->
+        t.doFirst {
+            def modsDir = file("${projectDir}/run/mods")
+            if (!modsDir.directory) {
+                return
+            }
+            fileTree(modsDir).matching { include 'fabric-loader*.jar' }.each { jar ->
+                logger.lifecycle("[naturalis:${project.name}] Removing stray fabric-loader from run/mods (causes \"cannot be loaded\" if treated as a mod): ${jar.name}")
+                jar.delete()
+            }
+        }
+    }
+}
+
+version = mod_version
+group = mod_group_id
+
+if (!fabricLoomEligible) {
+    apply plugin: 'base'
+    logger.lifecycle('[naturalis:fabric-1.21.8] Fabric Loom skipped (Gradle JVM is Java ' + JavaVersion.current().majorVersion + '). Use JDK 21 for Gradle to enable Minecraft/Fabric tasks.')
+    tasks.register('runClient') {
+        group = 'fabric'
+        description = 'Requires Gradle JVM 21 — Loom is not applied on this JVM.'
+        doLast {
+            throw new GradleException(
+                '[naturalis:fabric-1.21.8] Fabric Loom only registers runClient when Gradle runs on Java 21 (currently Java ' +
+                    JavaVersion.current().majorVersion + '). Set JAVA_HOME / IDE Gradle JDK to JDK 21 and sync. Task name is camelCase: runClient.')
+        }
+    }
+    tasks.register('runclient') {
+        group = 'fabric'
+        dependsOn 'runClient'
+    }
+    return
+}
+
+apply plugin: 'fabric-loom'
+apply plugin: 'maven-publish'
+
+base {
+    archivesName = "${mod_id}-${minecraft_version}-fabric"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+def fabricCommonJavaRoot = file("${projectDir}/../common/src/main/java").canonicalFile
+
+sourceSets {
+    main {
+        java.srcDir 'src/main/java'
+        java.srcDir '../common/src/main/java'
+        resources.srcDir 'src/main/resources'
+        resources.srcDir '../common/src/main/resources'
+    }
+}
+
+repositories {
+    maven {
+        name = 'ToCraft'
+        url = 'https://maven.tocraft.dev/public'
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    modImplementation "dev.tocraft:craftedcore-fabric:${craftedcore_version}"
+    modImplementation "dev.tocraft:walkers-fabric:${walkers_version}"
+    modImplementation "dev.tocraft:remorphed-fabric:${remorphed_version}"
+}
+
+tasks.named('processResources') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('compileJava', JavaCompile).configure {
+    exclude { details ->
+        def f = details.file.canonicalFile
+        if (!f.toPath().startsWith(fabricCommonJavaRoot.toPath())) {
+            return false
+        }
+        def relPath = fabricCommonJavaRoot.toPath().relativize(f.toPath()).toString().replace('\\', '/')
+        def excludedFromCommon = [
+            'dev/naturalis/worldgen/IslandChunkGenerator.java',
+            'dev/naturalis/Naturalis.java',
+            'dev/naturalis/rule/RuleSyncEvents.java',
+            'dev/naturalis/instinct/InstinctEvents.java',
+            'dev/naturalis/gameplay/KnowledgeLevelEvents.java',
+            'dev/naturalis/resonance/ResonanceEvents.java',
+            'dev/naturalis/gameplay/NaturalisGameplayEvents.java',
+            'dev/naturalis/client/MorphHandOffsetClientEvents.java',
+            'dev/naturalis/client/WolfVisionClientEvents.java',
+            'dev/naturalis/worldgen/WorldgenRegistration.java',
+            'dev/naturalis/worldgen/NaturalisFeatures.java',
+            'dev/naturalis/effect/BrewedMorphBrewingEvents.java',
+            'dev/naturalis/effect/WitchMorphBindingEvents.java',
+            'dev/naturalis/effect/MorphEffectEvents.java',
+            'dev/naturalis/diet/DietEvents.java',
+            'dev/naturalis/environment/EnvironmentalSusceptibilityEvents.java',
+            'dev/naturalis/inventory/InventoryRestrictionEvents.java',
+            'dev/naturalis/metabolism/MetabolismEvents.java',
+            'dev/naturalis/content/NaturalisMobEffects.java',
+            'dev/naturalis/client/HumanityHudClientEvents.java',
+            'dev/naturalis/client/MorphMusicClientEvents.java',
+            'dev/naturalis/client/MorphTextRefreshClientEvents.java',
+            'dev/naturalis/client/MorphFovClientEvents.java',
+            'dev/naturalis/client/InventoryRestrictionClientEvents.java',
+            'dev/naturalis/client/NaturalisClient.java',
+            'dev/naturalis/client/PotionTooltipClientEvents.java',
+            'dev/naturalis/content/NaturalisCreativeTabs.java',
+            'dev/naturalis/content/NaturalisBlockEntities.java',
+            'dev/naturalis/content/NaturalisMenus.java',
+            'dev/naturalis/content/NaturalisItems.java',
+            'dev/naturalis/content/NaturalisEntityTypes.java',
+            'dev/naturalis/content/NaturalisBlocks.java',
+            'dev/naturalis/chat/FeralChatSystem.java',
+            'dev/naturalis/client/MorphArmorRenderLayer.java',
+            'dev/naturalis/item/MorphArmorItem.java',
+            'dev/naturalis/item/BrewedMorphPotionItem.java',
+            'dev/naturalis/item/MorphOrbItem.java',
+            'dev/naturalis/item/FilledEchoVialItem.java',
+            'dev/naturalis/item/MorphArmorEvents.java',
+            'dev/naturalis/item/MorphOnlyToolItem.java',
+            'dev/naturalis/util/CurrentMorphUtil.java',
+            'dev/naturalis/util/MorphAcquisition.java',
+            'dev/naturalis/mixin/DisableAbilityKeyMixin.java',
+            'dev/naturalis/mixin/DisableKillMorphMixin.java',
+            'dev/naturalis/mixin/DisableRemorphedMenuWhenBoundMixin.java',
+            'dev/naturalis/mixin/DisableWalkersTransformWhenBoundMixin.java',
+            'dev/naturalis/world/EchoForgeBlockEntity.java',
+            'dev/naturalis/world/MorphArmorForgeBlockEntity.java',
+            'dev/naturalis/world/EchoForgeBlock.java',
+            'dev/naturalis/world/MorphArmorForgeBlock.java',
+            'dev/naturalis/world/MorphBeaconBlock.java',
+            'dev/naturalis/world/MorphBeaconBlockEntity.java',
+            'dev/naturalis/world/menu/MorphBeaconMenu.java',
+            'dev/naturalis/client/render/MorphBeaconRenderer.java',
+            'dev/naturalis/client/screen/MorphBeaconScreen.java',
+        ] as Set<String>
+        return relPath in excludedFromCommon
+    }
+}

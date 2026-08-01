@@ -1,0 +1,5 @@
+{
+    "entity": "iceandfire:myrmex_worker",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 0.9
+}

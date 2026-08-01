@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GEG",
+        "BOV",
+        "GGG"
+    ],
+    "key": {
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "E": {
+            "item": "minecraft:echo_shard"
+        },
+        "B": {
+            "item": "minecraft:writable_book"
+        },
+        "O": {
+            "item": "naturalis:morph_orb"
+        },
+        "V": {
+            "item": "naturalis:filled_echo_vial"
+        }
+    },
+    "result": {
+        "item": "naturalis:memory_token",
+        "count": 1
+    }
+}

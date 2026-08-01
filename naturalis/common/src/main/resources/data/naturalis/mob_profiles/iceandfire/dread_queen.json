@@ -1,0 +1,27 @@
+{
+    "entity": "iceandfire:dread_queen",
+    "inherits": "naturalis:boss_entity",
+    "mass": 7.0,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 3,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:void_vision",
+        "chromatic_mode": "mono",
+        "spectral_profile": 0.7
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "dread",
+        "boss"
+    ]
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "naturalis",
+  "version": "1.4.0",
+  "name": "Naturalis",
+  "description": "Realistic survival mechanics. Requires CraftedCore, Woodwalkers and Remorphed.",
+  "authors": ["Swyde"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.naturalis.fabric.NaturalisFabricEntrypoint"
+    ],
+    "client": [
+      "dev.naturalis.fabric.NaturalisFabricClientEntrypoint"
+    ]
+  },
+  "mixins": [
+    "naturalis.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "fabric": "*",
+    "minecraft": "~1.21.8",
+    "java": ">=21",
+    "craftedcore": "*",
+    "walkers": "*",
+    "remorphed": "*"
+  }
+}

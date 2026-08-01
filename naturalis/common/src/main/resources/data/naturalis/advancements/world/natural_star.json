@@ -1,0 +1,30 @@
+{
+  "parent": "naturalis:root",
+  "display": {
+    "icon": {
+      "id": "naturalis:natural_star"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.natural_star.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.natural_star.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_natural_star": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "naturalis:natural_star"
+          }
+        ]
+      }
+    }
+  }
+}

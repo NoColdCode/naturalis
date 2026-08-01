@@ -1,0 +1,9 @@
+﻿{
+  "type": "naturalis:natural_dimension_type",
+  "generator": {
+    "type": "naturalis:island",
+    "biome_source": {
+      "type": "naturalis:island"
+    }
+  }
+}

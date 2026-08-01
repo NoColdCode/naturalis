@@ -1,0 +1,95 @@
+# Naturalis — Git ignore (GitHub / local builds)
+
+# --- Gradle ---
+.gradle/
+.gradle-user-home*/
+**/build/
+**/out/
+**/classes/
+**/bin/
+**/generated/
+**/reports/
+**/test-results/
+**/tmp/
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# --- Run / game dirs (dev clients & servers) ---
+**/run/
+**/runs/
+run/
+logs/
+**/logs/
+crash-reports/
+**/crash-reports/
+saves/
+**/saves/
+usercache.json
+**/usercache.json
+usernamecache.json
+**/options.txt
+**/command_history.txt
+
+# --- IDE / editors ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.shelf/
+.project
+.classpath
+.settings/
+.metadata/
+*.launch
+.vscode/
+*.code-workspace
+.eclipse/
+*.swp
+*~
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Java crash / HS dumps ---
+hs_err_pid*.log
+replay_pid*.log
+*.hprof
+
+# --- Local scratch / unpack / smoke ---
+.tmp_*/
+tmp_*/
+**/tmp_*/
+**/_decomp/
+**/_walkers*/
+**/tmp_verify*/
+**/tmp_unpack/
+extracted.CHANGELOG.md
+*-errors.txt
+*-errors-utf8.txt
+tmp_mc_*.json
+
+# --- Local dependency jars (use Gradle deps; keep checked-in jars only if intentional) ---
+# Uncomment if libs/ should never be committed:
+# libs/
+# **/libs/*.jar
+
+# --- NeoForge / Forge / Fabric tooling ---
+.architectury-transformer/
+**/loom-cache/
+**/remapClasspath.txt
+**/classpath.txt
+
+# --- Secrets / local env ---
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+credentials.json
+local.properties
+
+# --- Cursor / agent noise (optional local) ---
+.cursor/
+agent-transcripts/

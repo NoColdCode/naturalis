@@ -1,0 +1,32 @@
+{
+    "diet": "carnivore",
+    "mass": 2.1,
+    "instinct": {
+        "flight_only": true,
+        "smell_strength": 2,
+        "fears": [
+            "water"
+        ],
+        "hunt_prey": [
+            "minecraft:rabbit",
+            "minecraft:chicken"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:avian_vision",
+        "chromatic_mode": "quad",
+        "kaleido_strength": 0.15,
+        "kaleido_folds": 4
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile"
+        ],
+        "primary": "aerial"
+    },
+    "tags": [
+        "flying",
+        "predator"
+    ]
+}

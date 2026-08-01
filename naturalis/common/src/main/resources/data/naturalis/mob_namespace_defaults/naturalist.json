@@ -1,0 +1,46 @@
+{
+    "namespace": "naturalist",
+    "default_inherits": "naturalis:ground_herbivore",
+    "overrides": {
+        "bass": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "piscivore",
+            "mass": 0.8
+        },
+        "catfish": {
+            "inherits": "naturalis:aquatic_predator",
+            "diet": "piscivore",
+            "mass": 1.2
+        },
+        "butterfly": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "nectarivore",
+            "mass": 0.2
+        },
+        "dragonfly": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "insectivore",
+            "mass": 0.25
+        },
+        "firefly": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "nectarivore",
+            "mass": 0.15
+        },
+        "caterpillar": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "herbivore",
+            "mass": 0.2
+        },
+        "snail": {
+            "inherits": "naturalis:insect_arthropod",
+            "diet": "herbivore",
+            "mass": 0.35,
+            "instinct": {
+                "walk_speed": 0.18,
+                "wander": true,
+                "smell_strength": 1
+            }
+        }
+    }
+}

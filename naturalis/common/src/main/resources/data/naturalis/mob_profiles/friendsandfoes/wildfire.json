@@ -1,0 +1,39 @@
+{
+    "entity": "friendsandfoes:wildfire",
+    "inherits": "naturalis:nether_native",
+    "mass": 4.5,
+    "diet": "carnivore",
+    "instinct": {
+        "flight_only": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "fears": [
+            "water"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.6
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true
+    },
+    "biome_suitability": {
+        "volcanic": true
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "nether",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "nether",
+        "blaze"
+    ]
+}

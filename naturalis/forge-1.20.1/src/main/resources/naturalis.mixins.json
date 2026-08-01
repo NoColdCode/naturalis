@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.naturalis.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "naturalis.mixins.refmap.json",
+  "mixins": [
+    "DisableKillMorphMixin"
+  ],
+  "client": [
+    "DisableAbilityKeyMixin",
+    "DisableRemorphedMenuWhenBoundMixin",
+    "NaturalBiomeSuitabilityIconMixin",
+    "SignTextComprehensionMixin",
+    "DisableWalkersTransformWhenBoundMixin",
+    "MorphQuickSlotTransformMixin",
+    "MorphQuickSlotAssignMixin",
+    "QuadrupedContainerRestrictionMixin",
+    "MorphBlockBreakClientMixin",
+    "client.NaturalisCameraMixin",
+    "client.ForgeWalkersShapeHandItemsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

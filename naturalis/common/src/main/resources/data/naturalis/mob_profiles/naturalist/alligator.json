@@ -1,0 +1,31 @@
+{
+    "entity": "naturalist:alligator",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 4.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "hunt_prey": [
+            "minecraft:chicken",
+            "minecraft:rabbit",
+            "naturalist:deer"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "quick_slot": {
+        "categories": [
+            "aquatic",
+            "hostile"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "reptile",
+        "predator"
+    ]
+}

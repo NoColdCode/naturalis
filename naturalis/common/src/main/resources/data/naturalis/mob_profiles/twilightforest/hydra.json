@@ -1,0 +1,37 @@
+{
+    "entity": "twilightforest:hydra",
+    "inherits": "naturalis:boss_entity",
+    "mass": 14.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "fears": [
+            "water"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.65
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true
+    },
+    "biome_suitability": {
+        "volcanic": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "twilightforest",
+        "boss"
+    ]
+}

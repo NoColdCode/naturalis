@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 16, "xz_spread": 5, "y_spread": 1,
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              { "weight": 5, "data": { "Name": "minecraft:purpur_block" } },
+              { "weight": 3, "data": { "Name": "minecraft:purpur_pillar", "Properties": { "axis": "y" } } },
+              { "weight": 2, "data": { "Name": "minecraft:end_stone_bricks" } }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "offset": [0, -1, 0],
+            "blocks": ["minecraft:end_stone", "minecraft:end_stone_bricks", "minecraft:purpur_block"]
+          }
+        }
+      ]
+    }
+  }
+}

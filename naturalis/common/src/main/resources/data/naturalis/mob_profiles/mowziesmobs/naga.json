@@ -1,0 +1,10 @@
+{
+    "entity": "mowziesmobs:naga",
+    "inherits": "naturalis:serpent_aquatic",
+    "mass": 6.2,
+    "instinct": {
+        "fears": [
+            "iron_golem"
+        ]
+    }
+}

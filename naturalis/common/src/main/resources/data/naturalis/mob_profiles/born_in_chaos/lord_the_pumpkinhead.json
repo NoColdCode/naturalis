@@ -1,0 +1,6 @@
+{
+    "entity": "born_in_chaos:lord_the_pumpkinhead",
+    "inherits": "naturalis:boss_entity",
+    "mass": 6.0,
+    "diet": "scavenger"
+}

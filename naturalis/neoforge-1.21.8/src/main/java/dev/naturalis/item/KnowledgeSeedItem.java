@@ -1,0 +1,61 @@
+package dev.naturalis.item;
+
+import dev.naturalis.knowledge.MorphKnowledgeManager;
+import dev.naturalis.util.CurrentMorphUtil;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.Level;
+
+import java.util.function.Consumer;
+
+public class KnowledgeSeedItem extends Item {
+
+    public KnowledgeSeedItem(Properties properties) {
+        super(properties);
+    }
+
+    @Override
+    public InteractionResult use(Level level, Player player, InteractionHand usedHand) {
+        ItemStack stack = player.getItemInHand(usedHand);
+
+        if (!(player instanceof ServerPlayer serverPlayer)) {
+            return InteractionResult.SUCCESS;
+        }
+
+        ResourceLocation currentMorph = CurrentMorphUtil.getCurrentMorphId(serverPlayer);
+        if (currentMorph == null) {
+            serverPlayer.displayClientMessage(Component.translatable("message.naturalis.knowledge_seed.no_morph"), true);
+            return InteractionResult.FAIL;
+        }
+
+        int currentLevel = MorphKnowledgeManager.getLevel(serverPlayer, currentMorph);
+        int maxLevel = MorphKnowledgeManager.getMaxLevel();
+        if (currentLevel >= maxLevel) {
+            serverPlayer.displayClientMessage(Component.translatable("message.naturalis.knowledge_seed.capped"), true);
+            return InteractionResult.FAIL;
+        }
+
+        int newLevel = currentLevel + 1;
+        MorphKnowledgeManager.setLevel(serverPlayer, currentMorph, newLevel);
+
+        if (!serverPlayer.isCreative()) {
+            stack.shrink(1);
+        }
+
+        serverPlayer.displayClientMessage(Component.translatable("message.naturalis.knowledge_seed.applied", currentMorph.toString(), newLevel), true);
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltipAdder, TooltipFlag tooltipFlag) {
+        tooltipAdder.accept(Component.translatable("tooltip.naturalis.knowledge_seed.effect"));
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "entity": "iceandfire:hydra",
+    "inherits": "naturalis:boss_entity",
+    "mass": 10.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2
+    },
+    "vision": {
+        "shader": "naturalis:reptile_vision",
+        "chromatic_mode": "dichrome"
+    },
+    "environment": {
+        "cold_vulnerable": true
+    },
+    "tags": [
+        "boss",
+        "venom"
+    ]
+}

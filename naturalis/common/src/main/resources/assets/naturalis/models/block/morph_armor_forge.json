@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "naturalis:block/morph_armor_forge_side",
+    "up": "naturalis:block/morph_armor_forge_top",
+    "north": "naturalis:block/morph_armor_forge",
+    "south": "naturalis:block/morph_armor_forge_side",
+    "west": "naturalis:block/morph_armor_forge_side",
+    "east": "naturalis:block/morph_armor_forge_side",
+    "particle": "naturalis:block/morph_armor_forge_side"
+  }
+}

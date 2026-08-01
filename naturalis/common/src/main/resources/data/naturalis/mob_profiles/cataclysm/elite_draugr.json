@@ -1,0 +1,28 @@
+{
+    "entity": "cataclysm:elite_draugr",
+    "inherits": "naturalis:undead",
+    "mass": 3.6,
+    "diet": "necrovore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true
+    },
+    "vision": {
+        "shader": "naturalis:undead_vision",
+        "chromatic_mode": "mono"
+    },
+    "environment": {
+        "dry_vulnerable": false
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "cataclysm"
+    ]
+}

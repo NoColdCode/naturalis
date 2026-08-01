@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/milestone_one",
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond_sword"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.milestone_two.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.milestone_two.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

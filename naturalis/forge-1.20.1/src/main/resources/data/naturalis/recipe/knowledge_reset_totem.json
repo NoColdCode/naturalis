@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GLG",
+        "O O",
+        "GLG"
+    ],
+    "key": {
+        "G": {
+            "item": "minecraft:glowstone_dust"
+        },
+        "L": {
+            "item": "minecraft:lapis_lazuli"
+        },
+        "O": {
+            "item": "naturalis:morph_orb"
+        }
+    },
+    "result": {
+        "item": "naturalis:knowledge_reset_totem",
+        "count": 1
+    }
+}

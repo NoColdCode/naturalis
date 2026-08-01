@@ -1,0 +1,49 @@
+{
+    "namespace": "twilightforest",
+    "default_inherits": "naturalis:large_predator",
+    "overrides": {
+        "bighorn_sheep": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "herbivore",
+            "mass": 2.8
+        },
+        "boar": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "omnivore",
+            "mass": 3.0
+        },
+        "deer": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "herbivore",
+            "mass": 2.6
+        },
+        "dwarf_rabbit": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "herbivore",
+            "mass": 0.5
+        },
+        "penguin": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "piscivore",
+            "mass": 1.2
+        },
+        "quest_ram": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "herbivore",
+            "mass": 4.0
+        },
+        "raven": {
+            "inherits": "naturalis:frugivore_bird",
+            "mass": 0.5
+        },
+        "squirrel": {
+            "inherits": "naturalis:ground_herbivore",
+            "diet": "frugivore",
+            "mass": 0.4
+        },
+        "tiny_bird": {
+            "inherits": "naturalis:frugivore_bird",
+            "mass": 0.25
+        }
+    }
+}

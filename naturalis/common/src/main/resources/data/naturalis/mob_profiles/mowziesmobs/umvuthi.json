@@ -1,0 +1,9 @@
+{
+    "entity": "mowziesmobs:umvuthi",
+    "inherits": "naturalis:boss_entity",
+    "mass": 7.5,
+    "diet": "frugivore",
+    "instinct": {
+        "flight_only": true
+    }
+}

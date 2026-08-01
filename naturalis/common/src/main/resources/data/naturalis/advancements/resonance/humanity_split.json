@@ -1,0 +1,23 @@
+{
+  "parent": "naturalis:resonance/humanity_drifting",
+  "display": {
+    "icon": {
+      "id": "minecraft:fermented_spider_eye"
+    },
+    "title": {
+      "translate": "advancements.naturalis.resonance.humanity_split.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.resonance.humanity_split.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

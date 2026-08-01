@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "naturalis:echo_block",
+    "naturalis:echo_forge",
+    "naturalis:morph_armor_forge"
+  ]
+}

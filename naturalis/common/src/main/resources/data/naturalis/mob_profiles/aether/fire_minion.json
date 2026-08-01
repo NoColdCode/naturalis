@@ -1,0 +1,36 @@
+{
+    "entity": "aether:fire_minion",
+    "inherits": "naturalis:nether_native",
+    "mass": 2.5,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": true,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "fears": [
+            "water"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.5
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true
+    },
+    "biome_suitability": {
+        "volcanic": true
+    },
+    "quick_slot": {
+        "categories": [
+            "hostile",
+            "ground"
+        ],
+        "primary": "hostile"
+    },
+    "tags": [
+        "aether"
+    ]
+}

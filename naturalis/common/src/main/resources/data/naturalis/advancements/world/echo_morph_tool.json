@@ -1,0 +1,39 @@
+{
+  "parent": "naturalis:root",
+  "display": {
+    "icon": {
+      "id": "naturalis:echo_morph_pick"
+    },
+    "title": {
+      "translate": "advancements.naturalis.world.echo_morph_tool.title"
+    },
+    "description": {
+      "translate": "advancements.naturalis.world.echo_morph_tool.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_any_echo_morph_tool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "naturalis:echo_morph_blade"
+          },
+          {
+            "items": "naturalis:echo_morph_pick"
+          },
+          {
+            "items": "naturalis:echo_morph_axe"
+          },
+          {
+            "items": "naturalis:echo_morph_shovel"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "entity": "friendsandfoes:tuff_golem",
+    "inherits": "naturalis:golem_construct",
+    "mass": 5.5,
+    "diet": "lithovore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 0
+    },
+    "vision": {
+        "shader": "naturalis:ferrous_vision",
+        "chromatic_mode": "mono"
+    },
+    "biome_suitability": {
+        "cave_adapted": true
+    },
+    "tags": [
+        "golem",
+        "construct"
+    ]
+}

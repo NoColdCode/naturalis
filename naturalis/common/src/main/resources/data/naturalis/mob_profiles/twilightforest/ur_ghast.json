@@ -1,0 +1,39 @@
+{
+    "entity": "twilightforest:ur_ghast",
+    "inherits": "naturalis:boss_entity",
+    "mass": 13.0,
+    "diet": "carnivore",
+    "instinct": {
+        "wander": false,
+        "smell_strength": 3,
+        "nyctalop_hostile": true,
+        "flight_only": true,
+        "fears": [
+            "water"
+        ]
+    },
+    "vision": {
+        "shader": "naturalis:nether_vision",
+        "chromatic_mode": "mono",
+        "motion_trail": 0.65
+    },
+    "environment": {
+        "cold_vulnerable": true,
+        "wet_vulnerable": true
+    },
+    "biome_suitability": {
+        "volcanic": true
+    },
+    "quick_slot": {
+        "categories": [
+            "aerial",
+            "hostile",
+            "high_damage"
+        ],
+        "primary": "high_damage"
+    },
+    "tags": [
+        "twilightforest",
+        "boss"
+    ]
+}

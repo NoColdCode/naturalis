@@ -1,0 +1,31 @@
+{
+    "entity": "cataclysm:hippocamtus",
+    "inherits": "naturalis:aquatic_predator",
+    "mass": 3.2,
+    "diet": "piscivore",
+    "instinct": {
+        "wander": true,
+        "walk_speed": 1.2,
+        "smell_strength": 2,
+        "nyctalop_hostile": true,
+        "hunt_prey": [
+            "minecraft:cod",
+            "minecraft:salmon",
+            "minecraft:squid",
+            "cataclysm:deepling"
+        ]
+    },
+    "environment": {
+        "dry_vulnerable": true
+    },
+    "vision": {
+        "shader": "naturalis:aquatic_vision",
+        "chromatic_mode": "dichrome",
+        "motion_trail": 0.5
+    },
+    "quick_slot": {
+        "categories": ["aquatic", "hostile"],
+        "primary": "aquatic"
+    },
+    "tags": ["cataclysm", "aquatic", "acropolis"]
+}

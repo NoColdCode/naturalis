@@ -1,0 +1,26 @@
+{
+    "targets": { "swap": {}, "swap2": {} },
+    "passes": [
+        {
+            "vertex_shader": "minecraft:post/blit",
+            "fragment_shader": "naturalis:post/nether_vision",
+            "inputs": [{ "sampler_name": "In", "target": "minecraft:main" }],
+            "output": "swap"
+        },
+        {
+            "vertex_shader": "minecraft:post/blit",
+            "fragment_shader": "naturalis:post/scent_vision",
+            "inputs": [{ "sampler_name": "In", "target": "swap" }],
+            "output": "swap2"
+        },
+        {
+            "vertex_shader": "minecraft:post/blit",
+            "fragment_shader": "minecraft:post/blit",
+            "inputs": [{ "sampler_name": "In", "target": "swap2" }],
+            "uniforms": {
+                "BlitConfig": [{ "name": "ColorModulate", "type": "vec4", "value": [1, 1, 1, 1] }]
+            },
+            "output": "minecraft:main"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "entity": "iceandfire:myrmex_soldier",
+    "inherits": "naturalis:insect_arthropod",
+    "mass": 1.2,
+    "quick_slot": {
+        "primary": "hostile"
+    }
+}
