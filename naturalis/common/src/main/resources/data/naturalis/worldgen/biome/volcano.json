@@ -19,7 +19,7 @@
     ]
   },
   "spawn_costs": {},
-  "carvers": [],
+  "carvers": {},
   "features": [
     [],
     [ "naturalis:volcano_lava_pools" ],

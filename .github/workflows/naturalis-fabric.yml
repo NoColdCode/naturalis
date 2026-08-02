@@ -1,4 +1,4 @@
-name: Naturalis Fabric compile
+name: Naturalis multi-loader compile
 
 on:
   push:
@@ -15,7 +15,7 @@ defaults:
     working-directory: naturalis
 
 jobs:
-  fabric:
+  compile-all:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,8 +25,11 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Compile Fabric 1.21.8
-        run: ./gradlew :fabric-1.21.8:compileJava --no-daemon
-
-      - name: Compile Fabric 1.21.1
-        run: ./gradlew :fabric-1.21.1:compileJava --no-daemon
+      - name: Compile all loaders
+        run: >
+          ./gradlew --no-daemon
+          :neoforge-1.21.1:compileJava
+          :neoforge-1.21.8:compileJava
+          :forge-1.20.1:compileJava
+          :fabric-1.21.1:compileJava
+          :fabric-1.21.8:compileJava

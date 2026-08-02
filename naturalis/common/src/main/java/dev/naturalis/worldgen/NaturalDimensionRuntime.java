@@ -515,14 +515,22 @@ public final class NaturalDimensionRuntime {
                 level.setWeatherParameters(0, 600, false, true);
             }
 
+            if (level.isThundering() && gameTime % 40L == 0L) {
+                var storm = CompatAccess.naturalisMobEffectHolder("storm_attunement");
+                var binding = CompatAccess.naturalisMobEffectHolder("morph_binding");
+                for (ServerPlayer player : level.players()) {
+                    if (!player.hasEffect(storm)) {
+                        player.addEffect(new net.minecraft.world.effect.MobEffectInstance(storm, 120, 0, true, false, true));
+                    }
+                    if (!player.hasEffect(binding)) {
+                        player.addEffect(new net.minecraft.world.effect.MobEffectInstance(binding, 120, 0, true, false, true));
+                    }
+                }
+            }
+
             for (ServerPlayer player : level.players()) {
                 if (gameTime % NATURAL_HUMANITY_DRAIN_TICKS == 0L && ResonanceManager.isResonanceEnabled(player)) {
                     ResonanceManager.addHumanity(player, -1);
-                }
-
-                if (level.isThundering()) {
-                    player.addEffect(new net.minecraft.world.effect.MobEffectInstance(CompatAccess.naturalisMobEffectHolder("storm_attunement"), 120, 0, true, false, true));
-                    player.addEffect(new net.minecraft.world.effect.MobEffectInstance(CompatAccess.naturalisMobEffectHolder("morph_binding"), 120, 0, true, false, true));
                 }
             }
 

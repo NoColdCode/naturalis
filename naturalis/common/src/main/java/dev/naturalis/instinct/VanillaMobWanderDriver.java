@@ -47,8 +47,8 @@ public final class VanillaMobWanderDriver {
 
         applyMotionAndSmoothLook(player, proxy, anchor);
 
-        var tag = InstinctEvents.getOrCreateInstinctTag(player);
-        tag.putLong(InstinctEvents.WANDER_UNTIL_TICK, now + 40L);
+        var tag = InstinctLogic.getOrCreateInstinctTag(player);
+        tag.putLong(InstinctLogic.WANDER_UNTIL_TICK, now + 40L);
 
         if (InstinctDebug.enabled()) {
             Vec3 delta = proxy.getDeltaMovement();
@@ -96,9 +96,9 @@ public final class VanillaMobWanderDriver {
         player.setXRot(pitch);
         player.hurtMarked = true;
 
-        var tag = InstinctEvents.getOrCreateInstinctTag(player);
-        tag.putFloat(InstinctEvents.WANDER_SYNC_YAW, yaw);
-        tag.putFloat(InstinctEvents.WANDER_SYNC_PITCH, pitch);
+        var tag = InstinctLogic.getOrCreateInstinctTag(player);
+        tag.putFloat(InstinctLogic.WANDER_SYNC_YAW, yaw);
+        tag.putFloat(InstinctLogic.WANDER_SYNC_PITCH, pitch);
 
         WanderLookSync.send(player, new WanderLookPayload(true, yaw, pitch, bodyYaw));
     }

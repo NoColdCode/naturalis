@@ -1,16 +1,17 @@
 package dev.naturalis.survivalas;
 
 import dev.naturalis.compat.CompatAccess;
-import dev.naturalis.content.NaturalisMobEffects;
 import dev.naturalis.network.HumanityPayload;
 import dev.naturalis.network.PlayToClientSender;
 import dev.naturalis.network.SurvivalAsLockPayload;
 import dev.naturalis.network.SurvivalAsTraitsPayload;
 import dev.naturalis.util.CurrentMorphUtil;
 import dev.naturalis.util.MorphAcquisition;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffect;
 
 /**
  * Applies Survival-as identity: morph lock via world rules (not Morph Binding),
@@ -118,7 +119,8 @@ public final class SurvivalAsRuntime {
             return;
         }
         // Strip leftover Morph Binding from older Survival-as saves.
-        if (player.hasEffect(NaturalisMobEffects.MORPH_BINDING)) {
+        Holder<MobEffect> binding = CompatAccess.naturalisMobEffectHolder("morph_binding");
+        if (player.hasEffect(binding)) {
             clearLegacyBinding(player);
         }
         ResourceLocation current = CurrentMorphUtil.getCurrentMorphId(player);
@@ -193,8 +195,9 @@ public final class SurvivalAsRuntime {
 
     /** Older Survival-as worlds applied Morph Binding; strip it so the HUD stays clean. */
     private static void clearLegacyBinding(ServerPlayer player) {
-        if (player.hasEffect(NaturalisMobEffects.MORPH_BINDING)) {
-            player.removeEffect(NaturalisMobEffects.MORPH_BINDING);
+        Holder<MobEffect> binding = CompatAccess.naturalisMobEffectHolder("morph_binding");
+        if (player.hasEffect(binding)) {
+            player.removeEffect(binding);
         }
     }
 }

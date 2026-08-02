@@ -1,6 +1,9 @@
 package dev.naturalis.fabric;
 
 import dev.naturalis.client.render.EchoSovereignRenderer;
+import dev.naturalis.fabric.client.FabricExperienceClientHooks;
+import dev.naturalis.fabric.client.FabricClientPolishHooks;
+import dev.naturalis.fabric.client.FabricInventoryClientHooks;
 import dev.naturalis.fabric.client.FabricNaturalisClientScreens;
 import dev.naturalis.network.CurlSleepTogglePayload;
 import dev.naturalis.network.MorphMovementKeyPayload;
@@ -50,9 +53,12 @@ public final class NaturalisFabricClientEntrypoint implements ClientModInitializ
     public void onInitializeClient() {
         // Payload types are registered in NaturalisFabricEntrypoint (runs before client init); do not register twice.
         FabricNetworkBootstrap.registerClientHandlers();
+        FabricExperienceClientHooks.register();
         EntityRendererRegistry.register(FabricNaturalisEntityTypes.ECHO_SOVEREIGN, EchoSovereignRenderer::new);
         FabricNaturalisClientScreens.register();
         FabricVisionEvents.register();
+        FabricInventoryClientHooks.register();
+        FabricClientPolishHooks.register();
         KeyBindingHelper.registerKeyBinding(OPEN_KNOWLEDGE_KEY);
         KeyBindingHelper.registerKeyBinding(RESONANCE_INSTINCT_KEY);
         KeyBindingHelper.registerKeyBinding(CURL_SLEEP_KEY);

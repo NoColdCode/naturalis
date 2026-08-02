@@ -7,6 +7,7 @@ import dev.naturalis.item.BrewedMorphPotionItem;
 import dev.naturalis.item.FilledEchoVialItem;
 import dev.naturalis.item.FixedNameLingeringPotionItem;
 import dev.naturalis.item.FixedNameSplashPotionItem;
+import dev.naturalis.item.HabitChrysalisItem;
 import dev.naturalis.item.MorphBindingPotionItem;
 import dev.naturalis.item.MorphArmorItem;
 import dev.naturalis.item.MorphOnlyToolItem;
@@ -72,6 +73,7 @@ public final class FabricNaturalisItems {
     public static final Item HUMAN_AMULET = register("human_amulet", new Item(properties("human_amulet").stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final Item NATURAL_STAR = register("natural_star", new Item(properties("natural_star").stacksTo(64).rarity(Rarity.RARE).fireResistant()));
     public static final Item SOVEREIGN_AMULET = register("sovereign_amulet", new Item(properties("sovereign_amulet").stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+    public static final Item HABIT_CHRYSALIS = register("habit_chrysalis", new HabitChrysalisItem(properties("habit_chrysalis").stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
 
     public static final Item ECHO_MORPH_BLADE = register("echo_morph_blade", new MorphOnlyToolItem(properties("echo_morph_blade").stacksTo(1).durability(768), MobEffects.DAMAGE_BOOST, 200, 120));
     public static final Item ECHO_MORPH_PICK = register("echo_morph_pick", new MorphOnlyToolItem(properties("echo_morph_pick").stacksTo(1).durability(768), MobEffects.DIG_SPEED, 240, 120));
@@ -114,6 +116,7 @@ public final class FabricNaturalisItems {
                 output.accept(HUMAN_AMULET);
                 output.accept(NATURAL_STAR);
                 output.accept(SOVEREIGN_AMULET);
+                output.accept(HABIT_CHRYSALIS);
                 output.accept(ECHO_MORPH_BLADE);
                 output.accept(ECHO_MORPH_PICK);
                 output.accept(ECHO_MORPH_AXE);

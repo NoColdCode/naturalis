@@ -2,6 +2,7 @@ package dev.naturalis.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import dev.naturalis.inventory.InventoryRestrictionManager;
 import dev.naturalis.util.CurrentMorphUtil;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
@@ -31,7 +32,7 @@ public final class MorphQuadrupedMouthRender {
             return false;
         }
         ResourceLocation morphId = CurrentMorphUtil.getCurrentMorphId(player);
-        return MorphQuadrupedShapeCache.isQuadrupedMorph(morphId);
+        return morphId != null && InventoryRestrictionManager.isQuadruped(morphId);
     }
 
     public static void hideShapeHandItems(LivingEntity shape) {

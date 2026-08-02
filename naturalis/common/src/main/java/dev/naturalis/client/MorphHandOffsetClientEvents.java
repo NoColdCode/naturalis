@@ -54,7 +54,7 @@ public final class MorphHandOffsetClientEvents {
         breakAnim = Mth.lerp(0.35F, breakAnim, isBreaking ? 1.0F : 0.0F);
         placeAnim = Mth.lerp(0.35F, placeAnim, isPlacing ? 1.0F : 0.0F);
 
-        double multiplier = MorphFovClientEvents.getActiveMorphFovMultiplier(mc);
+        double multiplier = MorphFovLogic.getActiveMorphFovMultiplier(mc);
         if (multiplier <= MIN_MULTIPLIER + 1.0E-6D) {
             // Keep animation optional to morph only; normal player remains vanilla.
             return;

@@ -8,6 +8,7 @@ import dev.naturalis.content.NaturalisMobEffects;
 import dev.naturalis.item.BrewedMorphPotionItem;
 import dev.naturalis.resonance.ResonanceManager;
 import dev.naturalis.util.CurrentMorphUtil;
+import dev.naturalis.util.MorphAcquisition;
 import dev.naturalis.util.MorphDataUtil;
 import dev.naturalis.util.MorphShapeUtil;
 import dev.naturalis.morph.quickslot.MorphQuickSlotServerSession;
@@ -986,23 +987,7 @@ public final class MorphEffectEvents {
     }
 
     public static boolean forceHuman(ServerPlayer player) {
-        if (PlayerShape.getCurrentShape(player) == null) {
-            return true;
-        }
-
-        try {
-            boolean swapped = PlayerShape.updateShapes(player, null);
-            if (!swapped) {
-                PlayerDataProvider provider = (PlayerDataProvider) player;
-                provider.walkers$updateShapes(null);
-                swapped = true;
-            }
-            player.refreshDimensions();
-            PlayerShape.sync(player);
-            return swapped;
-        } catch (Throwable ignored) {
-            return false;
-        }
+        return MorphAcquisition.forceHuman(player);
     }
 
     private static void grantAdvancement(ServerPlayer player, ResourceLocation id) {

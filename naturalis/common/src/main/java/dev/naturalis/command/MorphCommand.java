@@ -3,7 +3,8 @@ package dev.naturalis.command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import dev.naturalis.NaturalisMod;
-import dev.naturalis.experience.NaturalisExperienceEvents;
+import dev.naturalis.compat.CompatAccess;
+import dev.naturalis.experience.NaturalisExperienceRuntime;
 import dev.naturalis.experience.NaturalisExperienceMode;
 import dev.naturalis.experience.NaturalisWorldExperienceStorage;
 import dev.naturalis.combat.NaturalAttackManager;
@@ -12,6 +13,7 @@ import dev.naturalis.knowledge.MorphKnowledgeManager;
 import dev.naturalis.metabolism.MassInertiaManager;
 import dev.naturalis.metabolism.MetabolismManager;
 import dev.naturalis.resonance.ResonanceManager;
+import dev.naturalis.survivalas.SurvivalAsAvailability;
 import dev.naturalis.util.CurrentMorphUtil;
 import dev.naturalis.world.menu.MorphKnowledgeMenu;
 import net.minecraft.commands.CommandBuildContext;
@@ -83,6 +85,7 @@ public final class MorphCommand {
                 .then(Commands.literal("status")
                     .executes(ctx -> executeExperienceStatus(ctx.getSource()))))
             .then(Commands.literal("survival_as")
+                .requires(source -> SurvivalAsAvailability.isSupported())
                 .then(Commands.literal("status")
                     .executes(ctx -> executeSurvivalAsStatus(ctx.getSource())))
                 .then(Commands.literal("set")
@@ -725,7 +728,7 @@ public final class MorphCommand {
             source.sendFailure(Component.translatable("command.naturalis.player_only"));
             return 0;
         }
-        NaturalisExperienceEvents.requestChoiceScreen(player);
+        NaturalisExperienceRuntime.requestChoiceScreen(player);
         return 1;
     }
 
@@ -735,7 +738,7 @@ public final class MorphCommand {
             source.sendFailure(Component.translatable("command.naturalis.player_only"));
             return 0;
         }
-        if (!NaturalisExperienceEvents.applyChoice(player, mode)) {
+        if (!NaturalisExperienceRuntime.applyChoice(player, mode)) {
             source.sendFailure(Component.translatable("command.naturalis.experience.denied"));
             return 0;
         }
@@ -797,7 +800,7 @@ public final class MorphCommand {
         }
         ServerPlayer player = source.getPlayer();
         if (player != null) {
-            player.removeEffect(dev.naturalis.content.NaturalisMobEffects.MORPH_BINDING);
+            player.removeEffect(CompatAccess.naturalisMobEffectHolder("morph_binding"));
         }
         dev.naturalis.survivalas.SurvivalAsWorldStorage.disable(source.getServer());
         source.sendSuccess(() -> Component.translatable("command.naturalis.survival_as.cleared"), true);

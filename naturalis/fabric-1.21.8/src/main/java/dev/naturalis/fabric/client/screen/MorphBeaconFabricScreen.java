@@ -208,9 +208,8 @@ public class MorphBeaconFabricScreen extends AbstractContainerScreen<MorphBeacon
 
     private void sendMorphId() {
         String id = morphInput.getValue().trim();
-        // TODO: Send packet to server to update beacon morph ID
-        // Objects.requireNonNull(minecraft.getConnection())
-        //     .send(new SetBeaconMorphPayload(menu.getBlockPos(), id));
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.send(
+            new dev.naturalis.network.SetBeaconMorphPayload(((dev.naturalis.fabric.menu.MorphBeaconFabricMenu) this.menu).getBlockPos(), id, ((dev.naturalis.fabric.menu.MorphBeaconFabricMenu) this.menu).targetMode()));
         updatePreviewEntity(id);
     }
 

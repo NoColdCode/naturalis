@@ -1,22 +1,30 @@
 package dev.naturalis.fabric;
 
+import dev.naturalis.client.ExperienceModeClientCache;
 import dev.naturalis.client.HumanityClientCache;
 import dev.naturalis.client.MorphLevelClientCache;
 import dev.naturalis.client.NaturalisClientPrefs;
 import dev.naturalis.client.RuleFlagsClientCache;
 import dev.naturalis.client.ScentTrailClient;
+import dev.naturalis.client.SurvivalAsClientCache;
+import dev.naturalis.client.SurvivalAsTraitsClientPending;
+import dev.naturalis.experience.NaturalisExperienceRuntime;
 import dev.naturalis.fabric.blockentity.MorphBeaconFabricBlockEntity;
 import dev.naturalis.gameplay.FeralCurlSleepSystem;
 import dev.naturalis.gameplay.PrimalMovementState;
 import dev.naturalis.knowledge.KnowledgeClientSync;
 import dev.naturalis.network.ClientSoundPrefsPayload;
 import dev.naturalis.network.CurlSleepTogglePayload;
+import dev.naturalis.network.ExperienceModePayload;
 import dev.naturalis.network.HumanityPayload;
 import dev.naturalis.network.MorphLevelPayload;
 import dev.naturalis.network.MorphMovementKeyPayload;
 import dev.naturalis.network.PlayToClientSender;
 import dev.naturalis.network.RuleFlagsPayload;
 import dev.naturalis.network.ScentHintPayload;
+import dev.naturalis.network.SetExperienceModePayload;
+import dev.naturalis.network.SurvivalAsLockPayload;
+import dev.naturalis.network.SurvivalAsTraitsPayload;
 import dev.naturalis.network.SniffPulsePayload;
 import dev.naturalis.network.ListenPulsePayload;
 import dev.naturalis.network.PeckPulsePayload;
@@ -25,7 +33,9 @@ import dev.naturalis.client.perception.MorphListenClientState;
 import dev.naturalis.client.perception.MorphPeckClientState;
 import dev.naturalis.network.MorphQuickSlotAssignPayload;
 import dev.naturalis.network.MorphQuickSlotPayload;
+import dev.naturalis.network.MorphQuickSlotResyncPayload;
 import dev.naturalis.network.MorphQuickSlotSelectPayload;
+import dev.naturalis.network.SetBeaconMorphPayload;
 import dev.naturalis.morph.quickslot.MorphQuickSlotBridge;
 import dev.naturalis.client.MorphQuickSlotClientState;
 import dev.naturalis.util.CurrentMorphUtil;
@@ -69,6 +79,9 @@ public final class FabricNetworkBootstrap {
         PayloadTypeRegistry.playS2C().register(HumanityPayload.TYPE, HumanityPayload.STREAM_CODEC);
         PayloadTypeRegistry.playS2C().register(RuleFlagsPayload.TYPE, RuleFlagsPayload.STREAM_CODEC);
         PayloadTypeRegistry.playS2C().register(ClientSoundPrefsPayload.TYPE, ClientSoundPrefsPayload.STREAM_CODEC);
+        PayloadTypeRegistry.playS2C().register(ExperienceModePayload.TYPE, ExperienceModePayload.STREAM_CODEC);
+        PayloadTypeRegistry.playS2C().register(SurvivalAsLockPayload.TYPE, SurvivalAsLockPayload.STREAM_CODEC);
+        PayloadTypeRegistry.playS2C().register(SurvivalAsTraitsPayload.TYPE, SurvivalAsTraitsPayload.STREAM_CODEC);
 
         PayloadTypeRegistry.playS2C().register(MorphQuickSlotPayload.TYPE, MorphQuickSlotPayload.STREAM_CODEC);
 
@@ -76,7 +89,9 @@ public final class FabricNetworkBootstrap {
         PayloadTypeRegistry.playC2S().register(MorphMovementKeyPayload.TYPE, MorphMovementKeyPayload.STREAM_CODEC);
         PayloadTypeRegistry.playC2S().register(MorphQuickSlotSelectPayload.TYPE, MorphQuickSlotSelectPayload.STREAM_CODEC);
         PayloadTypeRegistry.playC2S().register(MorphQuickSlotAssignPayload.TYPE, MorphQuickSlotAssignPayload.STREAM_CODEC);
+        PayloadTypeRegistry.playC2S().register(MorphQuickSlotResyncPayload.TYPE, MorphQuickSlotResyncPayload.STREAM_CODEC);
         PayloadTypeRegistry.playC2S().register(SetBeaconMorphPayload.TYPE, SetBeaconMorphPayload.STREAM_CODEC);
+        PayloadTypeRegistry.playC2S().register(SetExperienceModePayload.TYPE, SetExperienceModePayload.STREAM_CODEC);
     }
 
     public static void registerServerHandlers() {
@@ -94,7 +109,8 @@ public final class FabricNetworkBootstrap {
                 int morphLevel = dev.naturalis.knowledge.MorphKnowledgeManager.getLevel(player, morphId);
                 int slots = dev.naturalis.knowledge.MorphKnowledgeManager.getAllowedHotbarSlots(player, morphId);
                 boolean inventoryUnlocked = dev.naturalis.knowledge.MorphKnowledgeManager.canOpenInventory(player, morphId);
-                PlayToClientSender.send(player, new MorphLevelPayload(morphLevel, slots, inventoryUnlocked));
+                int utilitiesRank = dev.naturalis.knowledge.MorphKnowledgeManager.getUtilitiesRank(player, morphId);
+                PlayToClientSender.send(player, new MorphLevelPayload(morphLevel, slots, inventoryUnlocked, utilitiesRank));
             }
         });
 
@@ -122,12 +138,27 @@ public final class FabricNetworkBootstrap {
             }
         }));
 
+        ServerPlayNetworking.registerGlobalReceiver(MorphQuickSlotResyncPayload.TYPE, (payload, context) -> context.player().getServer().execute(() -> {
+            if (context.player() instanceof ServerPlayer player) {
+                MorphQuickSlotBridge.sync(player);
+            }
+        }));
+
         ServerPlayNetworking.registerGlobalReceiver(SetBeaconMorphPayload.TYPE, (payload, context) -> context.player().getServer().execute(() -> {
             if (context.player() instanceof ServerPlayer player) {
                 ServerLevel level = player.level();
                 if (level.getBlockEntity(payload.pos()) instanceof MorphBeaconFabricBlockEntity be) {
                     be.setTargetMorphId(payload.morphId());
+                    if (payload.targetMode() >= 0) {
+                        be.setTargetMode(payload.targetMode());
+                    }
                 }
+            }
+        }));
+
+        ServerPlayNetworking.registerGlobalReceiver(SetExperienceModePayload.TYPE, (payload, context) -> context.player().getServer().execute(() -> {
+            if (context.player() instanceof ServerPlayer player) {
+                NaturalisExperienceRuntime.handleSetExperiencePayload(payload, player);
             }
         }));
     }
@@ -171,6 +202,27 @@ public final class FabricNetworkBootstrap {
                 payload.instinctsEnabled())));
         ClientPlayNetworking.registerGlobalReceiver(ClientSoundPrefsPayload.TYPE, (payload, context) ->
             context.client().execute(() -> NaturalisClientPrefs.setMuteMorphPerceptionSounds(payload.muteMorphPerceptionSounds())));
+        ClientPlayNetworking.registerGlobalReceiver(ExperienceModePayload.TYPE, (payload, context) ->
+            context.client().execute(() -> ExperienceModeClientCache.set(payload.mode(), payload.showPrompt())));
+        ClientPlayNetworking.registerGlobalReceiver(SurvivalAsLockPayload.TYPE, (payload, context) ->
+            context.client().execute(() -> {
+                SurvivalAsClientCache.setLocked(payload.locked());
+                if (payload.locked()) {
+                    ExperienceModeClientCache.clearPromptPending();
+                }
+            }));
+        ClientPlayNetworking.registerGlobalReceiver(SurvivalAsTraitsPayload.TYPE, (payload, context) ->
+            context.client().execute(() -> {
+                SurvivalAsClientCache.setLocked(true);
+                ExperienceModeClientCache.clearPromptPending();
+                SurvivalAsTraitsClientPending.queue(
+                    payload.morphId(),
+                    payload.mass(),
+                    payload.dietId(),
+                    payload.traitIds(),
+                    payload.traitExtras()
+                );
+            }));
         ClientPlayNetworking.registerGlobalReceiver(MorphQuickSlotPayload.TYPE, (payload, context) ->
             context.client().execute(() -> MorphQuickSlotClientState.set(payload.unlockedSlots(), payload.slots(), payload.globalXp())));
     }

@@ -50,8 +50,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class EchoSovereignRuntime {
 
     private static final Map<UUID, ServerBossEvent> BOSS_BARS = new ConcurrentHashMap<>();
+    private static final java.util.Set<UUID> KNOWN_SOVEREIGNS = ConcurrentHashMap.newKeySet();
 
     private static final double BOSS_BAR_RANGE = 100.0D;
+    private static final double SOVEREIGN_SCAN_RADIUS = 96.0D;
 
     private static final String TAG_BOSS = "naturalis_echo_sovereign";
     private static final String TAG_PHASE_DAMAGE = "naturalis_echo_phase_damage";
@@ -68,8 +70,6 @@ public final class EchoSovereignRuntime {
     /** Boss HP stays flat across phase morphs; phase shifts still accumulate every {@link #DAMAGE_THRESHOLD} damage taken. */
     private static final double MIN_SOVEREIGN_HEALTH = 200.0D;
 
-    private static final AABB SOVEREIGN_TICK_BOX = new AABB(-2048, -128, -2048, 2048, 384, 2048);
-
     private EchoSovereignRuntime() {
     }
 
@@ -78,6 +78,7 @@ public final class EchoSovereignRuntime {
         boss.getPersistentData().putFloat(TAG_PHASE_DAMAGE, 0.0F);
         boss.getPersistentData().putInt(TAG_SPECIAL_CD, 90);
         boss.getPersistentData().putInt(TAG_LIGHTNING_CD, 200);
+        KNOWN_SOVEREIGNS.add(boss.getUUID());
 
         boss.setPersistenceRequired();
         boss.setCustomName(Component.translatable("entity.naturalis.echo_sovereign"));
@@ -89,6 +90,52 @@ public final class EchoSovereignRuntime {
 
     public static boolean isEchoSovereign(LivingEntity livingEntity) {
         return livingEntity instanceof Mob mob && mob.getPersistentData().getBoolean(TAG_BOSS);
+    }
+
+    public static List<Mob> knownSovereigns(ServerLevel level) {
+        java.util.ArrayList<Mob> list = new java.util.ArrayList<>(KNOWN_SOVEREIGNS.size());
+        for (UUID id : List.copyOf(KNOWN_SOVEREIGNS)) {
+            Entity entity = level.getEntity(id);
+            if (entity instanceof Mob mob && isEchoSovereign(mob) && mob.isAlive()) {
+                list.add(mob);
+            } else if (entity != null) {
+                KNOWN_SOVEREIGNS.remove(id);
+                ServerBossEvent orphan = BOSS_BARS.remove(id);
+                if (orphan != null) {
+                    orphan.removeAllPlayers();
+                }
+            }
+        }
+        if (!list.isEmpty()) {
+            return list;
+        }
+        for (ServerPlayer player : level.players()) {
+            for (Mob mob : level.getEntitiesOfClass(
+                Mob.class,
+                player.getBoundingBox().inflate(SOVEREIGN_SCAN_RADIUS),
+                EchoSovereignRuntime::isEchoSovereign
+            )) {
+                KNOWN_SOVEREIGNS.add(mob.getUUID());
+                if (!list.contains(mob)) {
+                    list.add(mob);
+                }
+            }
+        }
+        return list;
+    }
+
+    public static boolean hasTrackedSovereign() {
+        return !KNOWN_SOVEREIGNS.isEmpty();
+    }
+
+    public static void clearTrackedSovereigns() {
+        for (UUID id : List.copyOf(KNOWN_SOVEREIGNS)) {
+            KNOWN_SOVEREIGNS.remove(id);
+            ServerBossEvent orphan = BOSS_BARS.remove(id);
+            if (orphan != null) {
+                orphan.removeAllPlayers();
+            }
+        }
     }
 
     /** Held-weapon / projectile hits — cancel before mitigation; phase meter uses {@link #onBossDamagedFinal}. */
@@ -175,7 +222,7 @@ public final class EchoSovereignRuntime {
     }
 
     public static void tick(ServerLevel level) {
-        List<Mob> sovereigns = level.getEntitiesOfClass(Mob.class, SOVEREIGN_TICK_BOX, EchoSovereignRuntime::isEchoSovereign);
+        List<Mob> sovereigns = knownSovereigns(level);
         if (sovereigns.size() > 1) {
             sovereigns.sort(Comparator.comparing(Entity::getUUID));
             for (int i = 1; i < sovereigns.size(); i++) {
@@ -184,11 +231,13 @@ public final class EchoSovereignRuntime {
                 if (orphan != null) {
                     orphan.removeAllPlayers();
                 }
+                KNOWN_SOVEREIGNS.remove(extra.getUUID());
                 extra.discard();
             }
+            sovereigns = sovereigns.subList(0, 1);
         }
 
-        for (Mob boss : level.getEntitiesOfClass(Mob.class, SOVEREIGN_TICK_BOX, EchoSovereignRuntime::isEchoSovereign)) {
+        for (Mob boss : sovereigns) {
 
             enforceFlatSovereignHealth(boss);
 
@@ -197,7 +246,7 @@ public final class EchoSovereignRuntime {
                     Component.translatable("entity.naturalis.echo_sovereign"),
                     BossEvent.BossBarColor.BLUE,
                     BossEvent.BossBarOverlay.NOTCHED_10);
-                b.setCreateWorldFog(true);
+                b.setCreateWorldFog(false);
                 return b;
             });
             bar.setProgress(Mth.clamp(boss.getHealth() / boss.getMaxHealth(), 0.0F, 1.0F));
@@ -492,7 +541,7 @@ public final class EchoSovereignRuntime {
             BossEvent.BossBarColor.BLUE,
             BossEvent.BossBarOverlay.NOTCHED_10);
         bar.setProgress(Mth.clamp(boss.getHealth() / boss.getMaxHealth(), 0.0F, 1.0F));
-        bar.setCreateWorldFog(true);
+        bar.setCreateWorldFog(false);
         ServerBossEvent prev = BOSS_BARS.put(boss.getUUID(), bar);
         if (prev != null) {
             prev.removeAllPlayers();

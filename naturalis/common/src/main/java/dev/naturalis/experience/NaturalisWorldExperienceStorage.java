@@ -1,5 +1,6 @@
 package dev.naturalis.experience;
 
+import dev.naturalis.compat.CompatAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.server.MinecraftServer;
@@ -33,8 +34,8 @@ public final class NaturalisWorldExperienceStorage {
         }
         try {
             CompoundTag tag = NbtIo.read(path);
-            cachedMode = NaturalisExperienceMode.fromId(tag.getByteOr(TAG_MODE, (byte) 0));
-            cachedChosen = tag.getBooleanOr(TAG_CHOSEN, false);
+            cachedMode = NaturalisExperienceMode.fromId(CompatAccess.getByte(tag, TAG_MODE));
+            cachedChosen = CompatAccess.getBoolean(tag, TAG_CHOSEN);
         } catch (IOException ignored) {
             cachedMode = NaturalisExperienceMode.UNSET;
             cachedChosen = false;

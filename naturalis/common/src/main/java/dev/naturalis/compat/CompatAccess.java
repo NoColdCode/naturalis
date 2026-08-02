@@ -62,7 +62,21 @@ public final class CompatAccess {
     }
 
     public static GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue) {
-        return GameRules.register(id, category, GameRules.BooleanValue.create(defaultValue));
+        try {
+            java.lang.reflect.Method create = GameRules.BooleanValue.class.getDeclaredMethod("create", boolean.class);
+            create.setAccessible(true);
+            Object type = create.invoke(null, defaultValue);
+            Class<?> typeClass = Class.forName(GameRules.class.getName() + "$Type");
+            java.lang.reflect.Method register = GameRules.class.getDeclaredMethod(
+                "register", String.class, GameRules.Category.class, typeClass);
+            register.setAccessible(true);
+            @SuppressWarnings("unchecked")
+            GameRules.Key<GameRules.BooleanValue> key =
+                (GameRules.Key<GameRules.BooleanValue>) register.invoke(null, id, category, type);
+            return key;
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Failed to register boolean gamerule " + id, e);
+        }
     }
 
     /**

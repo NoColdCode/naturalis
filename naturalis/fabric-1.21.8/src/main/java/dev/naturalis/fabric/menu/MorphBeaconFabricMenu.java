@@ -72,6 +72,13 @@ public class MorphBeaconFabricMenu extends AbstractContainerMenu {
         return Math.max(0, data.get(2));
     }
 
+    public BlockPos getBlockPos() {
+        if (blockEntity == null) {
+            return BlockPos.ZERO;
+        }
+        return blockEntity.getBlockPos();
+    }
+
     public String initialMorphId() {
         return initialMorphId;
     }

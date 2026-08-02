@@ -277,7 +277,7 @@ public final class EchoSovereignRuntime {
                     Component.translatable("entity.naturalis.echo_sovereign"),
                     BossEvent.BossBarColor.BLUE,
                     BossEvent.BossBarOverlay.NOTCHED_10);
-                b.setCreateWorldFog(true);
+                b.setCreateWorldFog(false);
                 return b;
             });
             bar.setProgress(Mth.clamp(boss.getHealth() / boss.getMaxHealth(), 0.0F, 1.0F));
@@ -587,7 +587,7 @@ public final class EchoSovereignRuntime {
             BossEvent.BossBarColor.BLUE,
             BossEvent.BossBarOverlay.NOTCHED_10);
         bar.setProgress(Mth.clamp(boss.getHealth() / boss.getMaxHealth(), 0.0F, 1.0F));
-        bar.setCreateWorldFog(true);
+        bar.setCreateWorldFog(false);
         ServerBossEvent prev = BOSS_BARS.put(boss.getUUID(), bar);
         if (prev != null) {
             prev.removeAllPlayers();

@@ -2,6 +2,23 @@
 
 All notable changes to Naturalis are documented here.
 
+## [1.7.0] — 2026-08-02
+
+### Changed
+
+- **Version** — release line is now **1.7.0** (was 1.6.2.1 / 1.6.3 WIP).
+- **Forge 1.20.1** — Survival as… is not available (no Create World mode, no `/morph survival_as` tree). Habit Chrysalis remains a placeholder item.
+
+### Fixed
+
+- **Natural Dimension FPS** — Echo Sovereign boss fog disabled (vanilla world-fog was crushing client FPS nearby); Forge no longer double-scans a ±2048 AABB for the boss every tick; storm effects reapplied every 40 ticks only when missing; entity budget culls near players only (cap 100).
+
+### Added
+
+- Fabric 1:1 gameplay hooks parity batch (Survival as…, inventory/mouth, instinct/diet/resonance/HUD/quick-slot) on 1.21.1 / 1.21.8.
+
+---
+
 ## [1.6.3] — 2026-08-01
 
 ### Added

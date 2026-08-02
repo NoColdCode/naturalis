@@ -28,6 +28,7 @@ public final class NaturalIslandPassiveBoost {
     private static final int MAX_PASSIVE_MOBS = 96;
     private static final int SPAWN_ATTEMPTS = 4;
     private static final int SPAWN_INTERVAL_TICKS = 600;
+    private static final double PLAYER_SCAN_RADIUS = 96.0D;
 
     private NaturalIslandPassiveBoost() {
     }
@@ -108,13 +109,11 @@ public final class NaturalIslandPassiveBoost {
     }
 
     private static void cullExcessPassives(ServerLevel level) {
-        AABB island = new AABB(-520, CompatAccess.getMinBuildHeight(level), -520, 520, CompatAccess.getMaxBuildHeight(level), 520);
-        java.util.List<Mob> passives = level.getEntitiesOfClass(Mob.class, island, NaturalIslandPassiveBoost::isBoostCandidate);
+        java.util.List<Mob> passives = collectPassivesNearPlayers(level);
         int excess = passives.size() - MAX_PASSIVE_MOBS;
         if (excess <= 0) {
             return;
         }
-        // Only cull boost leftovers that were incorrectly marked persistent (and not named pets).
         int removed = 0;
         for (Mob mob : passives) {
             if (removed >= excess) {
@@ -128,9 +127,18 @@ public final class NaturalIslandPassiveBoost {
     }
 
     private static int countPassives(ServerLevel level) {
-        // Island is centered near origin; count animals/ambient in that volume only.
-        AABB island = new AABB(-520, CompatAccess.getMinBuildHeight(level), -520, 520, CompatAccess.getMaxBuildHeight(level), 520);
-        return level.getEntitiesOfClass(Mob.class, island, NaturalIslandPassiveBoost::isBoostCandidate).size();
+        return collectPassivesNearPlayers(level).size();
+    }
+
+    private static java.util.List<Mob> collectPassivesNearPlayers(ServerLevel level) {
+        java.util.LinkedHashMap<java.util.UUID, Mob> byId = new java.util.LinkedHashMap<>();
+        for (net.minecraft.server.level.ServerPlayer player : level.players()) {
+            AABB near = player.getBoundingBox().inflate(PLAYER_SCAN_RADIUS);
+            for (Mob mob : level.getEntitiesOfClass(Mob.class, near, NaturalIslandPassiveBoost::isBoostCandidate)) {
+                byId.putIfAbsent(mob.getUUID(), mob);
+            }
+        }
+        return new java.util.ArrayList<>(byId.values());
     }
 
     private static boolean isBoostCandidate(Mob mob) {

@@ -11,17 +11,21 @@ import net.minecraft.world.phys.AABB;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Hard safety net for the Natural Dimension when biome spawn lists or boost spawns go wrong.
- * Wrong mob categories under {@code creature} previously bypassed caps and flooded the island.
+ * Scans near players only — never the whole ±520 island AABB.
  */
 public final class NaturalDimensionEntityBudget {
 
-    /** Soft ceiling for living mobs on the island AABB (players / bosses excluded from cull). */
-    private static final int HARD_MOB_CAP = 160;
+    /** Soft ceiling for living mobs near players (players / bosses excluded from cull). */
+    private static final int HARD_MOB_CAP = 100;
     private static final int CULL_INTERVAL_TICKS = 40;
+    private static final double PLAYER_SCAN_RADIUS = 96.0D;
 
     private NaturalDimensionEntityBudget() {
     }
@@ -34,26 +38,30 @@ public final class NaturalDimensionEntityBudget {
             return;
         }
 
-        AABB island = new AABB(-520, CompatAccess.getMinBuildHeight(level), -520, 520, CompatAccess.getMaxBuildHeight(level), 520);
-        List<Entity> entities = level.getEntities(null, island);
+        Set<UUID> seen = new HashSet<>();
         List<Mob> cullable = new ArrayList<>();
         int mobs = 0;
-        for (Entity entity : entities) {
-            if (!(entity instanceof Mob mob) || entity instanceof Player) {
-                continue;
+        for (ServerPlayer player : level.players()) {
+            AABB near = player.getBoundingBox().inflate(PLAYER_SCAN_RADIUS);
+            for (Entity entity : level.getEntities(null, near)) {
+                if (!(entity instanceof Mob mob) || entity instanceof Player) {
+                    continue;
+                }
+                if (!seen.add(entity.getUUID())) {
+                    continue;
+                }
+                mobs++;
+                if (EchoSovereignRuntime.isEchoSovereign(mob) || mob.hasCustomName()) {
+                    continue;
+                }
+                cullable.add(mob);
             }
-            mobs++;
-            if (EchoSovereignRuntime.isEchoSovereign(mob) || mob.hasCustomName()) {
-                continue;
-            }
-            cullable.add(mob);
         }
         if (mobs <= HARD_MOB_CAP) {
             return;
         }
 
         int need = mobs - HARD_MOB_CAP;
-        // Prefer water/ambient leftovers from the category-mismatch flood, then anything far from players.
         cullable.sort(Comparator
             .comparingInt((Mob m) -> cullPriority(m))
             .thenComparingDouble(m -> -distanceToNearestPlayerSq(level, m)));

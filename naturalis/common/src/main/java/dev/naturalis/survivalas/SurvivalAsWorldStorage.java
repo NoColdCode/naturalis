@@ -42,20 +42,22 @@ public final class SurvivalAsWorldStorage {
             return;
         }
         try {
-            CompoundTag tag = NbtIo.read(path);
-            enabled = CompatAccess.getBoolean(tag, TAG_ENABLED);
-            locked = tag.contains(TAG_LOCKED) ? CompatAccess.getBoolean(tag, TAG_LOCKED) : true;
-            spawnDone = CompatAccess.getBoolean(tag, TAG_SPAWN_DONE);
-            loreSent = CompatAccess.getBoolean(tag, TAG_LORE_SENT);
-            traitsShown = CompatAccess.getBoolean(tag, TAG_TRAITS_SHOWN);
-            String morph = CompatAccess.getString(tag, TAG_MORPH);
-            morphId = morph.isEmpty() ? null : ResourceLocation.tryParse(morph);
-            if (!tag.contains(TAG_ENABLED)) {
-                // empty / corrupt file
-                enabled = morphId != null;
-            }
-            if (morphId == null) {
-                enabled = false;
+            try (java.io.DataInputStream in = new java.io.DataInputStream(Files.newInputStream(path))) {
+                CompoundTag tag = NbtIo.read(in);
+                enabled = CompatAccess.getBoolean(tag, TAG_ENABLED);
+                locked = tag.contains(TAG_LOCKED) ? CompatAccess.getBoolean(tag, TAG_LOCKED) : true;
+                spawnDone = CompatAccess.getBoolean(tag, TAG_SPAWN_DONE);
+                loreSent = CompatAccess.getBoolean(tag, TAG_LORE_SENT);
+                traitsShown = CompatAccess.getBoolean(tag, TAG_TRAITS_SHOWN);
+                String morph = CompatAccess.getString(tag, TAG_MORPH);
+                morphId = morph.isEmpty() ? null : ResourceLocation.tryParse(morph);
+                if (!tag.contains(TAG_ENABLED)) {
+                    // empty / corrupt file
+                    enabled = morphId != null;
+                }
+                if (morphId == null) {
+                    enabled = false;
+                }
             }
         } catch (IOException ignored) {
             resetCache();
@@ -156,7 +158,9 @@ public final class SurvivalAsWorldStorage {
             tag.putBoolean(TAG_LORE_SENT, loreSent);
             tag.putBoolean(TAG_TRAITS_SHOWN, traitsShown);
             tag.putString(TAG_MORPH, morphId == null ? "" : morphId.toString());
-            NbtIo.write(tag, path);
+            try (java.io.DataOutputStream out = new java.io.DataOutputStream(Files.newOutputStream(path))) {
+                NbtIo.write(tag, out);
+            }
         } catch (IOException ignored) {
         }
     }

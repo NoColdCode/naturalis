@@ -99,8 +99,10 @@ public class MorphTraitGuideScreen extends Screen {
         }
 
         // Render widgets only — do not call super.render (it may re-apply blur over our text).
-        for (var renderable : this.renderables) {
-            renderable.render(graphics, mouseX, mouseY, partialTick);
+        for (var child : this.children()) {
+            if (child instanceof net.minecraft.client.gui.components.Renderable renderable) {
+                renderable.render(graphics, mouseX, mouseY, partialTick);
+            }
         }
     }
 

@@ -1,6 +1,5 @@
 package dev.naturalis.fabric;
 
-import dev.naturalis.client.MorphVisionPaletteUniforms;
 import dev.naturalis.util.CurrentMorphUtil;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.CameraType;
@@ -108,10 +107,6 @@ public final class FabricVisionEvents {
         }
 
         lastCameraType = currentCameraType;
-
-        if (shaderActive && morphId != null) {
-            MorphVisionPaletteUniforms.tick(mc, morphId, activeShader);
-        }
     }
 
     private static ResourceLocation pickAlexsMobsShader(String id) {

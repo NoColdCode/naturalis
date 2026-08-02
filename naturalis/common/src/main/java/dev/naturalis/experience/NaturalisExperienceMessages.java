@@ -54,15 +54,38 @@ public final class NaturalisExperienceMessages {
     }
 
     private static Style buttonStyle(ChatFormatting color, String command) {
-        return Style.EMPTY
+        Style style = Style.EMPTY
             .withColor(color)
             .withBold(true)
-            .withUnderlined(true)
-            .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command))
-            .withHoverEvent(new HoverEvent(
-                HoverEvent.Action.SHOW_TEXT,
-                Component.translatable("message.naturalis.experience.button.hover")
-            ));
+            .withUnderlined(true);
+        try {
+            // 1.21.2+: ClickEvent.RunCommand / HoverEvent.ShowText records
+            Class<?> runCommand = Class.forName("net.minecraft.network.chat.ClickEvent$RunCommand");
+            Object click = runCommand.getConstructor(String.class).newInstance(command);
+            style = style.withClickEvent((ClickEvent) click);
+            Class<?> showText = Class.forName("net.minecraft.network.chat.HoverEvent$ShowText");
+            Object hover = showText.getConstructor(Component.class).newInstance(
+                Component.translatable("message.naturalis.experience.button.hover"));
+            style = style.withHoverEvent((HoverEvent) hover);
+            return style;
+        } catch (ReflectiveOperationException ignored) {
+            // 1.21.1 and older: classic constructors
+        }
+        try {
+            Object click = ClickEvent.class
+                .getConstructor(ClickEvent.Action.class, String.class)
+                .newInstance(ClickEvent.Action.RUN_COMMAND, command);
+            style = style.withClickEvent((ClickEvent) click);
+            Object hover = HoverEvent.class
+                .getConstructor(HoverEvent.Action.class, Object.class)
+                .newInstance(
+                    HoverEvent.Action.SHOW_TEXT,
+                    Component.translatable("message.naturalis.experience.button.hover"));
+            style = style.withHoverEvent((HoverEvent) hover);
+        } catch (ReflectiveOperationException ignored) {
+            // Leave undecorated if chat event APIs diverge further.
+        }
+        return style;
     }
 
     public static Component activeRealistic() {

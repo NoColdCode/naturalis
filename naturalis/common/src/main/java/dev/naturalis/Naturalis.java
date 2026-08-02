@@ -14,8 +14,11 @@ import dev.naturalis.diet.DietEvents;
 import dev.naturalis.effect.BrewedMorphBridge;
 import dev.naturalis.resonance.ResonanceCurlBridge;
 import dev.naturalis.resonance.ResonanceEvents;
+import dev.naturalis.resonance.ResonanceLogic;
 import dev.naturalis.effect.BrewedMorphBrewingEvents;
 import dev.naturalis.effect.MorphEffectEvents;
+import dev.naturalis.util.ForceHumanBridge;
+import dev.naturalis.util.MorphAcquisition;
 import dev.naturalis.gameplay.NaturalisGameplayEvents;
 import dev.naturalis.item.MorphArmorEvents;
 import dev.naturalis.gameplay.FeralCurlSleepSystem;
@@ -42,7 +45,7 @@ import dev.naturalis.network.SetBeaconMorphPayload;
 import dev.naturalis.network.SetExperienceModePayload;
 import dev.naturalis.network.SurvivalAsLockPayload;
 import dev.naturalis.network.SurvivalAsTraitsPayload;
-import dev.naturalis.experience.NaturalisExperienceEvents;
+import dev.naturalis.experience.NaturalisExperienceRuntime;
 import dev.naturalis.util.CurrentMorphUtil;
 import dev.naturalis.loader.NaturalisRuntime;
 import dev.naturalis.world.MorphBeaconBlockEntity;
@@ -97,13 +100,14 @@ public class Naturalis {
         BrewedMorphBrewingEvents.register();
         MorphEffectEvents.registerShapeGuards();
         BrewedMorphBridge.register(MorphEffectEvents::applyBrewedMorph);
+        ForceHumanBridge.register(MorphAcquisition::forceHuman);
         MorphCommandBridge.installNeoForge(
             MorphEffectEvents::applyBrewedMorph,
             ResonanceEvents::onBondSet,
             p -> MorphCommandBridge.RebirthOutcome.valueOf(ResonanceEvents.triggerHumanRebirth(p).name()),
             p -> MorphCommandBridge.InstinctOutcome.valueOf(ResonanceEvents.triggerActiveInstinct(p).name()),
             DietEvents::debugDiet);
-        ResonanceCurlBridge.register(ResonanceEvents::tryTriggerRebirthFromCurlKey);
+        ResonanceCurlBridge.register(ResonanceLogic::tryTriggerRebirthFromCurlKey);
         MorphArmorEvents.register();
 
         // Pre-warm the island heightmap in a background thread so it is fully
@@ -128,7 +132,7 @@ public class Naturalis {
                 SetExperienceModePayload.STREAM_CODEC,
                 (payload, ctx) -> {
                     if (ctx.player() instanceof net.minecraft.server.level.ServerPlayer player) {
-                        ctx.enqueueWork(() -> NaturalisExperienceEvents.handleSetExperiencePayload(payload, player));
+                        ctx.enqueueWork(() -> NaturalisExperienceRuntime.handleSetExperiencePayload(payload, player));
                     }
                 }
             );

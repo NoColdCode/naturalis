@@ -141,4 +141,27 @@ public final class MorphAcquisition {
     public static Component formatAcquireFailed(ResourceLocation id) {
         return Component.translatable("command.naturalis.morph.acquire.failed", id.toString());
     }
+
+    /** Clears the current Walkers shape (human form). Loader-neutral. */
+    public static boolean forceHuman(ServerPlayer player) {
+        if (player == null) {
+            return false;
+        }
+        if (PlayerShape.getCurrentShape(player) == null) {
+            return true;
+        }
+        try {
+            boolean swapped = PlayerShape.updateShapes(player, null);
+            if (!swapped) {
+                PlayerDataProvider provider = (PlayerDataProvider) player;
+                provider.walkers$updateShapes(null);
+                swapped = true;
+            }
+            player.refreshDimensions();
+            PlayerShape.sync(player);
+            return swapped;
+        } catch (Throwable ignored) {
+            return false;
+        }
+    }
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "naturalis",
-  "version": "1.4.0",
+  "version": "1.7.0",
   "name": "Naturalis",
   "description": "Realistic survival mechanics. Requires CraftedCore, Woodwalkers and Remorphed.",
   "authors": ["Swyde"],

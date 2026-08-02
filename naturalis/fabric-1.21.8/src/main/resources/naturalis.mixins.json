@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "DisableKillMorphMixin",
-    "LivingEntityPersistentMixin"
+    "LivingEntityPersistentMixin",
+    "LivingEntityFoodFinishMixin"
   ],
   "client": [
     "DisableAbilityKeyMixin",
@@ -13,7 +14,10 @@
     "SignTextComprehensionMixin",
     "DisableWalkersTransformWhenBoundMixin",
     "QuadrupedContainerRestrictionMixin",
-    "client.NaturalisCameraMixin"
+    "client.CreateWorldSurvivalAsMixin",
+    "client.CycleButtonSurvivalAsMixin",
+    "client.NaturalisQuadrupedMouthPlayerMixin",
+    "client.QuadrupedMorphHeldItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

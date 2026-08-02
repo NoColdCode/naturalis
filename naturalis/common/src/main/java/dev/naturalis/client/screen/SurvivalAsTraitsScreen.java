@@ -154,8 +154,10 @@ public class SurvivalAsTraitsScreen extends Screen {
             graphics.fill(barX, barY, barX + 3, barY + barHeight, 0xFFE8C86A);
         }
 
-        for (var renderable : this.renderables) {
-            renderable.render(graphics, mouseX, mouseY, partialTick);
+        for (var child : this.children()) {
+            if (child instanceof net.minecraft.client.gui.components.Renderable renderable) {
+                renderable.render(graphics, mouseX, mouseY, partialTick);
+            }
         }
     }
 
